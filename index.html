@@ -24,6 +24,7 @@
     background-attachment: fixed;
     -webkit-user-select: none; user-select: none;
     -webkit-tap-highlight-color: transparent;
+    transition: background .3s ease, color .3s ease;
   }
 
   /* LOGIN */
@@ -33,7 +34,7 @@
     background: radial-gradient(1200px 600px at 8% -10%, #dbeafe 0%, transparent 60%),
                 radial-gradient(1000px 520px at 100% 0%, #e0e7ff 0%, transparent 58%),
                 linear-gradient(160deg, #eff4fb, #e6eefb);
-    backdrop-filter: blur(4px); transition: opacity .35s ease, visibility .35s ease;
+    backdrop-filter: blur(4px); transition: opacity .35s ease, visibility .35s ease, background .3s ease;
   }
   .login-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
   .login-card {
@@ -44,6 +45,7 @@
     box-shadow: 0 40px 90px -40px rgba(37,99,235,0.55), 0 10px 30px -20px rgba(37,99,235,0.3),
                 inset 0 0 0 1px rgba(255,255,255,0.9);
     text-align: center; animation: loginIn .35s ease-out;
+    transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
   }
   @keyframes loginIn { from { opacity:0; transform: translateY(12px) scale(.97); } to { opacity:1; transform: translateY(0) scale(1); } }
   .login-logo {
@@ -56,7 +58,7 @@
   .login-sub { margin: 0 0 24px; font-size: 13px; color: var(--muted); }
   .login-form { text-align: left; }
   .login-field { margin-bottom: 14px; }
-  .login-field label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; letter-spacing: .2px; }
+  .login-field label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; letter-spacing: .2px; transition: color .3s ease; }
   .login-field input {
     width: 100%; padding: 11px 14px; font-family: inherit; font-size: 14px; color: var(--ink);
     background: #fff; border: 1.5px solid #dbe5f2; border-radius: 12px; outline: none;
@@ -74,7 +76,7 @@
   .login-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
   .login-btn:active { transform: translateY(0) scale(.98); }
   .login-note { margin: 18px 0 0; font-size: 11.5px; color: var(--muted); text-align: center; line-height: 1.5; }
-  .login-sig { margin-top: 18px; padding-top: 16px; border-top: 1px solid #e6edf7; font-size: 12.5px; font-weight: 700; color: var(--blue-2); letter-spacing: .3px; }
+  .login-sig { margin-top: 18px; padding-top: 16px; border-top: 1px solid #e6edf7; font-size: 12.5px; font-weight: 700; color: var(--blue-2); letter-spacing: .3px; transition: border-color .3s ease; }
 
   /* DASHBOARD */
   .dashboard { display: none; min-height: 100vh; width: 100%; }
@@ -91,7 +93,7 @@
     padding: 20px 12px 14px;
     overflow-y: auto;
     z-index: 50;
-    transition: width .3s ease, padding .3s ease, opacity .25s ease, border .3s ease, transform .3s ease;
+    transition: width .3s ease, padding .3s ease, opacity .25s ease, border .3s ease, transform .3s ease, background .3s ease;
   }
   .sidebar::-webkit-scrollbar { width: 6px; }
   .sidebar::-webkit-scrollbar-thumb { background: #c7d9fd; border-radius: 99px; }
@@ -101,6 +103,7 @@
     padding: 4px 8px 18px;
     border-bottom: 1px solid var(--line);
     margin-bottom: 14px;
+    transition: border-color .3s ease;
   }
   .sb-logo {
     width: 42px; height: 42px; flex: none;
@@ -119,6 +122,7 @@
     color: #94a3b8; text-transform: uppercase;
     padding: 12px 10px 6px;
     display: flex; align-items: center; gap: 6px;
+    transition: color .3s ease;
   }
   .sb-section-label:first-child { padding-top: 2px; }
   .sb-soon-dot {
@@ -175,7 +179,18 @@
     margin-top: 14px; padding-top: 14px;
     border-top: 1px solid var(--line);
     display: flex; flex-direction: column; gap: 8px;
+    transition: border-color .3s ease;
   }
+  .sb-theme {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 10px; border-radius: 10px;
+    border: 1.5px solid #c7d9fd; background: #fff;
+    font-family: inherit; font-size: 13px; font-weight: 650;
+    color: var(--blue-deep); cursor: pointer;
+    transition: all .15s ease; width: 100%; text-align: left;
+  }
+  .sb-theme:hover { background: #eff5ff; border-color: var(--blue-2); }
+  .sb-theme span:first-child { font-size: 15px; }
   .sb-logout {
     display: flex; align-items: center; gap: 10px;
     padding: 9px 10px; border-radius: 10px;
@@ -243,7 +258,7 @@
     font-weight: 900;
     padding: 0;
     transition: left .3s ease, background .15s ease, transform .15s ease,
-                border-color .15s ease, width .3s ease, height .3s ease, border-radius .3s ease;
+                border-color .15s ease, width .3s ease, height .3s ease, border-radius .3s ease, color .3s ease;
     box-shadow: 4px 0 12px -8px rgba(37,99,235,.55);
     line-height: 1;
   }
@@ -335,6 +350,7 @@
     font-size: 15px; font-weight: 800; color: #334155;
     margin: 0 0 14px; padding-left: 4px;
     letter-spacing: -.2px;
+    transition: color .3s ease;
   }
   .soon-pill {
     font-size: 10px; font-weight: 800; letter-spacing: .8px;
@@ -512,7 +528,7 @@
     border: 2px solid var(--blue-2);
     box-shadow: 0 40px 90px -40px rgba(37,99,235,.45), 0 10px 30px -20px rgba(37,99,235,.28),
                 inset 0 0 0 1px rgba(255,255,255,.9);
-    transition: max-width .4s ease, border-radius .35s ease, padding .35s ease;
+    transition: max-width .4s ease, border-radius .35s ease, padding .35s ease, background .3s ease, border-color .3s ease;
   }
   .app::before {
     content: ''; position: absolute; inset: -8px; border-radius: 40px;
@@ -538,6 +554,7 @@
     gap: 8px; margin-bottom: 10px; padding: 5px 8px;
     background: #f4f8ff; border: 1.5px solid var(--line);
     border-radius: 14px; font-size: 12px; flex-wrap: wrap;
+    transition: background .3s ease, border-color .3s ease;
   }
   .toolbar.show { display: flex; }
   .file-tag { display: flex; align-items: center; gap: 6px; font-weight: 650; font-size: 12px; flex: 1; min-width: 0; }
@@ -782,6 +799,7 @@
     position: relative; border-radius: 22px; border: 1.5px solid var(--line);
     overflow: hidden; background: #f3f7fd;
     box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    transition: background .3s ease, border-color .3s ease;
   }
   .drop {
     display: block; text-align: center; padding: 52px 22px;
@@ -817,6 +835,7 @@
     touch-action: pan-x pan-y;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    transition: background .3s ease;
   }
   body.viewing .pdf-viewer { max-height: 82vh; }
   .viewer-container.split .pdf-viewer { max-height: 78vh; }
@@ -1085,6 +1104,290 @@
     .soon-container { margin: 20px auto; padding: 34px 22px 28px; border-radius: 24px; }
     .soon-container h2 { font-size: 20px; }
   }
+
+  /* ================= DARK MODE ================= */
+  body.dark {
+    color-scheme: dark;
+    --ink: #e2e8f0;
+    --muted: #94a3b8;
+    --blue: #3b82f6;
+    --blue-2: #60a5fa;
+    --blue-soft: #1e3a5f;
+    --blue-deep: #93c5fd;
+    --line: #293548;
+    background: radial-gradient(1200px 600px at 8% -10%, #1e293b 0%, transparent 60%),
+                radial-gradient(1000px 520px at 100% 0%, #1e1b4b 0%, transparent 58%),
+                linear-gradient(160deg, #0a0f1a, #131a2b);
+    background-attachment: fixed;
+  }
+
+  /* LOGIN */
+  body.dark .login-screen {
+    background: radial-gradient(1200px 600px at 8% -10%, #1e293b 0%, transparent 60%),
+                radial-gradient(1000px 520px at 100% 0%, #1e1b4b 0%, transparent 58%),
+                linear-gradient(160deg, #0a0f1a, #131a2b);
+  }
+  body.dark .login-card {
+    background: rgba(15,23,42,.88);
+    border-color: rgba(96,165,250,.45);
+    box-shadow: 0 40px 90px -40px rgba(0,0,0,.85), 0 10px 30px -20px rgba(0,0,0,.5),
+                inset 0 0 0 1px rgba(255,255,255,.04);
+  }
+  body.dark .login-logo { background: linear-gradient(135deg, #1e3a5f, #1e40af33); box-shadow: inset 0 0 0 1px rgba(255,255,255,.05); }
+  body.dark .login-field label { color: #cbd5e1; }
+  body.dark .login-field input {
+    background: #0b1220; border-color: #293548; color: var(--ink);
+  }
+  body.dark .login-field input:focus { border-color: #60a5fa; box-shadow: 0 0 0 4px rgba(59,130,246,.18); }
+  body.dark .login-field input::placeholder { color: #475569; }
+  body.dark .login-sig { color: #93c5fd; border-top-color: #293548; }
+  body.dark .login-note { color: #64748b; }
+
+  /* SIDEBAR */
+  body.dark .sidebar {
+    background: rgba(15,23,42,.85);
+    border-right-color: var(--line);
+  }
+  body.dark .sidebar::-webkit-scrollbar-thumb { background: #334155; }
+  body.dark .sb-brand { border-bottom-color: var(--line); }
+  body.dark .sb-logo { background: linear-gradient(135deg, #1e3a5f, #1e40af33); box-shadow: inset 0 0 0 1px rgba(255,255,255,.05); }
+  body.dark .sb-title { color: #93c5fd; }
+  body.dark .sb-sub { color: #60a5fa; }
+  body.dark .sb-section-label { color: #64748b; }
+  body.dark .sb-item { color: #cbd5e1; }
+  body.dark .sb-item:hover { background: rgba(59,130,246,.12); color: #93c5fd; }
+  body.dark .sb-item.active {
+    background: linear-gradient(135deg, #1e3a5f, #1e40af33);
+    color: #93c5fd; box-shadow: inset 0 0 0 1.5px #3b82f6;
+  }
+  body.dark .sb-item.active::before { background: #60a5fa; }
+  body.dark .sb-item.soon.active {
+    background: linear-gradient(135deg, #422006, #78350f);
+    color: #fbbf24; box-shadow: inset 0 0 0 1.5px #f59e0b;
+  }
+  body.dark .sb-item.soon.active .sb-soon-badge { background: #fbbf24; color: #422006; }
+  body.dark .sb-theme {
+    background: #0b1220; border-color: #293548; color: #93c5fd;
+  }
+  body.dark .sb-theme:hover { background: rgba(59,130,246,.15); border-color: #60a5fa; }
+  body.dark .sb-logout { background: transparent; border-color: #7f1d1d; color: #fca5a5; }
+  body.dark .sb-logout:hover { background: rgba(220,38,38,.15); border-color: #f87171; }
+  body.dark .sb-hint { color: #64748b; }
+  body.dark .sb-hint kbd { background: #1e293b; color: #cbd5e1; border-color: #334155; }
+
+  /* SIDEBAR TOGGLE */
+  body.dark .sb-toggle {
+    background: #0f172a; color: #93c5fd; border-color: #3b82f6;
+    box-shadow: 4px 0 12px -8px rgba(59,130,246,.55);
+  }
+  body.dark .sb-toggle:hover { background: rgba(59,130,246,.15); border-color: #60a5fa; color: #93c5fd; }
+  body.dark .dashboard.sidebar-collapsed .sb-toggle {
+    background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff;
+  }
+  body.dark .sb-backdrop { background: rgba(0,0,0,.65); }
+
+  /* MAIN AREA */
+  body.dark .main-area::-webkit-scrollbar-thumb {
+    background: #334155; border-color: transparent;
+  }
+
+  /* HOME */
+  body.dark .home-head .greet {
+    background: linear-gradient(135deg, #93c5fd, #60a5fa);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  body.dark .home-section-title { color: #e2e8f0; }
+  body.dark .feature-card {
+    background: #0f172a; border-color: #293548; color: var(--ink);
+    box-shadow: 0 4px 14px -10px rgba(0,0,0,.6);
+  }
+  body.dark .feature-card:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 18px 32px -18px rgba(59,130,246,.55), 0 6px 16px -10px rgba(59,130,246,.3);
+  }
+  body.dark .fc-icon {
+    background: linear-gradient(135deg, #1e3a5f, #1e40af33);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 8px 16px -10px rgba(0,0,0,.7);
+  }
+  body.dark .fc-title { color: #e2e8f0; }
+  body.dark .feature-card.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #172036 55%, #1e293b 100%);
+    border-color: #3b82f6;
+  }
+  body.dark .feature-card.hero::after {
+    background: radial-gradient(closest-side, rgba(59,130,246,.32), transparent 75%);
+  }
+  body.dark .feature-card.soon .fc-icon {
+    background: linear-gradient(135deg, #422006, #78350f);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 8px 16px -10px rgba(245,158,11,.5);
+  }
+  body.dark .feature-card.soon::before {
+    background: linear-gradient(135deg, #422006, #78350f); color: #fbbf24;
+  }
+  body.dark .feature-card.soon:hover { border-color: #fbbf24; }
+  body.dark .home-footer kbd { background: #1e293b; color: #93c5fd; border-color: #334155; }
+
+  /* APP / READER */
+  body.dark .app {
+    background: rgba(15,23,42,.88); border-color: #3b82f6;
+    box-shadow: 0 40px 90px -40px rgba(0,0,0,.85), 0 10px 30px -20px rgba(0,0,0,.6),
+                inset 0 0 0 1px rgba(255,255,255,.04);
+  }
+  body.dark .app::before {
+    background: radial-gradient(closest-side, rgba(59,130,246,.3), transparent 75%);
+  }
+  body.dark .logo {
+    background: linear-gradient(135deg, #1e3a5f, #1e40af33);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 12px 24px -14px rgba(0,0,0,.7);
+  }
+
+  /* TOOLBAR */
+  body.dark .toolbar { background: #111c30; border-color: var(--line); }
+  body.dark .file-tag #fileName { color: #e2e8f0; }
+  body.dark .badge { background: #1e3a5f; color: #93c5fd; }
+  body.dark .btn-icon,
+  body.dark .select-btn {
+    background: #0b1220; border-color: #293548; color: #93c5fd;
+  }
+  body.dark .btn-icon:hover,
+  body.dark .select-btn:hover { background: rgba(59,130,246,.18); border-color: #60a5fa; }
+  body.dark .btn-icon:disabled,
+  body.dark .btn-icon:disabled:hover { background: #0b1220; border-color: #1e293b; }
+  body.dark .color-picker,
+  body.dark .pen-group,
+  body.dark .zoom-group {
+    background: #0b1220; border-color: #293548;
+  }
+  body.dark .color-picker-label { color: #64748b; }
+  body.dark .pen-btn,
+  body.dark .eraser-btn,
+  body.dark .zoom-group button { color: #93c5fd; }
+  body.dark .pen-btn:hover,
+  body.dark .eraser-btn:hover,
+  body.dark .zoom-group button:hover { background: rgba(59,130,246,.18); }
+  body.dark #zoomLabel { color: #93c5fd; }
+  body.dark .pen-options { border-left-color: #293548; }
+  body.dark .pen-size span { background: #64748b; }
+  body.dark .pen-size:hover,
+  body.dark .pen-size.active { background: rgba(59,130,246,.2); }
+  body.dark .pen-size.active { border-color: #60a5fa; }
+  body.dark .pen-size.active span { background: #93c5fd; }
+  body.dark .pen-clear { color: #64748b; }
+  body.dark .pen-clear:hover { background: rgba(220,38,38,.18); color: #fca5a5; }
+
+  /* SAVED PANEL */
+  body.dark .saved-panel { background: #0f172a; border-color: #3b82f6; }
+  body.dark .saved-head {
+    background: linear-gradient(180deg, #111c30, #0d1728);
+    border-bottom-color: var(--line); color: #93c5fd;
+  }
+  body.dark .saved-list::-webkit-scrollbar-thumb { background: #334155; border-color: #0f172a; }
+  body.dark .saved-item { color: #cbd5e1; }
+  body.dark .saved-item:hover { background: rgba(59,130,246,.1); }
+  body.dark .saved-item.current {
+    background: linear-gradient(135deg, #1e3a5f, #1e40af33);
+    box-shadow: inset 0 0 0 1.5px #3b82f6;
+  }
+  body.dark .saved-item.current::before { background: #3b82f6; box-shadow: 0 0 0 2px #0f172a; }
+  body.dark .saved-item-icon {
+    background: linear-gradient(135deg, #1e3a5f, #1e40af33);
+  }
+  body.dark .saved-item.current .saved-item-icon {
+    background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff;
+  }
+  body.dark .saved-item-name { color: #e2e8f0; }
+  body.dark .saved-item-del { color: #475569; }
+  body.dark .saved-item-del:hover { background: rgba(220,38,38,.18); color: #fca5a5; }
+
+  /* MUSIC PANEL */
+  body.dark .music-panel { background: #0f172a; border-color: #3b82f6; }
+  body.dark .music-head {
+    background: linear-gradient(180deg, #111c30, #0d1728);
+    border-bottom-color: var(--line); color: #93c5fd;
+  }
+  body.dark .music-search { background: #0b1220; border-color: #293548; color: var(--ink); }
+  body.dark .music-search:focus { border-color: #60a5fa; }
+  body.dark .music-search::placeholder { color: #475569; }
+  body.dark .music-local-btn { background: #0b1220; border-color: #293548; color: #93c5fd; }
+  body.dark .music-local-btn:hover { background: rgba(59,130,246,.15); }
+
+  /* WORKSPACE + PDF */
+  body.dark .workspace { background: #0b1220; border-color: var(--line); }
+  body.dark .drop {
+    background: radial-gradient(500px 200px at 50% 0%, #111c30 0%, transparent 70%),
+                repeating-linear-gradient(45deg, #0b1220 0 12px, #101a2c 12px 24px);
+    border-color: #334155;
+  }
+  body.dark .drop:hover,
+  body.dark .drop:focus-visible,
+  body.dark .drop.is-over {
+    background: radial-gradient(500px 220px at 50% 0%, #16223a 0%, transparent 70%),
+                repeating-linear-gradient(45deg, #101a2c 0 12px, #16223a 12px 24px);
+    border-color: #60a5fa;
+  }
+  body.dark .drop .title { color: #93c5fd; }
+  body.dark .pdf-viewer { background: linear-gradient(180deg, #0b1220, #0f172a); }
+  body.dark .pdf-viewer::-webkit-scrollbar-thumb { background: #334155; border-color: #0b1220; }
+  body.dark .pdf-viewer::-webkit-scrollbar-thumb:hover { background: #475569; }
+  body.dark .page-container {
+    box-shadow: 0 12px 32px -18px rgba(0,0,0,.75), 0 2px 6px -3px rgba(0,0,0,.5);
+  }
+  body.dark .page-container:empty::before {
+    background: linear-gradient(90deg, #111c30 0%, #16223a 50%, #111c30 100%);
+    background-size: 200% 100%;
+  }
+  body.dark .pane-header {
+    background: linear-gradient(180deg, #111c30, #0d1728);
+    border-bottom-color: var(--line); color: #93c5fd;
+  }
+  body.dark .pane-zoom-group { background: #0b1220; border-color: #293548; }
+  body.dark .pane-zoom-group button { color: #93c5fd; }
+  body.dark .pane-zoom-group button:hover { background: rgba(59,130,246,.18); }
+  body.dark #paneZoomLabel { color: #93c5fd; }
+  body.dark .pane-btn { color: #93c5fd; }
+  body.dark .pane-btn:hover { background: rgba(59,130,246,.18); }
+  body.dark .pane-btn.close { color: #fca5a5; }
+  body.dark .pane-btn.close:hover { background: rgba(220,38,38,.18); }
+  body.dark .pane-empty { color: #94a3b8; }
+
+  /* POPUP */
+  body.dark .popup { background: #0f172a; border-color: #3b82f6; }
+  body.dark .popup-head {
+    background: linear-gradient(180deg, #111c30, #0d1728);
+    border-bottom-color: var(--line);
+  }
+  body.dark .popup-head:hover { background: linear-gradient(180deg, #16223a, #111c30); }
+  body.dark .popup-head.dragging { background: linear-gradient(180deg, #1c2a45, #16223a); }
+  body.dark .drag-handle { color: #475569; }
+  body.dark .popup-title { color: #93c5fd; }
+  body.dark .popup-toggle { color: #93c5fd; }
+  body.dark .popup-toggle:hover { background: rgba(59,130,246,.18); }
+  body.dark .popup-body { color: #e2e8f0; }
+  body.dark .popup-body::-webkit-scrollbar-thumb { background: #334155; border-color: #0f172a; }
+  body.dark .popup-actions { background: #0b1220; border-top-color: var(--line); }
+
+  /* SOON */
+  body.dark .soon-container {
+    background: rgba(15,23,42,.9); border-color: #3b82f6;
+    box-shadow: 0 40px 90px -40px rgba(0,0,0,.8), 0 10px 30px -20px rgba(0,0,0,.5),
+                inset 0 0 0 1px rgba(255,255,255,.04);
+  }
+  body.dark .soon-icon-large {
+    background: linear-gradient(135deg, #422006, #78350f);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 20px 40px -20px rgba(245,158,11,.6);
+  }
+  body.dark .soon-container h2 { color: #e2e8f0; }
+  body.dark .soon-bar { background: #1e293b; box-shadow: inset 0 1px 2px rgba(0,0,0,.3); }
+  body.dark .soon-bar-label { color: #fbbf24; }
+
+  /* TOASTS */
+  body.dark .toast { background: rgba(15,23,42,.98); color: #e2e8f0; }
+  body.dark .hold-hint { background: rgba(15,23,42,.9); color: #e2e8f0; }
+  body.dark .signature {
+    background: rgba(15,23,42,.9); color: #93c5fd; border-color: #3b82f6;
+  }
+  body.dark.viewing .signature { background: rgba(59,130,246,.95); color: #fff; }
 </style>
 </head>
 <body>
@@ -1141,60 +1444,64 @@
         Sắp ra mắt
         <span class="sb-soon-dot"></span>
       </div>
-      <button class="sb-item soon" data-route="soon/gop-pdf">
-        <span class="sb-icon">🔗</span>
-        <span class="sb-label">Gộp nhiều PDF</span>
+      <button class="sb-item soon" data-route="soon/so-tay">
+        <span class="sb-icon">📝</span>
+        <span class="sb-label">Sổ tay ghi chú</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
-      <button class="sb-item soon" data-route="soon/tach-trang">
-        <span class="sb-icon">✂️</span>
-        <span class="sb-label">Tách trang PDF</span>
+      <button class="sb-item soon" data-route="soon/flashcard">
+        <span class="sb-icon">🃏</span>
+        <span class="sb-label">Flashcard &amp; SRS</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
-      <button class="sb-item soon" data-route="soon/chuyen-doi">
-        <span class="sb-icon">🔄</span>
-        <span class="sb-label">Chuyển đổi định dạng</span>
+      <button class="sb-item soon" data-route="soon/pomodoro">
+        <span class="sb-icon">🍅</span>
+        <span class="sb-label">Pomodoro</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
-      <button class="sb-item soon" data-route="soon/nen-pdf">
-        <span class="sb-icon">🗜️</span>
-        <span class="sb-label">Nén PDF</span>
+      <button class="sb-item soon" data-route="soon/thong-ke">
+        <span class="sb-icon">📊</span>
+        <span class="sb-label">Thống kê học tập</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
-      <button class="sb-item soon" data-route="soon/ocr">
-        <span class="sb-icon">🔍</span>
-        <span class="sb-label">OCR ảnh → chữ</span>
+      <button class="sb-item soon" data-route="soon/todo">
+        <span class="sb-icon">✅</span>
+        <span class="sb-label">To-do &amp; Deadline</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
-      <button class="sb-item soon" data-route="soon/dich-pdf">
-        <span class="sb-icon">🌐</span>
-        <span class="sb-label">Dịch PDF</span>
+      <button class="sb-item soon" data-route="soon/tu-dien">
+        <span class="sb-icon">🔤</span>
+        <span class="sb-label">Từ điển tra nhanh</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
-      <button class="sb-item soon" data-route="soon/ky-so">
-        <span class="sb-icon">✍️</span>
-        <span class="sb-label">Ký số PDF</span>
+      <button class="sb-item soon" data-route="soon/tts">
+        <span class="sb-icon">🔊</span>
+        <span class="sb-label">Đọc văn bản (TTS)</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
-      <button class="sb-item soon" data-route="soon/khoa-pdf">
-        <span class="sb-icon">🔒</span>
-        <span class="sb-label">Khoá PDF</span>
+      <button class="sb-item soon" data-route="soon/may-tinh">
+        <span class="sb-icon">🧮</span>
+        <span class="sb-label">Máy tính khoa học</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
-      <button class="sb-item soon" data-route="soon/watermark">
-        <span class="sb-icon">💧</span>
-        <span class="sb-label">Chèn watermark</span>
+      <button class="sb-item soon" data-route="soon/mind-map">
+        <span class="sb-icon">🗺️</span>
+        <span class="sb-label">Sơ đồ tư duy</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
     </nav>
 
     <div class="sb-footer">
+      <button class="sb-theme" id="themeToggle" title="Bật / tắt chế độ tối (Ctrl+Shift+D)">
+        <span id="themeIcon">🌙</span>
+        <span id="themeLabel">Chế độ tối</span>
+      </button>
       <button class="sb-logout" id="logoutBtn">
         <span>🚪</span>
         <span>Đăng xuất</span>
       </button>
       <div class="sb-hint">
-        Nhấn <kbd>Ctrl</kbd>+<kbd>B</kbd> để đóng / mở menu
+        <kbd>Ctrl</kbd>+<kbd>B</kbd> menu • <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> theme
       </div>
     </div>
   </aside>
@@ -1225,50 +1532,50 @@
         <div class="home-section">
           <h2 class="home-section-title">Sắp ra mắt <span class="soon-pill">Coming soon</span></h2>
           <div class="card-grid">
-            <div class="feature-card soon" data-route="soon/gop-pdf">
-              <div class="fc-icon">🔗</div>
-              <div class="fc-title">Gộp nhiều PDF</div>
-              <div class="fc-desc">Ghép nhiều file PDF thành một tài liệu duy nhất.</div>
+            <div class="feature-card soon" data-route="soon/so-tay">
+              <div class="fc-icon">📝</div>
+              <div class="fc-title">Sổ tay ghi chú</div>
+              <div class="fc-desc">Ghi chú cho từng file PDF, gắn link tới trang, xuất Markdown.</div>
             </div>
-            <div class="feature-card soon" data-route="soon/tach-trang">
-              <div class="fc-icon">✂️</div>
-              <div class="fc-title">Tách trang PDF</div>
-              <div class="fc-desc">Tách PDF thành nhiều file nhỏ theo nhu cầu.</div>
+            <div class="feature-card soon" data-route="soon/flashcard">
+              <div class="fc-icon">🃏</div>
+              <div class="fc-title">Flashcard &amp; SRS</div>
+              <div class="fc-desc">Tạo thẻ từ vùng chọn, ôn tập theo lịch 1-3-7-15 ngày.</div>
             </div>
-            <div class="feature-card soon" data-route="soon/chuyen-doi">
-              <div class="fc-icon">🔄</div>
-              <div class="fc-title">Chuyển đổi định dạng</div>
-              <div class="fc-desc">PDF ⇄ Word, Excel, ảnh PNG/JPG...</div>
+            <div class="feature-card soon" data-route="soon/pomodoro">
+              <div class="fc-icon">🍅</div>
+              <div class="fc-title">Pomodoro</div>
+              <div class="fc-desc">Đếm giờ học 25/5, nhắc nghỉ, đếm streak theo ngày.</div>
             </div>
-            <div class="feature-card soon" data-route="soon/nen-pdf">
-              <div class="fc-icon">🗜️</div>
-              <div class="fc-title">Nén PDF</div>
-              <div class="fc-desc">Giảm dung lượng file PDF đáng kể.</div>
+            <div class="feature-card soon" data-route="soon/thong-ke">
+              <div class="fc-icon">📊</div>
+              <div class="fc-title">Thống kê học tập</div>
+              <div class="fc-desc">Biểu đồ thời gian học theo ngày/tuần, streak, tiến độ mục tiêu.</div>
             </div>
-            <div class="feature-card soon" data-route="soon/ocr">
-              <div class="fc-icon">🔍</div>
-              <div class="fc-title">OCR ảnh → chữ</div>
-              <div class="fc-desc">Nhận dạng chữ từ ảnh scan chất lượng cao.</div>
+            <div class="feature-card soon" data-route="soon/todo">
+              <div class="fc-icon">✅</div>
+              <div class="fc-title">To-do &amp; Deadline</div>
+              <div class="fc-desc">Quản lý bài tập, deadline theo môn, nhắc nhở khi gần hạn.</div>
             </div>
-            <div class="feature-card soon" data-route="soon/dich-pdf">
-              <div class="fc-icon">🌐</div>
-              <div class="fc-title">Dịch PDF</div>
-              <div class="fc-desc">Dịch tài liệu PDF đa ngôn ngữ.</div>
+            <div class="feature-card soon" data-route="soon/tu-dien">
+              <div class="fc-icon">🔤</div>
+              <div class="fc-title">Từ điển tra nhanh</div>
+              <div class="fc-desc">Bôi đen từ/câu để tra Anh–Việt, Việt–Anh ngay trong popup.</div>
             </div>
-            <div class="feature-card soon" data-route="soon/ky-so">
-              <div class="fc-icon">✍️</div>
-              <div class="fc-title">Ký số PDF</div>
-              <div class="fc-desc">Ký tên điện tử lên tài liệu PDF.</div>
+            <div class="feature-card soon" data-route="soon/tts">
+              <div class="fc-icon">🔊</div>
+              <div class="fc-title">Đọc văn bản (TTS)</div>
+              <div class="fc-desc">Nghe đọc to đoạn văn bản đang chọn hoặc cả trang PDF.</div>
             </div>
-            <div class="feature-card soon" data-route="soon/khoa-pdf">
-              <div class="fc-icon">🔒</div>
-              <div class="fc-title">Khoá PDF</div>
-              <div class="fc-desc">Đặt mật khẩu bảo vệ file PDF.</div>
+            <div class="feature-card soon" data-route="soon/may-tinh">
+              <div class="fc-icon">🧮</div>
+              <div class="fc-title">Máy tính khoa học</div>
+              <div class="fc-desc">Đổi đơn vị, giải phương trình, vẽ đồ thị hàm số.</div>
             </div>
-            <div class="feature-card soon" data-route="soon/watermark">
-              <div class="fc-icon">💧</div>
-              <div class="fc-title">Chèn watermark</div>
-              <div class="fc-desc">Chèn logo hoặc chữ mờ lên mọi trang PDF.</div>
+            <div class="feature-card soon" data-route="soon/mind-map">
+              <div class="fc-icon">🗺️</div>
+              <div class="fc-title">Sơ đồ tư duy</div>
+              <div class="fc-desc">Kéo thả node tạo mind map, xuất ảnh PNG để chia sẻ.</div>
             </div>
           </div>
         </div>
@@ -1460,6 +1767,18 @@
 <input type="file" id="fileInput2" accept="application/pdf,.pdf" hidden />
 
 <script>
+/* THEME — phải chạy sớm để giảm flash */
+const THEME_KEY = 'pdfReader_theme';
+function applyTheme(dark) {
+  document.body.classList.toggle('dark', dark);
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+  if (icon) icon.textContent = dark ? '☀️' : '🌙';
+  if (label) label.textContent = dark ? 'Chế độ sáng' : 'Chế độ tối';
+  localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light');
+}
+applyTheme(localStorage.getItem(THEME_KEY) === 'dark');
+
 if (window.pdfjsLib) {
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
@@ -1474,27 +1793,28 @@ const ROUTES = {
   'home':          { page: 'home',   title: 'Trang chủ' },
   'pdf':           { page: 'reader', title: 'Đọc PDF' },
   'reader':        { page: 'reader', title: 'Đọc PDF' },
-  'soon/gop-pdf':    { page: 'soon', title: 'Gộp nhiều PDF',           icon: '🔗',
-    desc: 'Ghép nhiều file PDF thành một tài liệu duy nhất, sắp xếp thứ tự trang tuỳ ý.' },
-  'soon/tach-trang': { page: 'soon', title: 'Tách trang PDF',          icon: '✂️',
-    desc: 'Tách một file PDF thành nhiều file nhỏ, chọn trang muốn xuất.' },
-  'soon/chuyen-doi': { page: 'soon', title: 'Chuyển đổi định dạng',    icon: '🔄',
-    desc: 'Chuyển đổi PDF sang Word, Excel, ảnh PNG/JPG và ngược lại.' },
-  'soon/nen-pdf':    { page: 'soon', title: 'Nén PDF',                 icon: '🗜️',
-    desc: 'Giảm dung lượng file PDF mà vẫn giữ chất lượng hiển thị tốt.' },
-  'soon/ocr':        { page: 'soon', title: 'OCR — Nhận dạng chữ',     icon: '🔍',
-    desc: 'Nhận dạng chữ từ ảnh scan hoặc PDF dạng ảnh, xuất ra văn bản.' },
-  'soon/dich-pdf':   { page: 'soon', title: 'Dịch PDF',                icon: '🌐',
-    desc: 'Dịch tài liệu PDF sang nhiều ngôn ngữ, giữ nguyên bố cục gốc.' },
-  'soon/ky-so':      { page: 'soon', title: 'Ký số PDF',               icon: '✍️',
-    desc: 'Ký tên điện tử lên tài liệu PDF, hỗ trợ chữ ký vẽ tay.' },
-  'soon/khoa-pdf':   { page: 'soon', title: 'Khoá PDF',                icon: '🔒',
-    desc: 'Đặt mật khẩu bảo vệ file PDF, ngăn chặn truy cập trái phép.' },
-  'soon/watermark':  { page: 'soon', title: 'Chèn watermark',          icon: '💧',
-    desc: 'Chèn logo hoặc chữ mờ lên mọi trang PDF để bảo vệ bản quyền.' },
+
+  'soon/so-tay':    { page: 'soon', title: 'Sổ tay ghi chú',       icon: '📝',
+    desc: 'Ghi chú cho từng file PDF, gắn link tới số trang, xuất ra Markdown để lưu trữ.' },
+  'soon/flashcard': { page: 'soon', title: 'Flashcard & SRS',      icon: '🃏',
+    desc: 'Tạo thẻ từ vùng bôi đen, ôn tập theo lịch lặp lại ngắt quãng 1-3-7-15 ngày.' },
+  'soon/pomodoro':  { page: 'soon', title: 'Pomodoro',             icon: '🍅',
+    desc: 'Đếm giờ học 25/5, nhắc nghỉ, thống kê streak theo ngày.' },
+  'soon/thong-ke':  { page: 'soon', title: 'Thống kê học tập',     icon: '📊',
+    desc: 'Biểu đồ thời gian học theo ngày/tuần, streak, tiến độ mục tiêu.' },
+  'soon/todo':      { page: 'soon', title: 'To-do & Deadline',     icon: '✅',
+    desc: 'Quản lý bài tập, deadline theo môn, nhắc nhở khi gần hạn.' },
+  'soon/tu-dien':   { page: 'soon', title: 'Từ điển tra nhanh',    icon: '🔤',
+    desc: 'Bôi đen từ/câu để tra Anh–Việt, Việt–Anh ngay trong popup, không cần mở tab.' },
+  'soon/tts':       { page: 'soon', title: 'Đọc văn bản (TTS)',    icon: '🔊',
+    desc: 'Nghe đọc to đoạn văn bản đang chọn hoặc cả trang PDF, hỗ trợ tiếng Việt & Anh.' },
+  'soon/may-tinh':  { page: 'soon', title: 'Máy tính khoa học',    icon: '🧮',
+    desc: 'Đổi đơn vị, giải phương trình, vẽ đồ thị hàm số, tra bảng công thức.' },
+  'soon/mind-map':  { page: 'soon', title: 'Sơ đồ tư duy',         icon: '🗺️',
+    desc: 'Kéo thả node tạo mind map, xuất ảnh PNG để chia sẻ cho bạn học.' },
 };
 
-const SITE_NAME = 'PDF Suite';
+const SITE_NAME = 'HoTroHocTap';
 
 /* State for scroll restore */
 let pendingRestoreScroll = 0;
@@ -1543,7 +1863,6 @@ function handleRoute() {
 
   document.title = (cfg.title ? cfg.title + ' — ' : '') + SITE_NAME;
 
-  // Rời khỏi reader → lưu vị trí ngay
   if (wasOnReader && !nowOnReader) {
     if (currentFileId && viewer.scrollTop > 0) {
       pendingRestoreScroll = viewer.scrollTop;
@@ -1552,7 +1871,6 @@ function handleRoute() {
       }).catch(() => {});
     }
   }
-  // Vào reader → khôi phục
   if (!wasOnReader && nowOnReader) {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -1632,6 +1950,14 @@ logoutBtn.addEventListener('click', () => {
   }
 });
 
+/* THEME TOGGLE */
+const themeToggleBtn = document.getElementById('themeToggle');
+themeToggleBtn.addEventListener('click', () => {
+  const willBeDark = !document.body.classList.contains('dark');
+  applyTheme(willBeDark);
+  toast(willBeDark ? '🌙 Đã bật chế độ tối' : '☀️ Đã bật chế độ sáng');
+});
+
 /* NAV */
 document.querySelectorAll('[data-route]').forEach(el => {
   el.addEventListener('click', () => navigateTo(el.dataset.route));
@@ -1685,9 +2011,16 @@ setTimeout(updateToggleIcon, 50);
 
 document.addEventListener('keydown', (e) => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-  if ((e.ctrlKey || e.metaKey) && (e.key === 'b' || e.key === 'B')) {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'b' || e.key === 'B') && !e.shiftKey) {
     e.preventDefault();
     toggleSidebar();
+    return;
+  }
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'd' || e.key === 'D')) {
+    e.preventDefault();
+    const willBeDark = !document.body.classList.contains('dark');
+    applyTheme(willBeDark);
+    toast(willBeDark ? '🌙 Đã bật chế độ tối' : '☀️ Đã bật chế độ sáng');
   }
 });
 
@@ -2064,10 +2397,8 @@ async function loadSavedFile(id) {
     refreshSavedList();
     autoHideHint();
 
-    // Lưu vị trí scroll cần khôi phục
     pendingRestoreScroll = item.scrollTop || 0;
 
-    // Nếu viewer đang hiển thị → apply luôn
     if (viewer.clientWidth > 0 && pendingRestoreScroll > 0) {
       await new Promise(r => setTimeout(r, 100));
       viewer.scrollTop = pendingRestoreScroll;
@@ -3167,7 +3498,6 @@ viewer2.addEventListener('scroll', scheduleSaveRightScroll, { passive: true });
     updateSelectModeUI();
     updatePaneZoomUI();
 
-    // ← Auto-login check chuyển xuống đây (sau khi mọi DOM element đã khai báo)
     if (sessionStorage.getItem(LOGIN_KEY) === '1') {
       showApp();
     } else {
