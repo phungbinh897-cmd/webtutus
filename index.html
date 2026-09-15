@@ -464,6 +464,14 @@
     border-color: #ec4899;
     box-shadow: 0 18px 32px -18px rgba(219,39,119,.5), 0 6px 16px -10px rgba(219,39,119,.3);
   }
+  .feature-card.calc .fc-icon {
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.9), 0 8px 16px -10px rgba(139,92,246,.6);
+  }
+  .feature-card.calc:hover {
+    border-color: #8b5cf6;
+    box-shadow: 0 18px 32px -18px rgba(139,92,246,.5), 0 6px 16px -10px rgba(139,92,246,.3);
+  }
   .home-footer {
     text-align: center; font-size: 12px; color: var(--muted);
     padding: 20px 0 8px;
@@ -615,9 +623,7 @@
     margin-bottom: 8px; letter-spacing: .1px;
     display: flex; align-items: center; gap: 6px;
   }
-  .formula-name .fi {
-    font-size: 13px; opacity: .8;
-  }
+  .formula-name .fi { font-size: 13px; opacity: .8; }
   .formula-body {
     font-family: "Cambria Math", "Latin Modern Math", "Times New Roman", Georgia, serif;
     font-size: 16px; line-height: 1.6; color: #1e293b;
@@ -650,7 +656,7 @@
     .formula-body { font-size: 15px; }
   }
 
-  /* PDF READER (không đổi) */
+  /* PDF READER */
   .app {
     position: relative; width: 100%; max-width: 960px; margin: 0 auto;
     background: rgba(255,255,255,.9); backdrop-filter: blur(16px);
@@ -1341,9 +1347,13 @@
     box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 8px 16px -10px rgba(236,72,153,.5);
   }
   body.dark .feature-card.formula:hover { border-color: #ec4899; }
+  body.dark .feature-card.calc .fc-icon {
+    background: linear-gradient(135deg, #2e1065, #4c1d95);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 8px 16px -10px rgba(139,92,246,.5);
+  }
+  body.dark .feature-card.calc:hover { border-color: #a78bfa; }
   body.dark .home-footer kbd { background: #1e293b; color: #93c5fd; border-color: #334155; }
 
-  /* FORMULA PAGE DARK */
   body.dark .formula-head h1 {
     background: linear-gradient(135deg, #f472b6, #c084fc);
     -webkit-background-clip: text; background-clip: text;
@@ -1360,20 +1370,12 @@
   body.dark .formula-tab:hover { background: rgba(59,130,246,.15); color: #93c5fd; }
   body.dark .formula-tab:not(.active) .tab-count { background: #1e293b; color: #94a3b8; }
   body.dark .formula-group-title { color: #e2e8f0; }
-  body.dark .formula-item {
-    background: #0f172a; border-color: #293548;
-  }
-  body.dark .formula-item:hover {
-    border-color: #60a5fa;
-    box-shadow: 0 10px 22px -14px rgba(59,130,246,.6);
-  }
+  body.dark .formula-item { background: #0f172a; border-color: #293548; }
+  body.dark .formula-item:hover { border-color: #60a5fa; box-shadow: 0 10px 22px -14px rgba(59,130,246,.6); }
   body.dark .formula-name { color: #94a3b8; }
   body.dark .formula-body { color: #e2e8f0; }
   body.dark .formula-empty { color: #64748b; }
-  body.dark .formula-hint {
-    background: rgba(59,130,246,.1);
-    border-color: #293548; color: #94a3b8;
-  }
+  body.dark .formula-hint { background: rgba(59,130,246,.1); border-color: #293548; color: #94a3b8; }
 
   body.dark .app {
     background: rgba(15,23,42,.88); border-color: #3b82f6;
@@ -1500,6 +1502,230 @@
   body.dark .hold-hint { background: rgba(15,23,42,.9); color: #e2e8f0; }
   body.dark .signature { background: rgba(15,23,42,.9); color: #93c5fd; border-color: #3b82f6; }
   body.dark.viewing .signature { background: rgba(59,130,246,.95); color: #fff; }
+
+  /* ================= SCIENTIFIC CALCULATOR ================= */
+  .calc-panel {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 340px;
+    max-width: calc(100vw - 24px);
+    background: #fff;
+    border: 1.5px solid var(--blue-2);
+    border-radius: 18px;
+    box-shadow: 0 25px 50px -20px rgba(30,64,175,.55), 0 6px 16px -8px rgba(30,64,175,.3);
+    z-index: 95;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: popupIn .2s ease-out;
+    transition: background .3s, border-color .3s;
+  }
+  .calc-panel.show { display: flex; }
+  .calc-panel.dragging { transition: none; }
+
+  .calc-head {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 8px 8px 12px;
+    background: linear-gradient(180deg, #f4f8ff, #eaf1ff);
+    border-bottom: 1px solid var(--line);
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+  }
+  .calc-head:hover { background: linear-gradient(180deg, #ecf3ff, #e3ecfb); }
+  .calc-head.dragging { cursor: grabbing; }
+  .calc-drag { font-size: 13px; color: #94a3b8; font-weight: 900; letter-spacing: -1px; flex: none; }
+  .calc-title { flex: 1; font-size: 12.5px; font-weight: 700; color: var(--blue-deep); }
+  .calc-close {
+    width: 26px; height: 26px;
+    border: none; background: transparent; border-radius: 7px;
+    color: #94a3b8; cursor: pointer;
+    display: grid; place-items: center; font-size: 12px;
+    transition: all .15s;
+  }
+  .calc-close:hover { background: #fee2e2; color: #dc2626; }
+
+  .calc-display {
+    padding: 12px 16px;
+    background: #f9fbff;
+    border-bottom: 1px solid var(--line);
+    text-align: right;
+    min-height: 76px;
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
+    transition: background .3s, border-color .3s;
+  }
+  .calc-expr {
+    font-size: 12.5px; color: var(--muted);
+    word-break: break-all; min-height: 16px;
+    font-family: "Consolas", "Menlo", monospace;
+    letter-spacing: .3px;
+  }
+  .calc-result {
+    font-size: 26px; font-weight: 700; color: var(--ink);
+    word-break: break-all;
+    font-family: "Consolas", "Menlo", monospace;
+    letter-spacing: -.5px;
+    line-height: 1.1;
+  }
+
+  .calc-modes {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 10px;
+    background: #f4f8ff;
+    border-bottom: 1px solid var(--line);
+    transition: background .3s, border-color .3s;
+  }
+  .calc-mode-btn {
+    padding: 4px 10px;
+    border: 1.5px solid #c7d9fd; background: #fff;
+    border-radius: 8px; color: var(--blue-deep);
+    font-family: inherit; font-size: 10.5px; font-weight: 800;
+    cursor: pointer; letter-spacing: .5px;
+    transition: all .15s;
+  }
+  .calc-mode-btn:hover { background: #eff5ff; }
+  .calc-mode-btn.active {
+    background: linear-gradient(135deg, var(--blue-2), var(--blue));
+    color: #fff; border-color: var(--blue);
+  }
+  .calc-mem {
+    margin-left: auto; font-size: 10px; font-weight: 800;
+    padding: 3px 8px; border-radius: 99px;
+    background: #f1f5f9; color: #64748b;
+    opacity: 0; transition: opacity .2s;
+    letter-spacing: .5px;
+  }
+  .calc-mem.show { opacity: 1; background: #fef3c7; color: #92400e; }
+  .calc-history-btn {
+    width: 26px; height: 24px;
+    border: 1.5px solid #c7d9fd; background: #fff;
+    border-radius: 7px; color: var(--blue-deep);
+    font-size: 12px; cursor: pointer;
+    display: grid; place-items: center; padding: 0;
+    transition: all .15s;
+  }
+  .calc-history-btn:hover { background: #eff5ff; }
+  .calc-history-btn.active { background: var(--blue-soft); border-color: var(--blue-2); }
+
+  .calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    padding: 10px;
+  }
+  .calc-btn {
+    padding: 11px 4px;
+    border: none;
+    border-radius: 10px;
+    background: #f1f5f9;
+    color: #1e293b;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .12s ease;
+    user-select: none;
+  }
+  .calc-btn:hover { background: #e2e8f0; transform: translateY(-1px); }
+  .calc-btn:active { transform: translateY(0) scale(.96); }
+  .calc-btn.fn {
+    background: #dbeafe; color: #1e40af;
+    font-size: 12px; font-weight: 700;
+  }
+  .calc-btn.fn:hover { background: #c7d9fd; }
+  .calc-btn.op {
+    background: #eff6ff; color: #2563eb;
+    font-weight: 800; font-size: 16px;
+  }
+  .calc-btn.op:hover { background: #dbeafe; }
+  .calc-btn.danger { background: #fee2e2; color: #dc2626; font-weight: 800; }
+  .calc-btn.danger:hover { background: #fecaca; }
+  .calc-btn.eq {
+    background: linear-gradient(135deg, var(--blue-2), var(--blue));
+    color: #fff; font-weight: 800; font-size: 17px;
+    grid-column: span 2;
+    box-shadow: 0 6px 14px -6px rgba(37,99,235,.85);
+  }
+  .calc-btn.eq:hover { filter: brightness(1.08); }
+
+  .calc-history {
+    display: none;
+    max-height: 220px;
+    overflow-y: auto;
+    border-top: 1px solid var(--line);
+    background: #f9fbff;
+    transition: background .3s, border-color .3s;
+  }
+  .calc-history.show { display: block; }
+  .calc-history::-webkit-scrollbar { width: 6px; }
+  .calc-history::-webkit-scrollbar-thumb { background: #c7d9fd; border-radius: 99px; }
+  .calc-history-head {
+    padding: 8px 12px 6px;
+    font-size: 10.5px; font-weight: 800; letter-spacing: .5px;
+    color: var(--muted); text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .calc-history-clear {
+    font-size: 10px; font-weight: 700;
+    border: none; background: transparent; cursor: pointer;
+    color: #dc2626; padding: 2px 6px; border-radius: 6px;
+  }
+  .calc-history-clear:hover { background: #fee2e2; }
+  .calc-history-list { padding: 0 8px 8px; }
+  .calc-history-item {
+    padding: 7px 9px; border-radius: 8px; cursor: pointer;
+    font-size: 12px; margin-bottom: 3px;
+    transition: background .15s;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .calc-history-item:hover { background: #eaf1ff; }
+  .calc-history-item .he { color: var(--muted); font-family: "Consolas", monospace; font-size: 11px; }
+  .calc-history-item .hr { color: var(--ink); font-weight: 700; font-family: "Consolas", monospace; text-align: right; }
+  .calc-history-empty {
+    padding: 16px; text-align: center;
+    color: var(--muted); font-size: 12px; font-style: italic;
+  }
+
+  body.dark .calc-panel { background: #0f172a; border-color: #3b82f6; box-shadow: 0 25px 50px -20px rgba(0,0,0,.85), 0 6px 16px -8px rgba(0,0,0,.5); }
+  body.dark .calc-head {
+    background: linear-gradient(180deg, #111c30, #0d1728);
+    border-bottom-color: var(--line);
+  }
+  body.dark .calc-head:hover { background: linear-gradient(180deg, #16223a, #111c30); }
+  body.dark .calc-title { color: #93c5fd; }
+  body.dark .calc-display { background: #0b1220; border-bottom-color: var(--line); }
+  body.dark .calc-expr { color: #64748b; }
+  body.dark .calc-result { color: #e2e8f0; }
+  body.dark .calc-modes { background: #111c30; border-bottom-color: var(--line); }
+  body.dark .calc-mode-btn { background: #0b1220; border-color: #293548; color: #93c5fd; }
+  body.dark .calc-mode-btn:hover { background: rgba(59,130,246,.18); }
+  body.dark .calc-mode-btn.active { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff; border-color: #3b82f6; }
+  body.dark .calc-mem { background: #1e293b; color: #64748b; }
+  body.dark .calc-mem.show { background: #422006; color: #fbbf24; }
+  body.dark .calc-history-btn { background: #0b1220; border-color: #293548; color: #93c5fd; }
+  body.dark .calc-history-btn:hover { background: rgba(59,130,246,.18); }
+  body.dark .calc-btn { background: #1e293b; color: #e2e8f0; }
+  body.dark .calc-btn:hover { background: #334155; }
+  body.dark .calc-btn.fn { background: #1e3a5f; color: #93c5fd; }
+  body.dark .calc-btn.fn:hover { background: #1e40af55; }
+  body.dark .calc-btn.op { background: #1e3a5f; color: #60a5fa; }
+  body.dark .calc-btn.op:hover { background: #1e40af77; }
+  body.dark .calc-btn.danger { background: #7f1d1d; color: #fca5a5; }
+  body.dark .calc-btn.danger:hover { background: #991b1b; }
+  body.dark .calc-history { background: #0b1220; border-top-color: var(--line); }
+  body.dark .calc-history::-webkit-scrollbar-thumb { background: #334155; }
+  body.dark .calc-history-item:hover { background: rgba(59,130,246,.15); }
+  body.dark .calc-history-item .hr { color: #e2e8f0; }
+
+  @media (max-width: 480px) {
+    .calc-panel { width: calc(100vw - 20px); right: 10px; top: 60px; }
+    .calc-btn { padding: 10px 2px; font-size: 14px; }
+    .calc-btn.fn { font-size: 11px; }
+    .calc-result { font-size: 22px; }
+  }
 </style>
 </head>
 <body>
@@ -1555,6 +1781,10 @@
         <span class="sb-icon">📐</span>
         <span class="sb-label">Sổ tay công thức</span>
       </button>
+      <button class="sb-item" id="calcOpenBtn">
+        <span class="sb-icon">🧮</span>
+        <span class="sb-label">Máy tính khoa học</span>
+      </button>
 
       <div class="sb-section-label">
         Sắp ra mắt
@@ -1593,11 +1823,6 @@
       <button class="sb-item soon" data-route="soon/tts">
         <span class="sb-icon">🔊</span>
         <span class="sb-label">Đọc văn bản (TTS)</span>
-        <span class="sb-soon-badge">Sắp</span>
-      </button>
-      <button class="sb-item soon" data-route="soon/may-tinh">
-        <span class="sb-icon">🧮</span>
-        <span class="sb-label">Máy tính khoa học</span>
         <span class="sb-soon-badge">Sắp</span>
       </button>
       <button class="sb-item soon" data-route="soon/mind-map">
@@ -1646,8 +1871,15 @@
             <div class="feature-card formula" data-route="formulas">
               <div class="fc-icon">📐</div>
               <div class="fc-title">Sổ tay công thức</div>
-              <div class="fc-desc">Toán — Lý — Hoá — Anh. Tra cứu nhanh công thức, có tìm kiếm.</div>
+              <div class="fc-desc">Toán — Lý — Hoá — Anh + Mẹo tính nhanh. Tra cứu, tìm kiếm tức thì.</div>
               <div class="fc-cta">Xem ngay →</div>
+            </div>
+
+            <div class="feature-card calc" id="calcCardBtn">
+              <div class="fc-icon">🧮</div>
+              <div class="fc-title">Máy tính khoa học</div>
+              <div class="fc-desc">Popup kéo được. Đủ hàm: sin, cos, tan, log, ln, √, x², xʸ, n!, π, e, memory, lịch sử.</div>
+              <div class="fc-cta">Mở ngay →</div>
             </div>
           </div>
         </div>
@@ -1690,11 +1922,6 @@
               <div class="fc-title">Đọc văn bản (TTS)</div>
               <div class="fc-desc">Nghe đọc to đoạn văn bản đang chọn hoặc cả trang PDF.</div>
             </div>
-            <div class="feature-card soon" data-route="soon/may-tinh">
-              <div class="fc-icon">🧮</div>
-              <div class="fc-title">Máy tính khoa học</div>
-              <div class="fc-desc">Đổi đơn vị, giải phương trình, vẽ đồ thị hàm số.</div>
-            </div>
             <div class="feature-card soon" data-route="soon/mind-map">
               <div class="fc-icon">🗺️</div>
               <div class="fc-title">Sơ đồ tư duy</div>
@@ -1714,11 +1941,11 @@
       <div class="formula-container">
         <header class="formula-head">
           <h1>📐 Sổ tay công thức</h1>
-          <p>Tra cứu nhanh công thức Toán — Lý — Hoá — Anh+mẹo. Gõ từ khoá để tìm.</p>
+          <p>Tra cứu công thức Toán — Lý — Hoá — Anh + mẹo tính nhanh. Gõ từ khoá để tìm.</p>
         </header>
 
         <div class="formula-toolbar">
-          <input type="text" class="formula-search" id="formulaSearch" placeholder="Tìm công thức/mẹo... (vd: sin, đạo hàm, định luật ôm)">
+          <input type="text" class="formula-search" id="formulaSearch" placeholder="Tìm công thức / mẹo... (vd: sin, đạo hàm, nhân 11, phần trăm)">
           <div class="formula-tabs" id="formulaTabs"></div>
         </div>
 
@@ -1910,6 +2137,84 @@
 <div class="save-toast" id="saveToast">💾 Đã lưu nét vẽ</div>
 <input type="file" id="fileInput2" accept="application/pdf,.pdf" hidden />
 
+<!-- SCIENTIFIC CALCULATOR POPUP -->
+<div class="calc-panel" id="calcPanel">
+  <div class="calc-head" id="calcHead">
+    <span class="calc-drag">⠿</span>
+    <span class="calc-title">🧮 Máy tính khoa học</span>
+    <button class="calc-close" id="calcClose" title="Đóng (Esc)">✕</button>
+  </div>
+
+  <div class="calc-display">
+    <div class="calc-expr" id="calcExpr"></div>
+    <div class="calc-result" id="calcResult">0</div>
+  </div>
+
+  <div class="calc-modes">
+    <button class="calc-mode-btn active" id="calcDeg" title="Độ">DEG</button>
+    <button class="calc-mode-btn" id="calcRad" title="Radian">RAD</button>
+    <span class="calc-mem" id="calcMem">M</span>
+    <button class="calc-history-btn" id="calcHistoryBtn" title="Lịch sử">📜</button>
+  </div>
+
+  <div class="calc-buttons" id="calcButtons">
+    <button class="calc-btn fn" data-act="MC">MC</button>
+    <button class="calc-btn fn" data-act="MR">MR</button>
+    <button class="calc-btn fn" data-act="M+">M+</button>
+    <button class="calc-btn fn" data-act="M-">M−</button>
+    <button class="calc-btn danger" data-act="AC">AC</button>
+
+    <button class="calc-btn fn" data-act="sin">sin</button>
+    <button class="calc-btn fn" data-act="cos">cos</button>
+    <button class="calc-btn fn" data-act="tan">tan</button>
+    <button class="calc-btn fn" data-act="log">log</button>
+    <button class="calc-btn fn" data-act="ln">ln</button>
+
+    <button class="calc-btn fn" data-act="sqrt">√</button>
+    <button class="calc-btn fn" data-act="sq">x²</button>
+    <button class="calc-btn fn" data-act="pow">xʸ</button>
+    <button class="calc-btn fn" data-act="inv">1/x</button>
+    <button class="calc-btn fn" data-act="fact">n!</button>
+
+    <button class="calc-btn fn" data-act="pi">π</button>
+    <button class="calc-btn fn" data-act="e">e</button>
+    <button class="calc-btn fn" data-act="(">(</button>
+    <button class="calc-btn fn" data-act=")">)</button>
+    <button class="calc-btn fn" data-act="%">%</button>
+
+    <button class="calc-btn" data-act="7">7</button>
+    <button class="calc-btn" data-act="8">8</button>
+    <button class="calc-btn" data-act="9">9</button>
+    <button class="calc-btn op" data-act="÷">÷</button>
+    <button class="calc-btn op" data-act="⌫">⌫</button>
+
+    <button class="calc-btn" data-act="4">4</button>
+    <button class="calc-btn" data-act="5">5</button>
+    <button class="calc-btn" data-act="6">6</button>
+    <button class="calc-btn op" data-act="×">×</button>
+    <button class="calc-btn op" data-act="±">±</button>
+
+    <button class="calc-btn" data-act="1">1</button>
+    <button class="calc-btn" data-act="2">2</button>
+    <button class="calc-btn" data-act="3">3</button>
+    <button class="calc-btn op" data-act="−">−</button>
+    <button class="calc-btn op" data-act="Ans">Ans</button>
+
+    <button class="calc-btn" data-act="0">0</button>
+    <button class="calc-btn" data-act=".">.</button>
+    <button class="calc-btn op" data-act="+">+</button>
+    <button class="calc-btn eq" data-act="=">=</button>
+  </div>
+
+  <div class="calc-history" id="calcHistory">
+    <div class="calc-history-head">
+      <span>📜 Lịch sử</span>
+      <button class="calc-history-clear" id="calcHistoryClear">Xoá hết</button>
+    </div>
+    <div class="calc-history-list" id="calcHistoryList"></div>
+  </div>
+</div>
+
 <script>
 /* THEME — chạy sớm để giảm flash */
 const THEME_KEY = 'pdfReader_theme';
@@ -1953,13 +2258,12 @@ const ROUTES = {
     desc: 'Bôi đen từ/câu để tra Anh–Việt, Việt–Anh ngay trong popup, không cần mở tab.' },
   'soon/tts':       { page: 'soon', title: 'Đọc văn bản (TTS)',    icon: '🔊',
     desc: 'Nghe đọc to đoạn văn bản đang chọn hoặc cả trang PDF, hỗ trợ tiếng Việt & Anh.' },
-  'soon/may-tinh':  { page: 'soon', title: 'Máy tính khoa học',    icon: '🧮',
-    desc: 'Đổi đơn vị, giải phương trình, vẽ đồ thị hàm số, tra bảng công thức.' },
   'soon/mind-map':  { page: 'soon', title: 'Sơ đồ tư duy',         icon: '🗺️',
     desc: 'Kéo thả node tạo mind map, xuất ảnh PNG để chia sẻ cho bạn học.' },
 };
 
 const SITE_NAME = 'HoTroHocTap';
+
 /* FORMULA DATA — phiên bản mở rộng */
 const FRAC = (n, d) => `<span class="frac"><span class="num">${n}</span><span class="den">${d}</span></span>`;
 
@@ -2643,6 +2947,7 @@ logoutBtn.addEventListener('click', () => {
     marqueeBox.classList.remove('show');
     musicPanel.classList.remove('show');
     musicBtn.classList.remove('active');
+    document.getElementById('calcPanel')?.classList.remove('show');
     musicAudio.pause();
     musicIframe.src = '';
     document.body.classList.remove('on-reader', 'viewing');
@@ -4251,6 +4556,314 @@ window.addEventListener('resize', () => {
 });
 viewer.addEventListener('scroll', scheduleSaveScroll, { passive: true });
 viewer2.addEventListener('scroll', scheduleSaveRightScroll, { passive: true });
+
+/* ============================================================
+   SCIENTIFIC CALCULATOR
+   ============================================================ */
+const calcPanel   = document.getElementById('calcPanel');
+const calcHead    = document.getElementById('calcHead');
+const calcClose   = document.getElementById('calcClose');
+const calcExprEl  = document.getElementById('calcExpr');
+const calcResultEl = document.getElementById('calcResult');
+const calcMemEl   = document.getElementById('calcMem');
+const calcDegBtn  = document.getElementById('calcDeg');
+const calcRadBtn  = document.getElementById('calcRad');
+const calcHistoryBtn = document.getElementById('calcHistoryBtn');
+const calcHistoryEl  = document.getElementById('calcHistory');
+const calcHistoryList = document.getElementById('calcHistoryList');
+const calcHistoryClear = document.getElementById('calcHistoryClear');
+const calcButtonsEl = document.getElementById('calcButtons');
+
+let calcExpr = '';
+let calcLastAns = 0;
+let calcMemory = 0;
+let calcDeg = true;
+let calcHistory = [];
+let calcJustEvaluated = false;
+
+function calcFormatNum(n) {
+  if (!isFinite(n)) return 'Lỗi';
+  if (Number.isInteger(n) && Math.abs(n) < 1e15) return n.toString();
+  let s = n.toPrecision(12);
+  if (s.indexOf('e') === -1) s = s.replace(/\.?0+$/, '');
+  return s;
+}
+
+function calcEvalSafe(expr) {
+  if (!expr) return null;
+  try { return calcEval(expr); } catch { return null; }
+}
+
+function calcEval(expr) {
+  let e = expr;
+  e = e.replace(/×/g, '*');
+  e = e.replace(/÷/g, '/');
+  e = e.replace(/−/g, '-');
+  e = e.replace(/π/g, '(PI)');
+  e = e.replace(/√/g, 'sqrt');
+  e = e.replace(/\^/g, '**');
+  e = e.replace(/(?<![a-zA-Z])e(?![a-zA-Z])/g, '(E)');
+  e = e.replace(/(?<![a-zA-Z])Ans(?![a-zA-Z])/g, 'lastAns');
+  e = e.replace(/(\d+(?:\.\d+)?)!/g, 'fact($1)');
+  e = e.replace(/\)!/g, ')!');
+  e = e.replace(/(\d+(?:\.\d+)?)%/g, '($1/100)');
+
+  const scope = {
+    sin: x => Math.sin(calcDeg ? x * Math.PI / 180 : x),
+    cos: x => Math.cos(calcDeg ? x * Math.PI / 180 : x),
+    tan: x => Math.tan(calcDeg ? x * Math.PI / 180 : x),
+    log: x => Math.log10(x),
+    ln:  x => Math.log(x),
+    sqrt: x => Math.sqrt(x),
+    fact: n => {
+      if (n < 0 || !Number.isInteger(n) || n > 170) return NaN;
+      let r = 1;
+      for (let i = 2; i <= n; i++) r *= i;
+      return r;
+    },
+    PI: Math.PI,
+    E: Math.E,
+    lastAns: calcLastAns,
+  };
+  const fn = new Function(...Object.keys(scope), 'return (' + e + ');');
+  return fn(...Object.values(scope));
+}
+
+function calcUpdateDisplay() {
+  if (!calcExpr) {
+    calcExprEl.textContent = '';
+    calcResultEl.textContent = '0';
+  } else {
+    calcExprEl.textContent = calcExpr;
+    const r = calcEvalSafe(calcExpr);
+    calcResultEl.textContent = (r === null) ? '' : calcFormatNum(r);
+  }
+  calcMemEl.classList.toggle('show', calcMemory !== 0);
+}
+
+function calcRenderHistory() {
+  if (calcHistory.length === 0) {
+    calcHistoryList.innerHTML = '<div class="calc-history-empty">Chưa có phép tính nào</div>';
+    return;
+  }
+  calcHistoryList.innerHTML = '';
+  for (const h of calcHistory) {
+    const div = document.createElement('div');
+    div.className = 'calc-history-item';
+    div.innerHTML = `<div class="he">${h.expr} =</div><div class="hr">${calcFormatNum(h.result)}</div>`;
+    div.addEventListener('click', () => {
+      calcExpr = calcFormatNum(h.result);
+      calcJustEvaluated = false;
+      calcUpdateDisplay();
+    });
+    calcHistoryList.appendChild(div);
+  }
+}
+
+function calcOpen() {
+  calcPanel.classList.add('show');
+}
+function calcClosePanel() {
+  calcPanel.classList.remove('show');
+}
+
+document.getElementById('calcOpenBtn')?.addEventListener('click', calcOpen);
+document.getElementById('calcCardBtn')?.addEventListener('click', calcOpen);
+calcClose.addEventListener('click', calcClosePanel);
+
+calcDegBtn.addEventListener('click', () => {
+  calcDeg = true;
+  calcDegBtn.classList.add('active');
+  calcRadBtn.classList.remove('active');
+  calcUpdateDisplay();
+});
+calcRadBtn.addEventListener('click', () => {
+  calcDeg = false;
+  calcRadBtn.classList.add('active');
+  calcDegBtn.classList.remove('active');
+  calcUpdateDisplay();
+});
+
+calcHistoryBtn.addEventListener('click', () => {
+  const showing = calcHistoryEl.classList.toggle('show');
+  calcHistoryBtn.classList.toggle('active', showing);
+  if (showing) calcRenderHistory();
+});
+calcHistoryClear.addEventListener('click', () => {
+  calcHistory = [];
+  calcRenderHistory();
+});
+
+/* Drag panel */
+let calcDragging = false, calcDragOffX = 0, calcDragOffY = 0;
+calcHead.addEventListener('pointerdown', (e) => {
+  if (e.target.closest('.calc-close')) return;
+  if (e.button !== 0 && e.pointerType === 'mouse') return;
+  const rect = calcPanel.getBoundingClientRect();
+  calcDragging = true;
+  calcDragOffX = e.clientX - rect.left;
+  calcDragOffY = e.clientY - rect.top;
+  calcPanel.style.right = 'auto';
+  calcPanel.style.left = rect.left + 'px';
+  calcPanel.style.top = rect.top + 'px';
+  calcPanel.classList.add('dragging');
+  calcHead.classList.add('dragging');
+  try { calcHead.setPointerCapture(e.pointerId); } catch {}
+  e.preventDefault();
+});
+calcHead.addEventListener('pointermove', (e) => {
+  if (!calcDragging) return;
+  const rect = calcPanel.getBoundingClientRect();
+  let x = e.clientX - calcDragOffX;
+  let y = e.clientY - calcDragOffY;
+  x = Math.max(4, Math.min(x, window.innerWidth - rect.width - 4));
+  y = Math.max(4, Math.min(y, window.innerHeight - rect.height - 4));
+  calcPanel.style.left = x + 'px';
+  calcPanel.style.top = y + 'px';
+});
+function calcEndDrag(e) {
+  if (!calcDragging) return;
+  calcDragging = false;
+  calcPanel.classList.remove('dragging');
+  calcHead.classList.remove('dragging');
+  try { calcHead.releasePointerCapture(e.pointerId); } catch {}
+}
+calcHead.addEventListener('pointerup', calcEndDrag);
+calcHead.addEventListener('pointercancel', calcEndDrag);
+
+/* Action dispatcher */
+function calcApplyAction(act) {
+  if (calcJustEvaluated) {
+    if (!['+','−','×','÷','%','!','^'].includes(act) && !['Ans','MR'].includes(act)) {
+      calcExpr = '';
+    }
+    calcJustEvaluated = false;
+  }
+  switch (act) {
+    case 'AC': calcExpr = ''; break;
+    case '⌫': calcExpr = calcExpr.slice(0, -1); break;
+    case '=': {
+      if (!calcExpr) break;
+      const r = calcEvalSafe(calcExpr);
+      if (r === null || !isFinite(r)) { toast('⚠️ Biểu thức không hợp lệ'); break; }
+      calcHistory.unshift({ expr: calcExpr, result: r });
+      if (calcHistory.length > 50) calcHistory.pop();
+      calcLastAns = r;
+      const prevExpr = calcExpr;
+      calcExpr = calcFormatNum(r);
+      calcExprEl.textContent = prevExpr + ' =';
+      calcResultEl.textContent = calcFormatNum(r);
+      calcJustEvaluated = true;
+      calcRenderHistory();
+      return;
+    }
+    case 'sin': case 'cos': case 'tan': case 'log': case 'ln':
+      calcExpr += act + '(';
+      break;
+    case 'sqrt': calcExpr += '√('; break;
+    case 'sq': calcExpr += '^2'; break;
+    case 'pow': calcExpr += '^'; break;
+    case 'inv': {
+      if (!calcExpr) calcExpr = '1/(';
+      else calcExpr = '1/(' + calcExpr + ')';
+      break;
+    }
+    case 'fact': {
+      const m = calcExpr.match(/(\d+(?:\.\d+)?|\))$/);
+      if (m && m[1] === ')') calcExpr += '!';
+      else if (m) {
+        calcExpr = calcExpr.slice(0, -m[1].length) + m[1] + '!';
+      } else if (calcExpr) {
+        calcExpr += '!';
+      }
+      break;
+    }
+    case 'pi': calcExpr += 'π'; break;
+    case 'e': calcExpr += 'e'; break;
+    case '%': calcExpr += '%'; break;
+    case '±': {
+      const m = calcExpr.match(/(\d+(?:\.\d+)?)$/);
+      if (m) {
+        const idx = calcExpr.length - m[1].length;
+        const before = calcExpr.slice(0, idx);
+        const lastCh = before.slice(-1);
+        if (lastCh === '−' || lastCh === '-') {
+          calcExpr = before.slice(0, -1) + m[1];
+        } else {
+          calcExpr = before + '−' + m[1];
+        }
+      } else {
+        calcExpr += '−';
+      }
+      break;
+    }
+    case 'Ans': calcExpr += 'Ans'; break;
+    case 'MC': calcMemory = 0; break;
+    case 'MR': calcExpr += calcFormatNum(calcMemory); break;
+    case 'M+': {
+      const v = calcEvalSafe(calcExpr);
+      calcMemory += (v !== null && isFinite(v)) ? v : calcLastAns;
+      toast('💾 M+ = ' + calcFormatNum(calcMemory));
+      break;
+    }
+    case 'M-': {
+      const v = calcEvalSafe(calcExpr);
+      calcMemory -= (v !== null && isFinite(v)) ? v : calcLastAns;
+      toast('💾 M− = ' + calcFormatNum(calcMemory));
+      break;
+    }
+    case '(': case ')': calcExpr += act; break;
+    case '.': {
+      const parts = calcExpr.split(/[+\-−×÷()^%√]/);
+      const last = parts[parts.length - 1];
+      if (last.indexOf('.') === -1) calcExpr += '.';
+      break;
+    }
+    default:
+      if (['+','−','×','÷'].includes(act)) {
+        const last = calcExpr.slice(-1);
+        if (['+','−','×','÷'].includes(last)) {
+          calcExpr = calcExpr.slice(0, -1) + act;
+        } else if (calcExpr) {
+          calcExpr += act;
+        } else if (act === '−') {
+          calcExpr += '−';
+        }
+      } else {
+        calcExpr += act;
+      }
+  }
+  calcUpdateDisplay();
+}
+
+calcButtonsEl.addEventListener('click', (e) => {
+  const btn = e.target.closest('.calc-btn');
+  if (!btn) return;
+  calcApplyAction(btn.dataset.act);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (!calcPanel.classList.contains('show')) return;
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+  const k = e.key;
+  if (/^[0-9]$/.test(k)) { calcApplyAction(k); e.preventDefault(); return; }
+  if (k === '.') { calcApplyAction('.'); e.preventDefault(); return; }
+  if (k === '+') { calcApplyAction('+'); e.preventDefault(); return; }
+  if (k === '-') { calcApplyAction('−'); e.preventDefault(); return; }
+  if (k === '*') { calcApplyAction('×'); e.preventDefault(); return; }
+  if (k === '/') { calcApplyAction('÷'); e.preventDefault(); return; }
+  if (k === '^') { calcApplyAction('^'); e.preventDefault(); return; }
+  if (k === '(' || k === ')') { calcApplyAction(k); e.preventDefault(); return; }
+  if (k === '%') { calcApplyAction('%'); e.preventDefault(); return; }
+  if (k === 'Enter' || k === '=') { calcApplyAction('='); e.preventDefault(); return; }
+  if (k === 'Backspace') { calcApplyAction('⌫'); e.preventDefault(); return; }
+  if (k === 'Escape') { calcClosePanel(); e.preventDefault(); return; }
+  if (k === 'Delete') { calcApplyAction('AC'); e.preventDefault(); return; }
+});
+
+calcRenderHistory();
+calcUpdateDisplay();
 
 /* ============================================================
    INIT
