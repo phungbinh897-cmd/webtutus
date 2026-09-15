@@ -58,7 +58,7 @@
   .login-sub { margin: 0 0 24px; font-size: 13px; color: var(--muted); }
   .login-form { text-align: left; }
   .login-field { margin-bottom: 14px; }
-  .login-field label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; letter-spacing: .2px; transition: color .3s ease; }
+  .login-field label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; letter-spacing: .2px; }
   .login-field input {
     width: 100%; padding: 11px 14px; font-family: inherit; font-size: 14px; color: var(--ink);
     background: #fff; border: 1.5px solid #dbe5f2; border-radius: 12px; outline: none;
@@ -76,7 +76,7 @@
   .login-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
   .login-btn:active { transform: translateY(0) scale(.98); }
   .login-note { margin: 18px 0 0; font-size: 11.5px; color: var(--muted); text-align: center; line-height: 1.5; }
-  .login-sig { margin-top: 18px; padding-top: 16px; border-top: 1px solid #e6edf7; font-size: 12.5px; font-weight: 700; color: var(--blue-2); letter-spacing: .3px; transition: border-color .3s ease; }
+  .login-sig { margin-top: 18px; padding-top: 16px; border-top: 1px solid #e6edf7; font-size: 12.5px; font-weight: 700; color: var(--blue-2); letter-spacing: .3px; }
 
   /* DASHBOARD */
   .dashboard { display: none; min-height: 100vh; width: 100%; }
@@ -103,7 +103,6 @@
     padding: 4px 8px 18px;
     border-bottom: 1px solid var(--line);
     margin-bottom: 14px;
-    transition: border-color .3s ease;
   }
   .sb-logo {
     width: 42px; height: 42px; flex: none;
@@ -122,7 +121,6 @@
     color: #94a3b8; text-transform: uppercase;
     padding: 12px 10px 6px;
     display: flex; align-items: center; gap: 6px;
-    transition: color .3s ease;
   }
   .sb-section-label:first-child { padding-top: 2px; }
   .sb-soon-dot {
@@ -179,7 +177,6 @@
     margin-top: 14px; padding-top: 14px;
     border-top: 1px solid var(--line);
     display: flex; flex-direction: column; gap: 8px;
-    transition: border-color .3s ease;
   }
   .sb-theme {
     display: flex; align-items: center; gap: 10px;
@@ -201,35 +198,22 @@
   }
   .sb-logout:hover { background: #fef2f2; border-color: #f87171; }
   .sb-logout span:first-child { font-size: 15px; }
-
   .sb-hint {
-    font-size: 10px;
-    color: #94a3b8;
-    text-align: center;
-    padding: 4px 8px 0;
-    letter-spacing: .2px;
-    line-height: 1.5;
+    font-size: 10px; color: #94a3b8; text-align: center;
+    padding: 4px 8px 0; letter-spacing: .2px; line-height: 1.5;
   }
   .sb-hint kbd {
-    font-family: inherit;
-    font-size: 9.5px;
-    font-weight: 800;
-    padding: 1px 5px;
-    border-radius: 4px;
-    background: #f1f5f9;
-    color: #64748b;
-    border: 1px solid #cbd5e1;
-    margin: 0 1px;
+    font-family: inherit; font-size: 9.5px; font-weight: 800;
+    padding: 1px 5px; border-radius: 4px;
+    background: #f1f5f9; color: #64748b;
+    border: 1px solid #cbd5e1; margin: 0 1px;
   }
 
   /* MAIN */
   .main-area {
-    flex: 1; min-width: 0;
-    padding: 22px;
-    overflow-x: hidden;
-    height: 100vh; overflow-y: auto;
-    scroll-behavior: smooth;
-    transition: padding .3s ease;
+    flex: 1; min-width: 0; padding: 22px;
+    overflow-x: hidden; height: 100vh; overflow-y: auto;
+    scroll-behavior: smooth; transition: padding .3s ease;
   }
   .main-area::-webkit-scrollbar { width: 10px; }
   .main-area::-webkit-scrollbar-thumb { background: #b9cdf0; border-radius: 99px; border: 3px solid transparent; background-clip: content-box; }
@@ -239,59 +223,33 @@
 
   /* SIDEBAR TOGGLE */
   .sb-toggle {
-    display: flex;
-    position: fixed;
-    top: 20px;
-    left: 268px;
-    z-index: 96;
-    width: 32px;
-    height: 42px;
-    border-radius: 0 10px 10px 0;
-    background: #fff;
-    border: 1.5px solid var(--blue-2);
-    border-left: none;
-    color: var(--blue-deep);
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 900;
-    padding: 0;
+    display: flex; position: fixed; top: 20px; left: 268px; z-index: 96;
+    width: 32px; height: 42px; border-radius: 0 10px 10px 0;
+    background: #fff; border: 1.5px solid var(--blue-2); border-left: none;
+    color: var(--blue-deep); cursor: pointer;
+    align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; padding: 0;
     transition: left .3s ease, background .15s ease, transform .15s ease,
                 border-color .15s ease, width .3s ease, height .3s ease, border-radius .3s ease, color .3s ease;
-    box-shadow: 4px 0 12px -8px rgba(37,99,235,.55);
-    line-height: 1;
+    box-shadow: 4px 0 12px -8px rgba(37,99,235,.55); line-height: 1;
   }
   .sb-toggle:hover { background: #eff5ff; border-color: var(--blue); color: var(--blue); }
   .sb-toggle:active { transform: scale(.94); }
-
   .dashboard.sidebar-collapsed .sb-toggle {
-    left: 0;
-    border-radius: 0 12px 12px 0;
-    width: 42px;
-    height: 48px;
-    font-size: 18px;
-    background: linear-gradient(135deg, var(--blue-2), var(--blue));
-    color: #fff;
-    border-color: var(--blue);
+    left: 0; border-radius: 0 12px 12px 0; width: 42px; height: 48px;
+    font-size: 18px; background: linear-gradient(135deg, var(--blue-2), var(--blue));
+    color: #fff; border-color: var(--blue);
     box-shadow: 6px 0 20px -10px rgba(37,99,235,.9);
   }
   .dashboard.sidebar-collapsed .sb-toggle:hover { filter: brightness(1.08); color: #fff; }
-
   .dashboard.sidebar-collapsed .sidebar {
-    width: 0;
-    padding-left: 0;
-    padding-right: 0;
-    border-right: none;
-    overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
+    width: 0; padding-left: 0; padding-right: 0; border-right: none;
+    overflow: hidden; opacity: 0; pointer-events: none;
   }
   .dashboard.sidebar-collapsed .main-area { padding-left: 62px; }
 
   .sb-backdrop {
-    display: none;
-    position: fixed; inset: 0; z-index: 49;
+    display: none; position: fixed; inset: 0; z-index: 49;
     background: rgba(15,23,42,.42); backdrop-filter: blur(3px);
     opacity: 0; transition: opacity .25s ease;
   }
@@ -299,32 +257,22 @@
 
   @media (max-width: 820px) {
     .sidebar {
-      position: fixed; left: 0; top: 0;
-      transform: translateX(-100%);
+      position: fixed; left: 0; top: 0; transform: translateX(-100%);
       width: 260px !important; z-index: 100;
       box-shadow: 0 20px 60px -20px rgba(15,23,42,.6);
-      opacity: 1 !important;
-      padding: 20px 12px 14px !important;
+      opacity: 1 !important; padding: 20px 12px 14px !important;
       pointer-events: auto !important;
     }
     .sidebar.open { transform: translateX(0); }
     .sb-toggle {
-      top: 14px;
-      left: 14px !important;
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      border: 1.5px solid var(--blue-2);
-      font-size: 20px;
-      background: #fff;
-      color: var(--blue-deep);
+      top: 14px; left: 14px !important; width: 42px; height: 42px;
+      border-radius: 12px; border: 1.5px solid var(--blue-2);
+      font-size: 20px; background: #fff; color: var(--blue-deep);
       box-shadow: 0 8px 20px -10px rgba(37,99,235,.7);
     }
     .sb-toggle:hover { background: #f0f6ff; }
     .dashboard.sidebar-collapsed .sb-toggle {
-      left: 14px !important;
-      background: #fff;
-      color: var(--blue-deep);
+      left: 14px !important; background: #fff; color: var(--blue-deep);
       border-color: var(--blue-2);
       box-shadow: 0 8px 20px -10px rgba(37,99,235,.7);
     }
@@ -348,9 +296,7 @@
   .home-section-title {
     display: flex; align-items: center; gap: 10px;
     font-size: 15px; font-weight: 800; color: #334155;
-    margin: 0 0 14px; padding-left: 4px;
-    letter-spacing: -.2px;
-    transition: color .3s ease;
+    margin: 0 0 14px; padding-left: 4px; letter-spacing: -.2px;
   }
   .soon-pill {
     font-size: 10px; font-weight: 800; letter-spacing: .8px;
@@ -359,69 +305,45 @@
     color: #92400e; text-transform: uppercase;
   }
   .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     gap: 14px;
   }
   .feature-card {
-    position: relative;
-    background: #fff;
-    border: 1.5px solid var(--line);
-    border-radius: 18px;
-    padding: 18px 16px 16px;
-    cursor: pointer;
-    text-align: left;
-    font-family: inherit;
-    color: var(--ink);
-    transition: all .22s ease;
-    display: flex; flex-direction: column; gap: 6px;
-    min-height: 150px;
-    overflow: hidden;
+    position: relative; background: #fff; border: 1.5px solid var(--line);
+    border-radius: 18px; padding: 18px 16px 16px;
+    cursor: pointer; text-align: left; font-family: inherit; color: var(--ink);
+    transition: all .22s ease; display: flex; flex-direction: column; gap: 6px;
+    min-height: 150px; overflow: hidden;
     box-shadow: 0 4px 14px -10px rgba(30,64,175,.35);
   }
   .feature-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--blue-2);
+    transform: translateY(-3px); border-color: var(--blue-2);
     box-shadow: 0 18px 32px -18px rgba(37,99,235,.55), 0 6px 16px -10px rgba(37,99,235,.3);
   }
   .feature-card:active { transform: translateY(-1px) scale(.99); }
   .fc-icon {
-    width: 46px; height: 46px;
-    display: grid; place-items: center;
-    font-size: 24px;
-    border-radius: 14px;
+    width: 46px; height: 46px; display: grid; place-items: center;
+    font-size: 24px; border-radius: 14px;
     background: linear-gradient(135deg, #dbeafe, #c7d9fd);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,.9), 0 8px 16px -10px rgba(37,99,235,.7);
     margin-bottom: 4px;
   }
   .fc-title { font-size: 15px; font-weight: 750; color: #1e293b; letter-spacing: -.2px; }
   .fc-desc { font-size: 12px; color: var(--muted); line-height: 1.45; flex: 1; }
-  .fc-cta {
-    font-size: 12.5px; font-weight: 750;
-    color: var(--blue-deep);
-    display: flex; align-items: center; gap: 4px;
-    margin-top: 2px;
-  }
+  .fc-cta { font-size: 12.5px; font-weight: 750; color: var(--blue-deep); display: flex; align-items: center; gap: 4px; margin-top: 2px; }
   .feature-card.hero {
-    grid-column: 1 / -1;
-    min-height: 165px;
+    grid-column: 1 / -1; min-height: 165px;
     background: linear-gradient(135deg, #ffffff 0%, #f0f6ff 55%, #e8f0ff 100%);
     border: 2px solid var(--blue-2);
-    flex-direction: row; align-items: center;
-    padding: 22px 26px;
-    gap: 22px;
+    flex-direction: row; align-items: center; padding: 22px 26px; gap: 22px;
   }
   .feature-card.hero::after {
-    content: '';
-    position: absolute; right: -40px; top: -40px;
+    content: ''; position: absolute; right: -40px; top: -40px;
     width: 200px; height: 200px;
     background: radial-gradient(closest-side, rgba(59,130,246,.22), transparent 75%);
     border-radius: 50%; pointer-events: none;
   }
-  .feature-card.hero .fc-icon {
-    width: 70px; height: 70px; font-size: 36px;
-    border-radius: 20px; flex: none;
-  }
+  .feature-card.hero .fc-icon { width: 70px; height: 70px; font-size: 36px; border-radius: 20px; flex: none; }
   .feature-card.hero .hero-body { flex: 1; min-width: 0; }
   .feature-card.hero .fc-title { font-size: 20px; margin-bottom: 6px; }
   .feature-card.hero .fc-desc { font-size: 13px; max-width: 520px; margin-bottom: 10px; }
@@ -447,13 +369,11 @@
     content: 'SẮP RA MẮT';
     position: absolute; top: 10px; right: 10px;
     font-size: 9px; font-weight: 800; letter-spacing: .8px;
-    color: #92400e;
-    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e; background: linear-gradient(135deg, #fef3c7, #fde68a);
     padding: 3px 8px; border-radius: 99px;
   }
   .feature-card.soon:hover {
-    transform: translateY(-3px);
-    border-color: #fbbf24;
+    transform: translateY(-3px); border-color: #fbbf24;
     box-shadow: 0 18px 32px -18px rgba(245,158,11,.55);
   }
   .feature-card.formula .fc-icon {
@@ -474,16 +394,14 @@
   }
   .home-footer {
     text-align: center; font-size: 12px; color: var(--muted);
-    padding: 20px 0 8px;
-    line-height: 1.7;
+    padding: 20px 0 8px; line-height: 1.7;
   }
   .home-footer kbd {
     font-family: inherit; font-size: 11px; font-weight: 800;
     padding: 2px 7px; border-radius: 6px;
     background: #fff; color: var(--blue-deep);
     border: 1.5px solid #c7d9fd;
-    box-shadow: 0 2px 0 -1px rgba(30,64,175,.2);
-    margin: 0 2px;
+    box-shadow: 0 2px 0 -1px rgba(30,64,175,.2); margin: 0 2px;
   }
 
   /* SOON */
@@ -491,8 +409,7 @@
     max-width: 620px; margin: 40px auto;
     background: rgba(255,255,255,.9); backdrop-filter: blur(16px);
     border: 2px solid var(--blue-2); border-radius: 28px;
-    padding: 44px 32px 36px;
-    text-align: center;
+    padding: 44px 32px 36px; text-align: center;
     box-shadow: 0 40px 90px -40px rgba(37,99,235,.45),
                 0 10px 30px -20px rgba(37,99,235,.28),
                 inset 0 0 0 1px rgba(255,255,255,.9);
@@ -500,27 +417,20 @@
   }
   .soon-icon-large {
     width: 92px; height: 92px; margin: 0 auto 20px;
-    display: grid; place-items: center; font-size: 46px;
-    border-radius: 28px;
+    display: grid; place-items: center; font-size: 46px; border-radius: 28px;
     background: linear-gradient(135deg, #fef3c7, #fde68a);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.9),
-                0 20px 40px -20px rgba(245,158,11,.8);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.9), 0 20px 40px -20px rgba(245,158,11,.8);
     animation: floaty 3s ease-in-out infinite;
   }
   @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
   .soon-container h2 { font-size: 24px; font-weight: 800; letter-spacing: -.4px; margin: 0 0 10px; color: #1e293b; }
   .soon-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0 0 24px; max-width: 440px; margin-left: auto; margin-right: auto; }
   .soon-progress { margin: 0 auto 26px; max-width: 340px; }
-  .soon-bar {
-    width: 100%; height: 10px; border-radius: 99px;
-    background: #eef3fb; overflow: hidden;
-    box-shadow: inset 0 1px 2px rgba(30,64,175,.08);
-  }
+  .soon-bar { width: 100%; height: 10px; border-radius: 99px; background: #eef3fb; overflow: hidden; box-shadow: inset 0 1px 2px rgba(30,64,175,.08); }
   .soon-bar-fill {
     height: 100%; width: 0%;
     background: linear-gradient(90deg, #fbbf24, #f59e0b);
-    border-radius: 99px;
-    transition: width 1s cubic-bezier(.4,.2,.2,1);
+    border-radius: 99px; transition: width 1s cubic-bezier(.4,.2,.2,1);
     box-shadow: 0 0 12px -2px rgba(245,158,11,.6);
   }
   .soon-bar-label { font-size: 11.5px; font-weight: 700; color: #92400e; margin-top: 8px; letter-spacing: .3px; }
@@ -534,7 +444,6 @@
     transition: all .18s ease;
   }
   .soon-back-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
-  .soon-back-btn:active { transform: translateY(0) scale(.97); }
 
   /* FORMULA PAGE */
   .formula-container { max-width: 1100px; margin: 0 auto; padding-bottom: 60px; }
@@ -546,108 +455,69 @@
     -webkit-text-fill-color: transparent;
   }
   .formula-head p { font-size: 13.5px; color: var(--muted); margin: 0; }
-
-  .formula-toolbar {
-    display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
-    align-items: center;
-  }
+  .formula-toolbar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
   .formula-search {
     flex: 1; min-width: 220px;
     padding: 12px 16px 12px 40px; font-family: inherit; font-size: 13.5px;
     border: 1.5px solid var(--line); border-radius: 14px;
     background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%237b8a99' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E") no-repeat 14px center;
-    outline: none; color: var(--ink);
-    transition: all .18s ease;
+    outline: none; color: var(--ink); transition: all .18s ease;
   }
   .formula-search:focus { border-color: var(--blue-2); box-shadow: 0 0 0 4px rgba(59,130,246,.15); }
   .formula-search::placeholder { color: #cbd5e1; }
-
   .formula-tabs {
     display: flex; gap: 6px; padding: 4px;
-    background: #fff; border: 1.5px solid var(--line);
-    border-radius: 14px; overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    background: #fff; border: 1.5px solid var(--line); border-radius: 14px;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
   }
   .formula-tabs::-webkit-scrollbar { display: none; }
   .formula-tab {
     padding: 8px 16px; border-radius: 10px; border: none;
     background: transparent; color: #64748b;
     font-family: inherit; font-size: 13px; font-weight: 700;
-    cursor: pointer; white-space: nowrap;
-    transition: all .15s ease;
+    cursor: pointer; white-space: nowrap; transition: all .15s ease;
     display: inline-flex; align-items: center; gap: 6px;
   }
   .formula-tab:hover { background: #f0f6ff; color: var(--blue-deep); }
   .formula-tab.active {
     background: linear-gradient(135deg, var(--blue-2), var(--blue));
-    color: #fff;
-    box-shadow: 0 6px 14px -8px rgba(37,99,235,.95);
+    color: #fff; box-shadow: 0 6px 14px -8px rgba(37,99,235,.95);
   }
-  .formula-tab .tab-count {
-    font-size: 10px; font-weight: 800; padding: 1px 7px;
-    border-radius: 99px; background: rgba(255,255,255,.25);
-  }
-  .formula-tab:not(.active) .tab-count {
-    background: #e2e8f0; color: #64748b;
-  }
-
+  .formula-tab .tab-count { font-size: 10px; font-weight: 800; padding: 1px 7px; border-radius: 99px; background: rgba(255,255,255,.25); }
+  .formula-tab:not(.active) .tab-count { background: #e2e8f0; color: #64748b; }
   .formula-group { margin-bottom: 24px; }
   .formula-group-title {
     display: flex; align-items: center; gap: 8px;
     font-size: 14px; font-weight: 800; color: #334155;
-    margin: 0 0 12px; padding-left: 4px;
-    letter-spacing: -.2px;
+    margin: 0 0 12px; padding-left: 4px; letter-spacing: -.2px;
   }
-  .formula-group-title::before {
-    content: ''; width: 3px; height: 16px; border-radius: 2px;
-    background: linear-gradient(180deg, #3b82f6, #8b5cf6);
-  }
-  .formula-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 10px;
-  }
+  .formula-group-title::before { content: ''; width: 3px; height: 16px; border-radius: 2px; background: linear-gradient(180deg, #3b82f6, #8b5cf6); }
+  .formula-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
   .formula-item {
     background: #fff; border: 1.5px solid var(--line);
-    border-radius: 14px; padding: 12px 14px;
-    transition: all .18s ease;
-    position: relative;
+    border-radius: 14px; padding: 12px 14px; transition: all .18s ease; position: relative;
   }
   .formula-item:hover {
     border-color: var(--blue-2);
     box-shadow: 0 10px 22px -14px rgba(37,99,235,.5);
     transform: translateY(-1px);
   }
-  .formula-name {
-    font-size: 12px; font-weight: 700; color: #475569;
-    margin-bottom: 8px; letter-spacing: .1px;
-    display: flex; align-items: center; gap: 6px;
-  }
+  .formula-name { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 8px; letter-spacing: .1px; display: flex; align-items: center; gap: 6px; }
   .formula-name .fi { font-size: 13px; opacity: .8; }
   .formula-body {
     font-family: "Cambria Math", "Latin Modern Math", "Times New Roman", Georgia, serif;
-    font-size: 16px; line-height: 1.6; color: #1e293b;
-    letter-spacing: .2px;
-    word-break: break-word;
-    -webkit-user-select: text; user-select: text;
+    font-size: 16px; line-height: 1.6; color: #1e293b; letter-spacing: .2px;
+    word-break: break-word; -webkit-user-select: text; user-select: text;
   }
-  .formula-body .frac {
-    display: inline-flex; flex-direction: column;
-    vertical-align: middle; text-align: center;
-    margin: 0 3px; line-height: 1.15; font-size: .92em;
-  }
+  .formula-body .frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; margin: 0 3px; line-height: 1.15; font-size: .92em; }
   .formula-body .frac .num { border-bottom: 1.4px solid currentColor; padding: 0 4px 1px; }
   .formula-body .frac .den { padding: 1px 4px 0; }
   .formula-body sup, .formula-body sub { font-size: .72em; }
-  .formula-empty {
-    text-align: center; padding: 60px 20px;
-    color: var(--muted); font-size: 13.5px; font-style: italic;
-  }
+  .formula-empty { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 13.5px; font-style: italic; }
   .formula-hint {
     text-align: center; font-size: 11.5px; color: var(--muted);
     margin-top: 20px; padding: 10px;
-    background: rgba(59,130,246,.06);
-    border-radius: 10px; border: 1px dashed var(--line);
+    background: rgba(59,130,246,.06); border-radius: 10px; border: 1px dashed var(--line);
   }
   @media (max-width: 620px) {
     .formula-head h1 { font-size: 22px; }
@@ -731,10 +601,7 @@
     box-shadow: 0 4px 12px -6px rgba(37,99,235,.95);
     animation: selectPulse 2s ease-in-out infinite;
   }
-  @keyframes selectPulse {
-    0%, 100% { box-shadow: 0 4px 12px -6px rgba(37,99,235,.95); }
-    50% { box-shadow: 0 4px 16px -4px rgba(37,99,235,1); }
-  }
+  @keyframes selectPulse { 0%, 100% { box-shadow: 0 4px 12px -6px rgba(37,99,235,.95); } 50% { box-shadow: 0 4px 16px -4px rgba(37,99,235,1); } }
   .pen-group {
     display: none; align-items: center; gap: 2px; padding: 2px;
     background: #fff; border: 1.5px solid #c7d9fd; border-radius: 11px;
@@ -750,10 +617,7 @@
   .pen-btn:hover, .eraser-btn:hover { background: var(--blue-soft); }
   .pen-btn.active { background: linear-gradient(135deg, var(--blue-2), var(--blue)); color: #fff; box-shadow: 0 4px 10px -6px rgba(37,99,235,.9); }
   .eraser-btn.active { background: linear-gradient(135deg, #f87171, #dc2626); color: #fff; box-shadow: 0 4px 10px -6px rgba(220,38,38,.9); }
-  .pen-options {
-    display: none; align-items: center; gap: 2px; padding-left: 3px;
-    border-left: 1px solid #e2e8f0; animation: fadeSlide .18s ease-out;
-  }
+  .pen-options { display: none; align-items: center; gap: 2px; padding-left: 3px; border-left: 1px solid #e2e8f0; animation: fadeSlide .18s ease-out; }
   .pen-group.active .pen-options { display: flex; }
   @keyframes fadeSlide { from { opacity:0; transform: translateX(-4px); } to { opacity:1; transform: translateX(0); } }
   .pen-color {
@@ -836,11 +700,7 @@
   .saved-list::-webkit-scrollbar { width: 8px; }
   .saved-list::-webkit-scrollbar-thumb { background: #c7d9fd; border-radius: 99px; border: 2px solid #fff; }
   .saved-empty { padding: 24px 14px; text-align: center; color: var(--muted); font-size: 12.5px; font-style: italic; }
-  .saved-item {
-    display: flex; align-items: center; gap: 10px; padding: 9px 10px;
-    border-radius: 10px; cursor: pointer; transition: background .15s ease;
-    position: relative;
-  }
+  .saved-item { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; cursor: pointer; transition: background .15s ease; position: relative; }
   .saved-item:hover { background: #f0f6ff; }
   .saved-item.current { background: linear-gradient(135deg, #dbeafe, #d6e9ff); box-shadow: inset 0 0 0 1.5px var(--blue-2); }
   .saved-item.current::before {
@@ -859,10 +719,7 @@
   .saved-item.current .saved-item-icon { background: linear-gradient(135deg, var(--blue-2), var(--blue)); color: #fff; }
   .saved-item-info { flex: 1; min-width: 0; }
   .saved-item-name-row { display: flex; align-items: center; gap: 4px; min-width: 0; margin-bottom: 2px; }
-  .saved-item-name {
-    flex: 1; min-width: 0; font-size: 12.5px; font-weight: 650; color: #26374b;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
+  .saved-item-name { flex: 1; min-width: 0; font-size: 12.5px; font-weight: 650; color: #26374b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .saved-item-meta { font-size: 10.5px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
   .saved-item-meta .dot-sep { opacity: .4; }
   .saved-item-meta .stroke-badge { color: #7c3aed; font-weight: 700; }
@@ -897,28 +754,14 @@
     box-shadow: 0 0 0 3px rgba(37,99,235,.2);
     animation: pulse 1.6s ease-in-out infinite; flex: none;
   }
-  .music-close {
-    width: 24px; height: 24px; border: none; background: transparent;
-    border-radius: 7px; color: #94a3b8; cursor: pointer;
-    display: grid; place-items: center; font-size: 12px;
-    transition: all .15s;
-  }
+  .music-close { width: 24px; height: 24px; border: none; background: transparent; border-radius: 7px; color: #94a3b8; cursor: pointer; display: grid; place-items: center; font-size: 12px; transition: all .15s; }
   .music-close:hover { background: #fee2e2; color: #dc2626; }
   .music-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
-  .music-search {
-    width: 100%; padding: 9px 12px; font-family: inherit; font-size: 12.5px;
-    border: 1.5px solid #dbe5f2; border-radius: 10px;
-    outline: none; transition: all .18s; color: var(--ink);
-  }
+  .music-search { width: 100%; padding: 9px 12px; font-family: inherit; font-size: 12.5px; border: 1.5px solid #dbe5f2; border-radius: 10px; outline: none; transition: all .18s; color: var(--ink); }
   .music-search:focus { border-color: var(--blue-2); box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
   .music-search::placeholder { color: #cbd5e1; }
   .music-actions { display: flex; gap: 6px; }
-  .music-actions button {
-    flex: 1; font-family: inherit; font-size: 12px; font-weight: 650;
-    padding: 8px 8px; border-radius: 9px; border: none;
-    cursor: pointer; transition: all .15s;
-    display: inline-flex; align-items: center; justify-content: center; gap: 4px;
-  }
+  .music-actions button { flex: 1; font-family: inherit; font-size: 12px; font-weight: 650; padding: 8px 8px; border-radius: 9px; border: none; cursor: pointer; transition: all .15s; display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
   .music-play-btn { color: #fff; background: linear-gradient(135deg, var(--blue-2), var(--blue)); box-shadow: 0 6px 14px -8px rgba(37,99,235,.9); }
   .music-play-btn:hover { filter: brightness(1.07); }
   .music-local-btn { color: var(--blue-deep); background: #fff; border: 1.5px solid #c7d9fd; }
@@ -1000,10 +843,7 @@
     animation: shimmer 1.6s linear infinite;
   }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-  .page-container > canvas:first-child {
-    display: block; width: 100%; height: 100%;
-    user-select: none; -webkit-user-drag: none; pointer-events: none;
-  }
+  .page-container > canvas:first-child { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; pointer-events: none; }
   .text-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; -webkit-user-select: none; user-select: none; }
   .draw-canvas { position: absolute; inset: 0; z-index: 5; pointer-events: none; touch-action: none; }
   #pages2 .page-container { flex: none; }
@@ -1019,42 +859,17 @@
   .viewer-container.split .pane-header { display: flex; }
   .pane-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11.5px; letter-spacing: .2px; }
   .pane-actions { display: flex; gap: 3px; flex: none; align-items: center; }
-  .pane-zoom-group {
-    display: flex; align-items: center; gap: 1px;
-    padding: 2px; background: #fff;
-    border: 1.5px solid #c7d9fd; border-radius: 8px;
-    height: 24px; margin-right: 3px;
-  }
-  .pane-zoom-group button {
-    width: 20px; height: 20px; border: none; background: transparent;
-    border-radius: 5px; color: var(--blue-deep);
-    font-size: 12px; font-weight: 700; cursor: pointer;
-    display: grid; place-items: center;
-    transition: background .15s ease; padding: 0;
-  }
+  .pane-zoom-group { display: flex; align-items: center; gap: 1px; padding: 2px; background: #fff; border: 1.5px solid #c7d9fd; border-radius: 8px; height: 24px; margin-right: 3px; }
+  .pane-zoom-group button { width: 20px; height: 20px; border: none; background: transparent; border-radius: 5px; color: var(--blue-deep); font-size: 12px; font-weight: 700; cursor: pointer; display: grid; place-items: center; transition: background .15s ease; padding: 0; }
   .pane-zoom-group button:hover { background: var(--blue-soft); }
   #paneZoomLabel { font-size: 10px; font-weight: 650; color: #1e40af; min-width: 28px; text-align: center; padding: 0 2px; }
-  .pane-btn {
-    width: 24px; height: 24px; border: none; background: transparent;
-    border-radius: 7px; color: var(--blue-deep); cursor: pointer;
-    display: grid; place-items: center; font-size: 13px;
-    transition: background .15s; padding: 0;
-  }
+  .pane-btn { width: 24px; height: 24px; border: none; background: transparent; border-radius: 7px; color: var(--blue-deep); cursor: pointer; display: grid; place-items: center; font-size: 13px; transition: background .15s; padding: 0; }
   .pane-btn:hover { background: var(--blue-soft); }
   .pane-btn.close { color: #dc2626; }
   .pane-btn.close:hover { background: #fee2e2; }
-  .pane-empty {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 30px 16px; text-align: center; color: var(--muted);
-    gap: 8px; font-size: 12.5px; min-height: 220px;
-  }
+  .pane-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 16px; text-align: center; color: var(--muted); gap: 8px; font-size: 12.5px; min-height: 220px; }
   .pane-empty-icon { font-size: 34px; opacity: .7; }
-  .pane-empty-btn {
-    margin-top: 4px; padding: 8px 16px; border-radius: 10px; border: none;
-    background: linear-gradient(135deg, var(--blue-2), var(--blue));
-    color: #fff; font-weight: 650; font-size: 12px; cursor: pointer;
-    box-shadow: 0 8px 18px -10px rgba(37,99,235,.9); transition: all .15s;
-  }
+  .pane-empty-btn { margin-top: 4px; padding: 8px 16px; border-radius: 10px; border: none; background: linear-gradient(135deg, var(--blue-2), var(--blue)); color: #fff; font-weight: 650; font-size: 12px; cursor: pointer; box-shadow: 0 8px 18px -10px rgba(37,99,235,.9); transition: all .15s; }
   .pane-empty-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
 
   .line-hit {
@@ -1063,10 +878,7 @@
     box-shadow: inset 0 0 0 1.5px transparent;
     transition: background .12s ease, box-shadow .12s ease;
   }
-  .line-hit.selected {
-    background: var(--hl-bg);
-    box-shadow: inset 0 0 0 1.5px var(--hl-border), 0 3px 10px -6px var(--hl-border);
-  }
+  .line-hit.selected { background: var(--hl-bg); box-shadow: inset 0 0 0 1.5px var(--hl-border), 0 3px 10px -6px var(--hl-border); }
   .line-hit.flash { animation: flashFade .5s ease-out; }
   @keyframes flashFade { 0% { filter: brightness(1.2); } 100% { filter: brightness(1); } }
 
@@ -1085,12 +897,9 @@
     width: fit-content; padding: 8px 18px; border-radius: 99px;
     background: rgba(26,43,69,.88); color: #fff;
     font-size: 11.5px; font-weight: 650; letter-spacing: .2px;
-    z-index: 8;
-    box-shadow: 0 12px 26px -14px rgba(0,0,0,.7);
-    backdrop-filter: blur(6px);
-    pointer-events: none;
-    transition: opacity .5s ease, background .2s ease;
-    opacity: 1;
+    z-index: 8; box-shadow: 0 12px 26px -14px rgba(0,0,0,.7);
+    backdrop-filter: blur(6px); pointer-events: none;
+    transition: opacity .5s ease, background .2s ease; opacity: 1;
   }
   .hold-hint.hidden-hint { opacity: 0; }
 
@@ -1117,22 +926,9 @@
   .popup-head:hover { background: linear-gradient(180deg, #ecf3ff, #e3ecfb); }
   .popup-head.dragging { cursor: grabbing; background: linear-gradient(180deg, #e3edff, #dbe7fb); }
   .drag-handle { font-size: 13px; color: #94a3b8; font-weight: 900; letter-spacing: -1px; flex: none; pointer-events: none; }
-  .popup-title {
-    flex: 1; font-size: 12.5px; font-weight: 700; color: var(--blue-deep);
-    display: flex; align-items: center; gap: 7px; min-width: 0;
-  }
-  .popup-title .pulse {
-    width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
-    box-shadow: 0 0 0 3px rgba(37,99,235,.2);
-    animation: pulse 1.6s ease-in-out infinite; flex: none;
-  }
-  .popup-toggle {
-    width: 28px; height: 26px; border: none; background: transparent;
-    border-radius: 8px; color: var(--blue-deep);
-    font-size: 13px; font-weight: 900; letter-spacing: -2px;
-    cursor: pointer; display: grid; place-items: center;
-    transition: all .15s; flex: none; line-height: 1; padding: 0;
-  }
+  .popup-title { flex: 1; font-size: 12.5px; font-weight: 700; color: var(--blue-deep); display: flex; align-items: center; gap: 7px; min-width: 0; }
+  .popup-title .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.2); animation: pulse 1.6s ease-in-out infinite; flex: none; }
+  .popup-toggle { width: 28px; height: 26px; border: none; background: transparent; border-radius: 8px; color: var(--blue-deep); font-size: 13px; font-weight: 900; letter-spacing: -2px; cursor: pointer; display: grid; place-items: center; transition: all .15s; flex: none; line-height: 1; padding: 0; }
   .popup-toggle:hover { background: rgba(37,99,235,.12); }
   .popup-body {
     padding: 10px 14px; font-family: "Segoe UI", system-ui, sans-serif;
@@ -1144,12 +940,7 @@
   .popup-body::-webkit-scrollbar { width: 8px; }
   .popup-body::-webkit-scrollbar-thumb { background: #c7d9fd; border-radius: 99px; border: 2px solid #fff; }
   .popup-actions { display: flex; gap: 5px; padding: 8px 10px; background: #f9fbff; border-top: 1px solid var(--line); }
-  .popup-actions button {
-    flex: 1; font-family: inherit; font-size: 11.5px; font-weight: 650;
-    padding: 7px 6px; border-radius: 9px; border: none; cursor: pointer;
-    transition: all .15s; white-space: nowrap;
-    display: inline-flex; align-items: center; justify-content: center; gap: 3px;
-  }
+  .popup-actions button { flex: 1; font-family: inherit; font-size: 11.5px; font-weight: 650; padding: 7px 6px; border-radius: 9px; border: none; cursor: pointer; transition: all .15s; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 3px; }
   .popup-btn-copy { color: #fff; background: linear-gradient(135deg, var(--blue-2), var(--blue)); box-shadow: 0 6px 14px -8px rgba(37,99,235,.9); }
   .popup-btn-copy:hover { filter: brightness(1.07); }
   .popup-btn-google { color: #fff; background: linear-gradient(135deg, #4285f4 0%, #34a853 55%, #fbbc05 100%); box-shadow: 0 6px 14px -8px rgba(66,133,244,.9); }
@@ -1168,8 +959,7 @@
   .eraser-cursor.show { display: block; }
 
   .signature {
-    display: none;
-    position: fixed; left: 18px; bottom: 16px;
+    display: none; position: fixed; left: 18px; bottom: 16px;
     font-size: 13px; font-weight: 700; letter-spacing: .3px;
     color: var(--blue-2); background: rgba(255,255,255,.9);
     backdrop-filter: blur(8px); padding: 8px 16px;
@@ -1243,12 +1033,9 @@
   /* ================= DARK MODE ================= */
   body.dark {
     color-scheme: dark;
-    --ink: #e2e8f0;
-    --muted: #94a3b8;
-    --blue: #3b82f6;
-    --blue-2: #60a5fa;
-    --blue-soft: #1e3a5f;
-    --blue-deep: #93c5fd;
+    --ink: #e2e8f0; --muted: #94a3b8;
+    --blue: #3b82f6; --blue-2: #60a5fa;
+    --blue-soft: #1e3a5f; --blue-deep: #93c5fd;
     --line: #293548;
     background: radial-gradient(1200px 600px at 8% -10%, #1e293b 0%, transparent 60%),
                 radial-gradient(1000px 520px at 100% 0%, #1e1b4b 0%, transparent 58%),
@@ -1260,38 +1047,25 @@
                 radial-gradient(1000px 520px at 100% 0%, #1e1b4b 0%, transparent 58%),
                 linear-gradient(160deg, #0a0f1a, #131a2b);
   }
-  body.dark .login-card {
-    background: rgba(15,23,42,.88);
-    border-color: rgba(96,165,250,.45);
-    box-shadow: 0 40px 90px -40px rgba(0,0,0,.85), 0 10px 30px -20px rgba(0,0,0,.5),
-                inset 0 0 0 1px rgba(255,255,255,.04);
-  }
-  body.dark .login-logo { background: linear-gradient(135deg, #1e3a5f, #1e40af33); box-shadow: inset 0 0 0 1px rgba(255,255,255,.05); }
+  body.dark .login-card { background: rgba(15,23,42,.88); border-color: rgba(96,165,250,.45); box-shadow: 0 40px 90px -40px rgba(0,0,0,.85), 0 10px 30px -20px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.04); }
+  body.dark .login-logo { background: linear-gradient(135deg, #1e3a5f, #1e40af33); }
   body.dark .login-field label { color: #cbd5e1; }
   body.dark .login-field input { background: #0b1220; border-color: #293548; color: var(--ink); }
-  body.dark .login-field input:focus { border-color: #60a5fa; box-shadow: 0 0 0 4px rgba(59,130,246,.18); }
   body.dark .login-field input::placeholder { color: #475569; }
   body.dark .login-sig { color: #93c5fd; border-top-color: #293548; }
   body.dark .login-note { color: #64748b; }
-
   body.dark .sidebar { background: rgba(15,23,42,.85); border-right-color: var(--line); }
   body.dark .sidebar::-webkit-scrollbar-thumb { background: #334155; }
   body.dark .sb-brand { border-bottom-color: var(--line); }
-  body.dark .sb-logo { background: linear-gradient(135deg, #1e3a5f, #1e40af33); box-shadow: inset 0 0 0 1px rgba(255,255,255,.05); }
+  body.dark .sb-logo { background: linear-gradient(135deg, #1e3a5f, #1e40af33); }
   body.dark .sb-title { color: #93c5fd; }
   body.dark .sb-sub { color: #60a5fa; }
   body.dark .sb-section-label { color: #64748b; }
   body.dark .sb-item { color: #cbd5e1; }
   body.dark .sb-item:hover { background: rgba(59,130,246,.12); color: #93c5fd; }
-  body.dark .sb-item.active {
-    background: linear-gradient(135deg, #1e3a5f, #1e40af33);
-    color: #93c5fd; box-shadow: inset 0 0 0 1.5px #3b82f6;
-  }
+  body.dark .sb-item.active { background: linear-gradient(135deg, #1e3a5f, #1e40af33); color: #93c5fd; box-shadow: inset 0 0 0 1.5px #3b82f6; }
   body.dark .sb-item.active::before { background: #60a5fa; }
-  body.dark .sb-item.soon.active {
-    background: linear-gradient(135deg, #422006, #78350f);
-    color: #fbbf24; box-shadow: inset 0 0 0 1.5px #f59e0b;
-  }
+  body.dark .sb-item.soon.active { background: linear-gradient(135deg, #422006, #78350f); color: #fbbf24; box-shadow: inset 0 0 0 1.5px #f59e0b; }
   body.dark .sb-item.soon.active .sb-soon-badge { background: #fbbf24; color: #422006; }
   body.dark .sb-theme { background: #0b1220; border-color: #293548; color: #93c5fd; }
   body.dark .sb-theme:hover { background: rgba(59,130,246,.15); border-color: #60a5fa; }
@@ -1299,70 +1073,29 @@
   body.dark .sb-logout:hover { background: rgba(220,38,38,.15); border-color: #f87171; }
   body.dark .sb-hint { color: #64748b; }
   body.dark .sb-hint kbd { background: #1e293b; color: #cbd5e1; border-color: #334155; }
-
   body.dark .sb-toggle { background: #0f172a; color: #93c5fd; border-color: #3b82f6; box-shadow: 4px 0 12px -8px rgba(59,130,246,.55); }
   body.dark .sb-toggle:hover { background: rgba(59,130,246,.15); border-color: #60a5fa; color: #93c5fd; }
   body.dark .dashboard.sidebar-collapsed .sb-toggle { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff; }
   body.dark .sb-backdrop { background: rgba(0,0,0,.65); }
-
   body.dark .main-area::-webkit-scrollbar-thumb { background: #334155; border-color: transparent; }
-
-  body.dark .home-head .greet {
-    background: linear-gradient(135deg, #93c5fd, #60a5fa);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  body.dark .home-head .greet { background: linear-gradient(135deg, #93c5fd, #60a5fa); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   body.dark .home-section-title { color: #e2e8f0; }
-  body.dark .feature-card {
-    background: #0f172a; border-color: #293548; color: var(--ink);
-    box-shadow: 0 4px 14px -10px rgba(0,0,0,.6);
-  }
-  body.dark .feature-card:hover {
-    border-color: #60a5fa;
-    box-shadow: 0 18px 32px -18px rgba(59,130,246,.55), 0 6px 16px -10px rgba(59,130,246,.3);
-  }
-  body.dark .fc-icon {
-    background: linear-gradient(135deg, #1e3a5f, #1e40af33);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 8px 16px -10px rgba(0,0,0,.7);
-  }
+  body.dark .feature-card { background: #0f172a; border-color: #293548; color: var(--ink); box-shadow: 0 4px 14px -10px rgba(0,0,0,.6); }
+  body.dark .feature-card:hover { border-color: #60a5fa; box-shadow: 0 18px 32px -18px rgba(59,130,246,.55), 0 6px 16px -10px rgba(59,130,246,.3); }
+  body.dark .fc-icon { background: linear-gradient(135deg, #1e3a5f, #1e40af33); }
   body.dark .fc-title { color: #e2e8f0; }
-  body.dark .feature-card.hero {
-    background: linear-gradient(135deg, #0f172a 0%, #172036 55%, #1e293b 100%);
-    border-color: #3b82f6;
-  }
-  body.dark .feature-card.hero::after {
-    background: radial-gradient(closest-side, rgba(59,130,246,.32), transparent 75%);
-  }
-  body.dark .feature-card.soon .fc-icon {
-    background: linear-gradient(135deg, #422006, #78350f);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 8px 16px -10px rgba(245,158,11,.5);
-  }
-  body.dark .feature-card.soon::before {
-    background: linear-gradient(135deg, #422006, #78350f); color: #fbbf24;
-  }
+  body.dark .feature-card.hero { background: linear-gradient(135deg, #0f172a 0%, #172036 55%, #1e293b 100%); border-color: #3b82f6; }
+  body.dark .feature-card.hero::after { background: radial-gradient(closest-side, rgba(59,130,246,.32), transparent 75%); }
+  body.dark .feature-card.soon .fc-icon { background: linear-gradient(135deg, #422006, #78350f); }
+  body.dark .feature-card.soon::before { background: linear-gradient(135deg, #422006, #78350f); color: #fbbf24; }
   body.dark .feature-card.soon:hover { border-color: #fbbf24; }
-  body.dark .feature-card.formula .fc-icon {
-    background: linear-gradient(135deg, #4c0519, #831843);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 8px 16px -10px rgba(236,72,153,.5);
-  }
+  body.dark .feature-card.formula .fc-icon { background: linear-gradient(135deg, #4c0519, #831843); }
   body.dark .feature-card.formula:hover { border-color: #ec4899; }
-  body.dark .feature-card.calc .fc-icon {
-    background: linear-gradient(135deg, #2e1065, #4c1d95);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 8px 16px -10px rgba(139,92,246,.5);
-  }
+  body.dark .feature-card.calc .fc-icon { background: linear-gradient(135deg, #2e1065, #4c1d95); }
   body.dark .feature-card.calc:hover { border-color: #a78bfa; }
   body.dark .home-footer kbd { background: #1e293b; color: #93c5fd; border-color: #334155; }
-
-  body.dark .formula-head h1 {
-    background: linear-gradient(135deg, #f472b6, #c084fc);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  body.dark .formula-search {
-    background: #0b1220 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E") no-repeat 14px center;
-    border-color: #293548; color: var(--ink);
-  }
-  body.dark .formula-search:focus { border-color: #60a5fa; }
+  body.dark .formula-head h1 { background: linear-gradient(135deg, #f472b6, #c084fc); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  body.dark .formula-search { background: #0b1220 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E") no-repeat 14px center; border-color: #293548; color: var(--ink); }
   body.dark .formula-search::placeholder { color: #475569; }
   body.dark .formula-tabs { background: #0f172a; border-color: #293548; }
   body.dark .formula-tab { color: #94a3b8; }
@@ -1375,23 +1108,14 @@
   body.dark .formula-body { color: #e2e8f0; }
   body.dark .formula-empty { color: #64748b; }
   body.dark .formula-hint { background: rgba(59,130,246,.1); border-color: #293548; color: #94a3b8; }
-
-  body.dark .app {
-    background: rgba(15,23,42,.88); border-color: #3b82f6;
-    box-shadow: 0 40px 90px -40px rgba(0,0,0,.85), 0 10px 30px -20px rgba(0,0,0,.6),
-                inset 0 0 0 1px rgba(255,255,255,.04);
-  }
+  body.dark .app { background: rgba(15,23,42,.88); border-color: #3b82f6; box-shadow: 0 40px 90px -40px rgba(0,0,0,.85), 0 10px 30px -20px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.04); }
   body.dark .app::before { background: radial-gradient(closest-side, rgba(59,130,246,.3), transparent 75%); }
-  body.dark .logo {
-    background: linear-gradient(135deg, #1e3a5f, #1e40af33);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 12px 24px -14px rgba(0,0,0,.7);
-  }
+  body.dark .logo { background: linear-gradient(135deg, #1e3a5f, #1e40af33); }
   body.dark .toolbar { background: #111c30; border-color: var(--line); }
   body.dark .file-tag #fileName { color: #e2e8f0; }
   body.dark .badge { background: #1e3a5f; color: #93c5fd; }
   body.dark .btn-icon, body.dark .select-btn { background: #0b1220; border-color: #293548; color: #93c5fd; }
   body.dark .btn-icon:hover, body.dark .select-btn:hover { background: rgba(59,130,246,.18); border-color: #60a5fa; }
-  body.dark .btn-icon:disabled, body.dark .btn-icon:disabled:hover { background: #0b1220; border-color: #1e293b; }
   body.dark .color-picker, body.dark .pen-group, body.dark .zoom-group { background: #0b1220; border-color: #293548; }
   body.dark .color-picker-label { color: #64748b; }
   body.dark .pen-btn, body.dark .eraser-btn, body.dark .zoom-group button { color: #93c5fd; }
@@ -1399,117 +1123,49 @@
   body.dark #zoomLabel { color: #93c5fd; }
   body.dark .pen-options { border-left-color: #293548; }
   body.dark .pen-size span { background: #64748b; }
-  body.dark .pen-size:hover, body.dark .pen-size.active { background: rgba(59,130,246,.2); }
-  body.dark .pen-size.active { border-color: #60a5fa; }
   body.dark .pen-size.active span { background: #93c5fd; }
   body.dark .pen-clear { color: #64748b; }
   body.dark .pen-clear:hover { background: rgba(220,38,38,.18); color: #fca5a5; }
-
   body.dark .saved-panel { background: #0f172a; border-color: #3b82f6; }
-  body.dark .saved-head {
-    background: linear-gradient(180deg, #111c30, #0d1728);
-    border-bottom-color: var(--line); color: #93c5fd;
-  }
-  body.dark .saved-list::-webkit-scrollbar-thumb { background: #334155; border-color: #0f172a; }
+  body.dark .saved-head { background: linear-gradient(180deg, #111c30, #0d1728); border-bottom-color: var(--line); color: #93c5fd; }
   body.dark .saved-item { color: #cbd5e1; }
   body.dark .saved-item:hover { background: rgba(59,130,246,.1); }
-  body.dark .saved-item.current {
-    background: linear-gradient(135deg, #1e3a5f, #1e40af33);
-    box-shadow: inset 0 0 0 1.5px #3b82f6;
-  }
-  body.dark .saved-item.current::before { background: #3b82f6; box-shadow: 0 0 0 2px #0f172a; }
-  body.dark .saved-item-icon { background: linear-gradient(135deg, #1e3a5f, #1e40af33); }
-  body.dark .saved-item.current .saved-item-icon { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff; }
+  body.dark .saved-item.current { background: linear-gradient(135deg, #1e3a5f, #1e40af33); box-shadow: inset 0 0 0 1.5px #3b82f6; }
   body.dark .saved-item-name { color: #e2e8f0; }
-  body.dark .saved-item-del { color: #475569; }
   body.dark .saved-item-del:hover { background: rgba(220,38,38,.18); color: #fca5a5; }
-
   body.dark .music-panel { background: #0f172a; border-color: #3b82f6; }
-  body.dark .music-head {
-    background: linear-gradient(180deg, #111c30, #0d1728);
-    border-bottom-color: var(--line); color: #93c5fd;
-  }
+  body.dark .music-head { background: linear-gradient(180deg, #111c30, #0d1728); border-bottom-color: var(--line); color: #93c5fd; }
   body.dark .music-search { background: #0b1220; border-color: #293548; color: var(--ink); }
-  body.dark .music-search:focus { border-color: #60a5fa; }
-  body.dark .music-search::placeholder { color: #475569; }
   body.dark .music-local-btn { background: #0b1220; border-color: #293548; color: #93c5fd; }
-  body.dark .music-local-btn:hover { background: rgba(59,130,246,.15); }
-
   body.dark .workspace { background: #0b1220; border-color: var(--line); }
-  body.dark .drop {
-    background: radial-gradient(500px 200px at 50% 0%, #111c30 0%, transparent 70%),
-                repeating-linear-gradient(45deg, #0b1220 0 12px, #101a2c 12px 24px);
-    border-color: #334155;
-  }
-  body.dark .drop:hover, body.dark .drop:focus-visible, body.dark .drop.is-over {
-    background: radial-gradient(500px 220px at 50% 0%, #16223a 0%, transparent 70%),
-                repeating-linear-gradient(45deg, #101a2c 0 12px, #16223a 12px 24px);
-    border-color: #60a5fa;
-  }
+  body.dark .drop { background: radial-gradient(500px 200px at 50% 0%, #111c30 0%, transparent 70%), repeating-linear-gradient(45deg, #0b1220 0 12px, #101a2c 12px 24px); border-color: #334155; }
   body.dark .drop .title { color: #93c5fd; }
   body.dark .pdf-viewer { background: linear-gradient(180deg, #0b1220, #0f172a); }
-  body.dark .pdf-viewer::-webkit-scrollbar-thumb { background: #334155; border-color: #0b1220; }
-  body.dark .pdf-viewer::-webkit-scrollbar-thumb:hover { background: #475569; }
-  body.dark .page-container { box-shadow: 0 12px 32px -18px rgba(0,0,0,.75), 0 2px 6px -3px rgba(0,0,0,.5); }
-  body.dark .page-container:empty::before {
-    background: linear-gradient(90deg, #111c30 0%, #16223a 50%, #111c30 100%);
-    background-size: 200% 100%;
-  }
-  body.dark .pane-header {
-    background: linear-gradient(180deg, #111c30, #0d1728);
-    border-bottom-color: var(--line); color: #93c5fd;
-  }
-  body.dark .pane-zoom-group { background: #0b1220; border-color: #293548; }
-  body.dark .pane-zoom-group button { color: #93c5fd; }
-  body.dark .pane-zoom-group button:hover { background: rgba(59,130,246,.18); }
-  body.dark #paneZoomLabel { color: #93c5fd; }
+  body.dark .pane-header { background: linear-gradient(180deg, #111c30, #0d1728); border-bottom-color: var(--line); color: #93c5fd; }
   body.dark .pane-btn { color: #93c5fd; }
-  body.dark .pane-btn:hover { background: rgba(59,130,246,.18); }
-  body.dark .pane-btn.close { color: #fca5a5; }
-  body.dark .pane-btn.close:hover { background: rgba(220,38,38,.18); }
-  body.dark .pane-empty { color: #94a3b8; }
-
   body.dark .popup { background: #0f172a; border-color: #3b82f6; }
-  body.dark .popup-head {
-    background: linear-gradient(180deg, #111c30, #0d1728);
-    border-bottom-color: var(--line);
-  }
-  body.dark .popup-head:hover { background: linear-gradient(180deg, #16223a, #111c30); }
-  body.dark .popup-head.dragging { background: linear-gradient(180deg, #1c2a45, #16223a); }
-  body.dark .drag-handle { color: #475569; }
+  body.dark .popup-head { background: linear-gradient(180deg, #111c30, #0d1728); border-bottom-color: var(--line); }
   body.dark .popup-title { color: #93c5fd; }
-  body.dark .popup-toggle { color: #93c5fd; }
-  body.dark .popup-toggle:hover { background: rgba(59,130,246,.18); }
   body.dark .popup-body { color: #e2e8f0; }
-  body.dark .popup-body::-webkit-scrollbar-thumb { background: #334155; border-color: #0f172a; }
   body.dark .popup-actions { background: #0b1220; border-top-color: var(--line); }
-
-  body.dark .soon-container {
-    background: rgba(15,23,42,.9); border-color: #3b82f6;
-    box-shadow: 0 40px 90px -40px rgba(0,0,0,.8), 0 10px 30px -20px rgba(0,0,0,.5),
-                inset 0 0 0 1px rgba(255,255,255,.04);
-  }
-  body.dark .soon-icon-large {
-    background: linear-gradient(135deg, #422006, #78350f);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 20px 40px -20px rgba(245,158,11,.6);
-  }
+  body.dark .soon-container { background: rgba(15,23,42,.9); border-color: #3b82f6; box-shadow: 0 40px 90px -40px rgba(0,0,0,.8), 0 10px 30px -20px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.04); }
+  body.dark .soon-icon-large { background: linear-gradient(135deg, #422006, #78350f); }
   body.dark .soon-container h2 { color: #e2e8f0; }
-  body.dark .soon-bar { background: #1e293b; box-shadow: inset 0 1px 2px rgba(0,0,0,.3); }
+  body.dark .soon-bar { background: #1e293b; }
   body.dark .soon-bar-label { color: #fbbf24; }
-
   body.dark .toast { background: rgba(15,23,42,.98); color: #e2e8f0; }
   body.dark .hold-hint { background: rgba(15,23,42,.9); color: #e2e8f0; }
   body.dark .signature { background: rgba(15,23,42,.9); color: #93c5fd; border-color: #3b82f6; }
-  body.dark.viewing .signature { background: rgba(59,130,246,.95); color: #fff; }
 
-  /* ================= SCIENTIFIC CALCULATOR (Casio fx-580) ================= */
+  /* ================= SCIENTIFIC CALCULATOR (Casio fx-580 + Modes) ================= */
   .calc-panel {
     position: fixed; top: 80px; right: 20px;
-    width: 400px; max-width: calc(100vw - 24px);
+    width: 420px; max-width: calc(100vw - 24px);
     background: #fff; border: 1.5px solid var(--blue-2); border-radius: 18px;
     box-shadow: 0 25px 50px -20px rgba(30,64,175,.55), 0 6px 16px -8px rgba(30,64,175,.3);
     z-index: 95; display: none; flex-direction: column; overflow: hidden;
     animation: popupIn .2s ease-out; transition: background .3s, border-color .3s;
+    max-height: calc(100vh - 100px);
   }
   .calc-panel.show { display: flex; }
   .calc-panel.dragging { transition: none; }
@@ -1528,11 +1184,38 @@
     color: #94a3b8; cursor: pointer; display: grid; place-items: center; font-size: 12px; transition: all .15s;
   }
   .calc-close:hover { background: #fee2e2; color: #dc2626; }
+
+  /* Mode tabs */
+  .calc-mode-tabs {
+    display: flex; gap: 2px; padding: 6px 8px 0; overflow-x: auto;
+    background: #f4f8ff; border-bottom: 1px solid var(--line);
+    transition: background .3s, border-color .3s;
+    scrollbar-width: none;
+  }
+  .calc-mode-tabs::-webkit-scrollbar { display: none; }
+  .calc-mode-tab {
+    padding: 7px 11px; border: none; background: transparent;
+    color: #64748b; font-family: inherit; font-size: 10px;
+    font-weight: 800; letter-spacing: .5px; cursor: pointer;
+    border-radius: 8px 8px 0 0; white-space: nowrap;
+    transition: all .15s;
+  }
+  .calc-mode-tab:hover { background: rgba(59,130,246,.12); color: var(--blue-deep); }
+  .calc-mode-tab.active {
+    background: linear-gradient(135deg, var(--blue-2), var(--blue));
+    color: #fff;
+    box-shadow: 0 -2px 8px -4px rgba(37,99,235,.6);
+  }
+
+  .calc-pane { display: none; overflow-y: auto; flex: 1; }
+  .calc-pane.active { display: block; animation: pageIn .2s ease-out; }
+  .calc-pane::-webkit-scrollbar { width: 8px; }
+  .calc-pane::-webkit-scrollbar-thumb { background: #c7d9fd; border-radius: 99px; }
+
   .calc-status {
     display: flex; gap: 6px; align-items: center; padding: 5px 10px;
     background: #eef3fb; font-size: 9.5px; font-weight: 800; color: #64748b;
     letter-spacing: .5px; border-bottom: 1px solid var(--line);
-    transition: background .3s, border-color .3s;
   }
   .calc-status .st { padding: 2px 7px; border-radius: 5px; background: rgba(255,255,255,.7); transition: all .15s; }
   .calc-status .st.shift-active { background: #f59e0b; color: #fff; }
@@ -1544,20 +1227,12 @@
     padding: 10px 16px 12px; background: #f9fbff; border-bottom: 1px solid var(--line);
     text-align: right; min-height: 82px;
     display: flex; flex-direction: column; justify-content: flex-end; gap: 4px;
-    transition: background .3s, border-color .3s;
   }
-  .calc-expr {
-    font-size: 12.5px; color: var(--muted); word-break: break-all; min-height: 16px;
-    font-family: "Consolas", "Menlo", monospace; letter-spacing: .3px;
-  }
-  .calc-result {
-    font-size: 26px; font-weight: 700; color: var(--ink); word-break: break-all;
-    font-family: "Consolas", "Menlo", monospace; letter-spacing: -.5px; line-height: 1.1;
-  }
+  .calc-expr { font-size: 12.5px; color: var(--muted); word-break: break-all; min-height: 16px; font-family: "Consolas", "Menlo", monospace; letter-spacing: .3px; }
+  .calc-result { font-size: 26px; font-weight: 700; color: var(--ink); word-break: break-all; font-family: "Consolas", "Menlo", monospace; letter-spacing: -.5px; line-height: 1.1; }
   .calc-modes {
     display: flex; align-items: center; gap: 4px; padding: 5px 8px;
     background: #f4f8ff; border-bottom: 1px solid var(--line);
-    transition: background .3s, border-color .3s;
   }
   .calc-history-btn {
     height: 24px; padding: 0 9px;
@@ -1610,7 +1285,6 @@
   .calc-history {
     display: none; max-height: 200px; overflow-y: auto;
     border-top: 1px solid var(--line); background: #f9fbff;
-    transition: background .3s, border-color .3s;
   }
   .calc-history.show { display: block; }
   .calc-history::-webkit-scrollbar { width: 6px; }
@@ -1636,7 +1310,122 @@
   .calc-history-item .hr { color: var(--ink); font-weight: 700; font-family: "Consolas", monospace; text-align: right; }
   .calc-history-empty { padding: 16px; text-align: center; color: var(--muted); font-size: 12px; font-style: italic; }
 
-  body.dark .calc-panel { background: #0f172a; border-color: #3b82f6; box-shadow: 0 25px 50px -20px rgba(0,0,0,.85), 0 6px 16px -8px rgba(0,0,0,.5); }
+  /* Mode pane common */
+  .calc-sub {
+    padding: 12px 14px; display: flex; flex-direction: column; gap: 10px;
+    background: #f9fbff;
+  }
+  .calc-sub label {
+    display: block; font-size: 10.5px; font-weight: 800;
+    color: #64748b; letter-spacing: .4px; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .calc-sub input[type="text"],
+  .calc-sub input[type="number"],
+  .calc-sub select {
+    width: 100%; padding: 8px 10px;
+    font-family: inherit; font-size: 13px; font-weight: 600;
+    background: #fff; color: var(--ink);
+    border: 1.5px solid #dbe5f2; border-radius: 8px; outline: none;
+    transition: all .15s;
+  }
+  .calc-sub input:focus, .calc-sub select:focus { border-color: var(--blue-2); box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+  .calc-sub-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .calc-sub-row.two { grid-template-columns: 1fr 1fr; }
+  .calc-sub-row.four { grid-template-columns: repeat(4, 1fr); }
+  .calc-sub-row.sys2 { grid-template-columns: repeat(3, 1fr); }
+  .calc-sub-row.sys3 { grid-template-columns: repeat(4, 1fr); }
+  .calc-sub-row.sys4 { grid-template-columns: repeat(5, 1fr); }
+  .calc-sub-row.sys4 label, .calc-sub-row.sys3 label { font-size: 9px; }
+  .calc-sub-row.sys4 input, .calc-sub-row.sys3 input { padding: 6px 4px; font-size: 11.5px; }
+
+  .calc-run-btn {
+    padding: 10px 16px; border: none; border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue-2), var(--blue));
+    color: #fff; font-family: inherit; font-size: 13px; font-weight: 700;
+    cursor: pointer; letter-spacing: .3px;
+    box-shadow: 0 6px 14px -6px rgba(37,99,235,.85);
+    transition: all .15s;
+  }
+  .calc-run-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .calc-run-btn:active { transform: translateY(0) scale(.98); }
+
+  .calc-ops {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 5px;
+  }
+  .calc-op-btn {
+    padding: 8px 6px;
+    border: 1.5px solid #c7d9fd; background: #fff;
+    border-radius: 8px; color: var(--blue-deep);
+    font-family: inherit; font-size: 11.5px; font-weight: 700;
+    cursor: pointer; transition: all .15s;
+    white-space: nowrap;
+  }
+  .calc-op-btn:hover { background: #eff5ff; border-color: var(--blue-2); }
+  .calc-op-btn:active { transform: scale(.96); }
+
+  .calc-result-box {
+    min-height: 50px; padding: 10px 12px;
+    background: #fff; border: 1.5px solid var(--line); border-radius: 10px;
+    font-family: "Consolas", "Menlo", monospace;
+    font-size: 12.5px; color: var(--ink);
+    white-space: pre-wrap; word-break: break-word;
+    -webkit-user-select: text; user-select: text;
+    max-height: 240px; overflow-y: auto;
+  }
+  .calc-result-box:empty::before { content: '👆 Bấm nút để tính'; color: #94a3b8; font-style: italic; }
+  .calc-result-box::-webkit-scrollbar { width: 6px; }
+  .calc-result-box::-webkit-scrollbar-thumb { background: #c7d9fd; border-radius: 99px; }
+  .calc-result-box table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .calc-result-box table th { text-align: left; padding: 4px 8px; border-bottom: 1.5px solid #c7d9fd; color: #64748b; font-weight: 800; }
+  .calc-result-box table th:last-child { text-align: right; }
+  .calc-result-box table td { padding: 3px 8px; }
+  .calc-result-box table td:first-child { color: #64748b; }
+  .calc-result-box table td:last-child { text-align: right; font-weight: 700; }
+
+  .matrix-grid {
+    display: inline-grid; gap: 4px;
+    padding: 6px; background: #fff;
+    border: 1.5px solid var(--line); border-radius: 10px;
+  }
+  .matrix-grid input {
+    width: 46px; padding: 6px 2px;
+    text-align: center; font-family: inherit; font-size: 12.5px;
+    font-weight: 600; background: #fff; color: var(--ink);
+    border: 1.5px solid #dbe5f2; border-radius: 6px; outline: none;
+  }
+  .matrix-grid input:focus { border-color: var(--blue-2); }
+
+  .mat-blocks { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+  .mat-block { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+  .mat-block > .mat-label { font-size: 10.5px; font-weight: 800; color: #64748b; letter-spacing: .4px; }
+  .vec-wrap { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end; }
+  .vec-item { display: flex; flex-direction: column; }
+  .vec-item label { font-size: 10px; }
+  .vec-item input { width: 58px; padding: 8px 4px; text-align: center; }
+
+  .calc-size-picker {
+    display: flex; gap: 4px;
+    padding: 3px; background: #eef3fb; border-radius: 8px;
+    width: fit-content;
+  }
+  .calc-size-picker button {
+    padding: 5px 12px; border: none; background: transparent;
+    border-radius: 6px; color: #64748b; font-family: inherit;
+    font-size: 11px; font-weight: 800; cursor: pointer;
+    transition: all .15s;
+  }
+  .calc-size-picker button.active {
+    background: linear-gradient(135deg, var(--blue-2), var(--blue));
+    color: #fff;
+  }
+
+  /* Dark mode calc additions */
+  body.dark .calc-mode-tabs { background: #111c30; border-bottom-color: var(--line); }
+  body.dark .calc-mode-tab { color: #94a3b8; }
+  body.dark .calc-mode-tab:hover { background: rgba(59,130,246,.18); color: #93c5fd; }
+  body.dark .calc-panel { background: #0f172a; border-color: #3b82f6; box-shadow: 0 25px 50px -20px rgba(0,0,0,.85); }
   body.dark .calc-head { background: linear-gradient(180deg, #111c30, #0d1728); border-bottom-color: var(--line); }
   body.dark .calc-head:hover { background: linear-gradient(180deg, #16223a, #111c30); }
   body.dark .calc-title { color: #93c5fd; }
@@ -1662,12 +1451,27 @@
   body.dark .calc-btn.danger:hover { background: #991b1b; }
   body.dark .calc-btn.ctrl { background: #422006; color: #fbbf24; }
   body.dark .calc-btn.ctrl:hover { background: #78350f; }
-  body.dark .calc-btn.ctrl.shift-on { background: linear-gradient(135deg, #d97706, #b45309); color: #fff; box-shadow: 0 0 0 2px #fbbf24 inset, 0 4px 10px -4px rgba(245,158,11,.9); }
+  body.dark .calc-btn.ctrl.shift-on { background: linear-gradient(135deg, #d97706, #b45309); color: #fff; }
   body.dark .calc-btn .shift-label { color: #fbbf24; }
   body.dark .calc-history { background: #0b1220; border-top-color: var(--line); }
-  body.dark .calc-history::-webkit-scrollbar-thumb { background: #334155; }
   body.dark .calc-history-item:hover { background: rgba(59,130,246,.15); }
   body.dark .calc-history-item .hr { color: #e2e8f0; }
+  body.dark .calc-sub { background: #0b1220; }
+  body.dark .calc-sub label { color: #64748b; }
+  body.dark .calc-sub input, body.dark .calc-sub select { background: #0f172a; border-color: #293548; color: #e2e8f0; }
+  body.dark .calc-sub input::placeholder { color: #475569; }
+  body.dark .calc-op-btn { background: #0f172a; border-color: #293548; color: #93c5fd; }
+  body.dark .calc-op-btn:hover { background: rgba(59,130,246,.18); border-color: #60a5fa; }
+  body.dark .calc-result-box { background: #0f172a; border-color: #293548; color: #e2e8f0; }
+  body.dark .calc-result-box table th { border-bottom-color: #334155; color: #94a3b8; }
+  body.dark .calc-result-box table td:first-child { color: #94a3b8; }
+  body.dark .matrix-grid { background: #0f172a; border-color: #293548; }
+  body.dark .matrix-grid input { background: #0b1220; border-color: #293548; color: #e2e8f0; }
+  body.dark .mat-block > .mat-label { color: #94a3b8; }
+  body.dark .calc-size-picker { background: #1e293b; }
+  body.dark .calc-size-picker button { color: #94a3b8; }
+  body.dark .calc-size-picker button.active { color: #fff; }
+  body.dark .calc-pane::-webkit-scrollbar-thumb { background: #334155; }
 
   @media (max-width: 480px) {
     .calc-panel { width: calc(100vw - 20px); right: 10px; top: 60px; }
@@ -1676,6 +1480,8 @@
     .calc-btn.fn .main-label { font-size: 11px; }
     .calc-btn .shift-label { font-size: 7px; left: 3px; }
     .calc-result { font-size: 22px; }
+    .matrix-grid input { width: 36px; font-size: 11px; }
+    .calc-sub-row.sys4 input, .calc-sub-row.sys3 input { padding: 5px 2px; font-size: 10.5px; }
   }
 </style>
 </head>
@@ -1829,7 +1635,7 @@
             <div class="feature-card calc" id="calcCardBtn">
               <div class="fc-icon">🧮</div>
               <div class="fc-title">Máy tính Casio fx-580</div>
-              <div class="fc-desc">Popup kéo được. SHIFT, ALPHA, DEG/RAD/GRAD, sin/cos/tan + nghịch, log/ln + 10ˣ/eˣ, nPr/nCr, gcd/lcm, Rnd, M memory, lịch sử.</div>
+              <div class="fc-desc">COMP · TABLE · MATRIX · VECTOR · EQN — giải PT bậc 2/3, hệ 2/3/4 ẩn, ma trận, vector, bảng giá trị.</div>
               <div class="fc-cta">Mở ngay →</div>
             </div>
           </div>
@@ -1924,7 +1730,6 @@
           </div>
           <div class="toolbar-right" id="toolbarRight">
             <button class="select-btn" id="selectModeBtn" title="Chọn vùng (nhấn B 2 lần)">✂️</button>
-
             <div class="pen-group" id="penGroup">
               <button class="pen-btn" id="penBtn" title="Bút vẽ (B)">✏️</button>
               <button class="eraser-btn" id="eraserBtn" title="Cục tẩy (E)">🧽</button>
@@ -1936,7 +1741,6 @@
                 <button class="pen-clear" id="penClear" title="Xoá hết nét vẽ">🗑️</button>
               </div>
             </div>
-
             <div class="color-picker" id="colorPicker">
               <span class="color-picker-label">Màu</span>
               <button class="swatch active" data-color="253, 224, 71"  style="background:#fde047" title="Vàng"></button>
@@ -1946,13 +1750,11 @@
               <button class="swatch"        data-color="253, 186, 116" style="background:#fdba74" title="Cam"></button>
               <button class="swatch"        data-color="196, 181, 253" style="background:#c4b5fd" title="Tím"></button>
             </div>
-
             <div class="zoom-group" id="zoomGroup">
               <button id="zoomOut" title="Thu nhỏ">−</button>
               <span id="zoomLabel">100%</span>
               <button id="zoomIn" title="Phóng to">+</button>
             </div>
-
             <button class="btn-icon" id="musicBtn" title="Phát nhạc">🎵</button>
             <button class="btn-icon" id="savedFilesBtn" title="File đã lưu">
               📁<span class="count-badge" id="savedCount">0</span>
@@ -1960,7 +1762,6 @@
             <button class="btn-icon" id="splitBtn" title="Mở 2 file cùng lúc" disabled>⊞</button>
             <button class="btn-icon" id="hideRightBtn" title="Ẩn file 2" style="display: none;">👁️</button>
             <button class="btn-icon" id="changeFileBtn" title="Đổi file">📂</button>
-
             <div class="saved-panel" id="savedPanel">
               <div class="saved-head">
                 <span>📁 File đã lưu</span>
@@ -1985,7 +1786,6 @@
                 <div class="page-wrap" id="pages"></div>
               </div>
             </div>
-
             <div class="pane pane-right" id="paneRight">
               <div class="pane-header">
                 <span class="pane-title" id="paneRightTitle">File 2</span>
@@ -2021,12 +1821,10 @@
         <div class="soon-icon-large" id="soonIcon">🔧</div>
         <h2 id="soonTitle">Tính năng sắp ra mắt</h2>
         <p class="soon-desc" id="soonDesc">Tính năng này đang được phát triển. Vui lòng quay lại sau!</p>
-
         <div class="soon-progress">
           <div class="soon-bar"><div class="soon-bar-fill" id="soonBarFill"></div></div>
           <div class="soon-bar-label" id="soonBarLabel">Đang phát triển</div>
         </div>
-
         <button class="soon-back-btn" id="soonBackBtn">← Về trang chủ</button>
       </div>
     </section>
@@ -2088,89 +1886,204 @@
 <div class="save-toast" id="saveToast">💾 Đã lưu nét vẽ</div>
 <input type="file" id="fileInput2" accept="application/pdf,.pdf" hidden />
 
-<!-- SCIENTIFIC CALCULATOR POPUP (Casio fx-580) -->
+<!-- CALCULATOR (multi-mode) -->
 <div class="calc-panel" id="calcPanel">
   <div class="calc-head" id="calcHead">
     <span class="calc-drag">⠿</span>
-    <span class="calc-title">🧮 Máy tính khoa học — Casio fx-580</span>
+    <span class="calc-title">🧮 Máy tính fx-580</span>
     <button class="calc-close" id="calcClose" title="Đóng (Esc)">✕</button>
   </div>
 
-  <div class="calc-status">
-    <span class="st active" id="stAngle">DEG</span>
-    <span class="st" id="stShift">SHIFT</span>
-    <span class="st" id="stAlpha">ALPHA</span>
-    <span class="st" id="stMem">M</span>
-    <span class="spacer"></span>
-    <span class="st" id="stHint" style="background:transparent;color:#d97706;"></span>
+  <div class="calc-mode-tabs">
+    <button class="calc-mode-tab active" data-calc-mode="COMP">COMP</button>
+    <button class="calc-mode-tab" data-calc-mode="TABLE">TABLE</button>
+    <button class="calc-mode-tab" data-calc-mode="MATRIX">MATRIX</button>
+    <button class="calc-mode-tab" data-calc-mode="VECTOR">VECTOR</button>
+    <button class="calc-mode-tab" data-calc-mode="EQN">EQN</button>
   </div>
 
-  <div class="calc-display">
-    <div class="calc-expr" id="calcExpr"></div>
-    <div class="calc-result" id="calcResult">0</div>
+  <!-- COMP -->
+  <div class="calc-pane active" data-calc-pane="COMP">
+    <div class="calc-status">
+      <span class="st active" id="stAngle">DEG</span>
+      <span class="st" id="stShift">SHIFT</span>
+      <span class="st" id="stAlpha">ALPHA</span>
+      <span class="st" id="stMem">M</span>
+      <span class="spacer"></span>
+      <span class="st" id="stHint" style="background:transparent;color:#d97706;"></span>
+    </div>
+
+    <div class="calc-display">
+      <div class="calc-expr" id="calcExpr"></div>
+      <div class="calc-result" id="calcResult">0</div>
+    </div>
+
+    <div class="calc-modes">
+      <button class="calc-history-btn" id="calcHistoryBtn" title="Lịch sử">📜 Lịch sử</button>
+      <button class="calc-history-btn" id="calcHistPrev" title="Phép trước">▲</button>
+      <button class="calc-history-btn" id="calcHistNext" title="Phép sau">▼</button>
+      <span class="spacer"></span>
+      <button class="calc-history-btn" id="calcBackspace" title="Xoá 1 ký tự">⌫</button>
+    </div>
+
+    <div class="calc-buttons" id="calcButtons">
+      <button class="calc-btn ctrl" data-act="SHIFT" id="btnShift"><span class="main-label">SHIFT</span></button>
+      <button class="calc-btn ctrl" data-act="ALPHA"><span class="main-label">ALPHA</span></button>
+      <button class="calc-btn ctrl" data-act="MODE"><span class="shift-label">GRAD</span><span class="main-label">MODE</span></button>
+      <button class="calc-btn ctrl" data-act="M+"><span class="shift-label">MC</span><span class="main-label">M+</span></button>
+      <button class="calc-btn ctrl" data-act="M−"><span class="shift-label">MR</span><span class="main-label">M−</span></button>
+
+      <button class="calc-btn fn" data-act="sin"><span class="shift-label">sin⁻¹</span><span class="main-label">sin</span></button>
+      <button class="calc-btn fn" data-act="cos"><span class="shift-label">cos⁻¹</span><span class="main-label">cos</span></button>
+      <button class="calc-btn fn" data-act="tan"><span class="shift-label">tan⁻¹</span><span class="main-label">tan</span></button>
+      <button class="calc-btn fn" data-act="log"><span class="shift-label">10ˣ</span><span class="main-label">log</span></button>
+      <button class="calc-btn fn" data-act="ln"><span class="shift-label">eˣ</span><span class="main-label">ln</span></button>
+
+      <button class="calc-btn fn" data-act="sq"><span class="shift-label">x³</span><span class="main-label">x²</span></button>
+      <button class="calc-btn fn" data-act="pow"><span class="shift-label">ʸ√x</span><span class="main-label">xʸ</span></button>
+      <button class="calc-btn fn" data-act="sqrt"><span class="shift-label">∛</span><span class="main-label">√</span></button>
+      <button class="calc-btn fn" data-act="inv"><span class="shift-label">|x|</span><span class="main-label">x⁻¹</span></button>
+      <button class="calc-btn fn" data-act="fact"><span class="shift-label">nCr</span><span class="main-label">n!</span></button>
+
+      <button class="calc-btn fn" data-act="pi"><span class="shift-label">Rnd</span><span class="main-label">π</span></button>
+      <button class="calc-btn fn" data-act="e"><span class="shift-label">RndInt</span><span class="main-label">e</span></button>
+      <button class="calc-btn fn" data-act="("><span class="shift-label">sinh</span><span class="main-label">(</span></button>
+      <button class="calc-btn fn" data-act=")"><span class="shift-label">cosh</span><span class="main-label">)</span></button>
+      <button class="calc-btn fn" data-act=","><span class="shift-label">tanh</span><span class="main-label">,</span></button>
+
+      <button class="calc-btn" data-act="7"><span class="main-label">7</span></button>
+      <button class="calc-btn" data-act="8"><span class="main-label">8</span></button>
+      <button class="calc-btn" data-act="9"><span class="main-label">9</span></button>
+      <button class="calc-btn danger" data-act="DEL"><span class="shift-label">CLR</span><span class="main-label">DEL</span></button>
+      <button class="calc-btn danger" data-act="AC"><span class="shift-label">OFF</span><span class="main-label">AC</span></button>
+
+      <button class="calc-btn" data-act="4"><span class="main-label">4</span></button>
+      <button class="calc-btn" data-act="5"><span class="main-label">5</span></button>
+      <button class="calc-btn" data-act="6"><span class="main-label">6</span></button>
+      <button class="calc-btn op" data-act="×"><span class="shift-label">nPr</span><span class="main-label">×</span></button>
+      <button class="calc-btn op" data-act="÷"><span class="shift-label">gcd</span><span class="main-label">÷</span></button>
+
+      <button class="calc-btn" data-act="1"><span class="main-label">1</span></button>
+      <button class="calc-btn" data-act="2"><span class="main-label">2</span></button>
+      <button class="calc-btn" data-act="3"><span class="main-label">3</span></button>
+      <button class="calc-btn op" data-act="+"><span class="shift-label">lcm</span><span class="main-label">+</span></button>
+      <button class="calc-btn op" data-act="−"><span class="shift-label">mod</span><span class="main-label">−</span></button>
+
+      <button class="calc-btn" data-act="0"><span class="main-label">0</span></button>
+      <button class="calc-btn" data-act="."><span class="shift-label">%</span><span class="main-label">.</span></button>
+      <button class="calc-btn fn" data-act="EXP"><span class="shift-label">π</span><span class="main-label">EXP</span></button>
+      <button class="calc-btn fn" data-act="Ans"><span class="shift-label">RCL</span><span class="main-label">Ans</span></button>
+      <button class="calc-btn eq" data-act="="><span class="main-label">=</span></button>
+    </div>
   </div>
 
-  <div class="calc-modes">
-    <button class="calc-history-btn" id="calcHistoryBtn" title="Lịch sử">📜 Lịch sử</button>
-    <button class="calc-history-btn" id="calcHistPrev" title="Phép tính trước">▲</button>
-    <button class="calc-history-btn" id="calcHistNext" title="Phép tính sau">▼</button>
-    <span class="spacer"></span>
-    <button class="calc-history-btn" id="calcBackspace" title="Xoá 1 ký tự">⌫</button>
+  <!-- TABLE -->
+  <div class="calc-pane" data-calc-pane="TABLE">
+    <div class="calc-sub">
+      <div>
+        <label>f(x) — dùng x hoặc X</label>
+        <input type="text" id="tableFx" placeholder="vd: x^2 - 2x + 1  hoặc  sin(x)+cos(x)">
+      </div>
+      <div class="calc-sub-row">
+        <div><label>Start</label><input type="number" id="tableStart" value="0" step="any"></div>
+        <div><label>End</label><input type="number" id="tableEnd" value="10" step="any"></div>
+        <div><label>Step</label><input type="number" id="tableStep" value="1" step="any"></div>
+      </div>
+      <button class="calc-run-btn" id="tableRun">Tạo bảng giá trị</button>
+      <div class="calc-result-box" id="tableResult"></div>
+    </div>
   </div>
 
-  <div class="calc-buttons" id="calcButtons">
-    <button class="calc-btn ctrl" data-act="SHIFT" id="btnShift"><span class="main-label">SHIFT</span></button>
-    <button class="calc-btn ctrl" data-act="ALPHA"><span class="main-label">ALPHA</span></button>
-    <button class="calc-btn ctrl" data-act="MODE"><span class="shift-label">GRAD</span><span class="main-label">MODE</span></button>
-    <button class="calc-btn ctrl" data-act="M+"><span class="shift-label">MC</span><span class="main-label">M+</span></button>
-    <button class="calc-btn ctrl" data-act="M−"><span class="shift-label">MR</span><span class="main-label">M−</span></button>
+  <!-- MATRIX -->
+  <div class="calc-pane" data-calc-pane="MATRIX">
+    <div class="calc-sub">
+      <div>
+        <label>Cấp ma trận</label>
+        <div class="calc-size-picker" id="matSizePicker">
+          <button class="active" data-size="2">2 × 2</button>
+          <button data-size="3">3 × 3</button>
+        </div>
+      </div>
+      <div class="mat-blocks">
+        <div class="mat-block">
+          <span class="mat-label">Ma trận A</span>
+          <div class="matrix-grid" id="matA"></div>
+        </div>
+        <div class="mat-block">
+          <span class="mat-label">Ma trận B</span>
+          <div class="matrix-grid" id="matB"></div>
+        </div>
+      </div>
+      <div class="calc-ops" id="matOps">
+        <button class="calc-op-btn" data-op="A+B">A + B</button>
+        <button class="calc-op-btn" data-op="A-B">A − B</button>
+        <button class="calc-op-btn" data-op="AxB">A × B</button>
+        <button class="calc-op-btn" data-op="detA">det(A)</button>
+        <button class="calc-op-btn" data-op="detB">det(B)</button>
+        <button class="calc-op-btn" data-op="invA">A⁻¹</button>
+        <button class="calc-op-btn" data-op="invB">B⁻¹</button>
+        <button class="calc-op-btn" data-op="transA">Aᵀ</button>
+        <button class="calc-op-btn" data-op="transB">Bᵀ</button>
+      </div>
+      <div class="calc-result-box" id="matResult"></div>
+    </div>
+  </div>
 
-    <button class="calc-btn fn" data-act="sin"><span class="shift-label">sin⁻¹</span><span class="main-label">sin</span></button>
-    <button class="calc-btn fn" data-act="cos"><span class="shift-label">cos⁻¹</span><span class="main-label">cos</span></button>
-    <button class="calc-btn fn" data-act="tan"><span class="shift-label">tan⁻¹</span><span class="main-label">tan</span></button>
-    <button class="calc-btn fn" data-act="log"><span class="shift-label">10ˣ</span><span class="main-label">log</span></button>
-    <button class="calc-btn fn" data-act="ln"><span class="shift-label">eˣ</span><span class="main-label">ln</span></button>
+  <!-- VECTOR -->
+  <div class="calc-pane" data-calc-pane="VECTOR">
+    <div class="calc-sub">
+      <div>
+        <label>Chiều vector</label>
+        <div class="calc-size-picker" id="vecDimPicker">
+          <button class="active" data-dim="2">2D</button>
+          <button data-dim="3">3D</button>
+        </div>
+      </div>
+      <div class="vec-wrap">
+        <div class="mat-block">
+          <span class="mat-label">Vector A</span>
+          <div class="vec-wrap" id="vecA"></div>
+        </div>
+        <div class="mat-block">
+          <span class="mat-label">Vector B</span>
+          <div class="vec-wrap" id="vecB"></div>
+        </div>
+      </div>
+      <div class="calc-ops" id="vecOps">
+        <button class="calc-op-btn" data-op="A+B">A + B</button>
+        <button class="calc-op-btn" data-op="A-B">A − B</button>
+        <button class="calc-op-btn" data-op="dot">A · B</button>
+        <button class="calc-op-btn" data-op="cross">A × B</button>
+        <button class="calc-op-btn" data-op="magA">|A|</button>
+        <button class="calc-op-btn" data-op="magB">|B|</button>
+        <button class="calc-op-btn" data-op="angle">Góc(A,B)</button>
+      </div>
+      <div class="calc-result-box" id="vecResult"></div>
+    </div>
+  </div>
 
-    <button class="calc-btn fn" data-act="sq"><span class="shift-label">x³</span><span class="main-label">x²</span></button>
-    <button class="calc-btn fn" data-act="pow"><span class="shift-label">ʸ√x</span><span class="main-label">xʸ</span></button>
-    <button class="calc-btn fn" data-act="sqrt"><span class="shift-label">∛</span><span class="main-label">√</span></button>
-    <button class="calc-btn fn" data-act="inv"><span class="shift-label">|x|</span><span class="main-label">x⁻¹</span></button>
-    <button class="calc-btn fn" data-act="fact"><span class="shift-label">nCr</span><span class="main-label">n!</span></button>
-
-    <button class="calc-btn fn" data-act="pi"><span class="shift-label">Rnd</span><span class="main-label">π</span></button>
-    <button class="calc-btn fn" data-act="e"><span class="shift-label">RndInt</span><span class="main-label">e</span></button>
-    <button class="calc-btn fn" data-act="("><span class="shift-label">sinh</span><span class="main-label">(</span></button>
-    <button class="calc-btn fn" data-act=")"><span class="shift-label">cosh</span><span class="main-label">)</span></button>
-    <button class="calc-btn fn" data-act=","><span class="shift-label">tanh</span><span class="main-label">,</span></button>
-
-    <button class="calc-btn" data-act="7"><span class="main-label">7</span></button>
-    <button class="calc-btn" data-act="8"><span class="main-label">8</span></button>
-    <button class="calc-btn" data-act="9"><span class="main-label">9</span></button>
-    <button class="calc-btn danger" data-act="DEL"><span class="shift-label">CLR</span><span class="main-label">DEL</span></button>
-    <button class="calc-btn danger" data-act="AC"><span class="shift-label">OFF</span><span class="main-label">AC</span></button>
-
-    <button class="calc-btn" data-act="4"><span class="main-label">4</span></button>
-    <button class="calc-btn" data-act="5"><span class="main-label">5</span></button>
-    <button class="calc-btn" data-act="6"><span class="main-label">6</span></button>
-    <button class="calc-btn op" data-act="×"><span class="shift-label">nPr</span><span class="main-label">×</span></button>
-    <button class="calc-btn op" data-act="÷"><span class="shift-label">gcd</span><span class="main-label">÷</span></button>
-
-    <button class="calc-btn" data-act="1"><span class="main-label">1</span></button>
-    <button class="calc-btn" data-act="2"><span class="main-label">2</span></button>
-    <button class="calc-btn" data-act="3"><span class="main-label">3</span></button>
-    <button class="calc-btn op" data-act="+"><span class="shift-label">lcm</span><span class="main-label">+</span></button>
-    <button class="calc-btn op" data-act="−"><span class="shift-label">mod</span><span class="main-label">−</span></button>
-
-    <button class="calc-btn" data-act="0"><span class="main-label">0</span></button>
-    <button class="calc-btn" data-act="."><span class="shift-label">%</span><span class="main-label">.</span></button>
-    <button class="calc-btn fn" data-act="EXP"><span class="shift-label">π</span><span class="main-label">EXP</span></button>
-    <button class="calc-btn fn" data-act="Ans"><span class="shift-label">RCL</span><span class="main-label">Ans</span></button>
-    <button class="calc-btn eq" data-act="="><span class="main-label">=</span></button>
+  <!-- EQN -->
+  <div class="calc-pane" data-calc-pane="EQN">
+    <div class="calc-sub">
+      <div>
+        <label>Loại phương trình / hệ</label>
+        <select id="eqnType">
+          <option value="q2">Bậc 2: ax² + bx + c = 0</option>
+          <option value="q3">Bậc 3: ax³ + bx² + cx + d = 0</option>
+          <option value="sys2">Hệ 2 ẩn: a₁x + b₁y = c₁ ; a₂x + b₂y = c₂</option>
+          <option value="sys3">Hệ 3 ẩn: x, y, z</option>
+          <option value="sys4">Hệ 4 ẩn: x, y, z, w</option>
+        </select>
+      </div>
+      <div id="eqnInputs"></div>
+      <button class="calc-run-btn" id="eqnSolve">Giải</button>
+      <div class="calc-result-box" id="eqnResult"></div>
+    </div>
   </div>
 
   <div class="calc-history" id="calcHistory">
     <div class="calc-history-head">
-      <span>📜 Lịch sử (50 phép gần nhất)</span>
+      <span>📜 Lịch sử (50 phép)</span>
       <button class="calc-history-clear" id="calcHistoryClear">Xoá hết</button>
     </div>
     <div class="calc-history-list" id="calcHistoryList"></div>
@@ -2178,7 +2091,7 @@
 </div>
 
 <script>
-/* THEME — chạy sớm để giảm flash */
+/* THEME */
 const THEME_KEY = 'pdfReader_theme';
 function applyTheme(dark) {
   document.body.classList.toggle('dark', dark);
@@ -2269,9 +2182,8 @@ const FORMULAS = {
         { name: 'Định lý Vi-ét', body: 'x₁ + x₂ = ' + FRAC('−b', 'a') + ' ,  x₁·x₂ = ' + FRAC('c', 'a') },
         { name: 'Hệ quả Vi-ét (a+b+c=0)', body: 'x₁ = 1 ,  x₂ = ' + FRAC('c', 'a') },
         { name: 'Hệ quả Vi-ét (a−b+c=0)', body: 'x₁ = −1 ,  x₂ = −' + FRAC('c', 'a') },
-        { name: 'BĐT Cauchy (AM–GM) 2 số', body: 'a + b ≥ 2√(ab)  (a, b ≥ 0)' },
+        { name: 'BĐT Cauchy 2 số', body: 'a + b ≥ 2√(ab)  (a, b ≥ 0)' },
         { name: 'BĐT Cauchy 3 số', body: 'a + b + c ≥ 3·³√(abc)' },
-        { name: 'BĐT Cauchy dạng phân số', body: FRAC('1', 'a') + ' + ' + FRAC('1', 'b') + ' ≥ ' + FRAC('4', 'a + b') },
         { name: 'BĐT Bunhiacopxki', body: '(a² + b²)(x² + y²) ≥ (ax + by)²' },
         { name: 'BĐT tam giác', body: '|a| + |b| ≥ |a + b| ≥ ||a| − |b||' },
       ]},
@@ -2292,8 +2204,8 @@ const FORMULAS = {
         { name: 'Tổng → tích (sin+sin)', body: 'sin a + sin b = 2 sin' + FRAC('a+b','2') + '·cos' + FRAC('a−b','2') },
         { name: 'Tổng → tích (cos+cos)', body: 'cos a + cos b = 2 cos' + FRAC('a+b','2') + '·cos' + FRAC('a−b','2') },
         { name: 'Tích → tổng (sin·cos)', body: 'sin a·cos b = ' + FRAC('1', '2') + '[sin(a+b) + sin(a−b)]' },
-        { name: 'Phương trình lượng giác cơ bản', body: 'sin x = sin α ⇔ x = α + k2π  hoặc  x = π − α + k2π' },
-        { name: 'Nghiệm tổng quát', body: 'cos x = cos α ⇔ x = ±α + k2π' },
+        { name: 'PT lượng giác cơ bản', body: 'sin x = sin α ⇔ x = α + k2π  hoặc  x = π − α + k2π' },
+        { name: 'Nghiệm tổng quát cos', body: 'cos x = cos α ⇔ x = ±α + k2π' },
       ]},
       { title: 'Đạo hàm', items: [
         { name: 'Đạo hàm hằng số', body: "(C)' = 0" },
@@ -2340,7 +2252,7 @@ const FORMULAS = {
         { name: 'Diện tích đường tròn', body: 'S = πR² ;  Chu vi C = 2πR' },
         { name: 'Diện tích hình quạt', body: 'S = ' + FRAC('1', '2') + 'R²·α  (α tính bằng rad)' },
         { name: 'Phương trình đường thẳng', body: 'y = ax + b  hoặc  Ax + By + C = 0' },
-        { name: 'Khoảng cách điểm → đường thẳng', body: 'd = ' + FRAC('|Ax₀ + By₀ + C|', '√(A² + B²)') },
+        { name: 'Khoảng cách điểm → đt', body: 'd = ' + FRAC('|Ax₀ + By₀ + C|', '√(A² + B²)') },
         { name: 'Góc giữa 2 đường thẳng', body: 'tan φ = |' + FRAC('a₁ − a₂', '1 + a₁·a₂') + '|' },
         { name: 'Phương trình đường tròn', body: '(x − a)² + (y − b)² = R²' },
       ]},
@@ -2357,11 +2269,11 @@ const FORMULAS = {
         { name: 'Thể tích hình lập phương', body: 'V = a³' },
       ]},
       { title: 'Cấp số', items: [
-        { name: 'Cấp số cộng — số hạng tổng quát', body: 'uₙ = u₁ + (n − 1)d' },
-        { name: 'Cấp số cộng — tổng n số hạng', body: 'Sₙ = ' + FRAC('n(u₁ + uₙ)', '2') + ' = ' + FRAC('n[2u₁ + (n−1)d]', '2') },
-        { name: 'Cấp số nhân — số hạng tổng quát', body: 'uₙ = u₁·qⁿ⁻¹' },
-        { name: 'Cấp số nhân — tổng n số hạng', body: 'Sₙ = u₁·' + FRAC('qⁿ − 1', 'q − 1') + '  (q ≠ 1)' },
-        { name: 'Cấp số nhân lùi vô hạn', body: 'S = ' + FRAC('u₁', '1 − q') + '  (|q| < 1)' },
+        { name: 'CSC — số hạng tổng quát', body: 'uₙ = u₁ + (n − 1)d' },
+        { name: 'CSC — tổng n số hạng', body: 'Sₙ = ' + FRAC('n(u₁ + uₙ)', '2') + ' = ' + FRAC('n[2u₁ + (n−1)d]', '2') },
+        { name: 'CSN — số hạng tổng quát', body: 'uₙ = u₁·qⁿ⁻¹' },
+        { name: 'CSN — tổng n số hạng', body: 'Sₙ = u₁·' + FRAC('qⁿ − 1', 'q − 1') + '  (q ≠ 1)' },
+        { name: 'CSN lùi vô hạn', body: 'S = ' + FRAC('u₁', '1 − q') + '  (|q| < 1)' },
       ]},
       { title: 'Tổ hợp — Xác suất', items: [
         { name: 'Hoán vị', body: 'Pₙ = n! = 1·2·3·...·n' },
@@ -2372,7 +2284,7 @@ const FORMULAS = {
         { name: 'Nhị thức Newton', body: '(a + b)ⁿ = Σ C(n, k)·aⁿ⁻ᵏ·bᵏ' },
         { name: 'Xác suất cổ điển', body: 'P(A) = ' + FRAC('số kết quả thuận lợi', 'tổng số kết quả') },
         { name: 'Xác suất biến cố đối', body: 'P(Ā) = 1 − P(A)' },
-        { name: 'Xác suất hợp (độc lập)', body: 'P(A∪B) = P(A) + P(B) − P(A∩B)' },
+        { name: 'Xác suất hợp', body: 'P(A∪B) = P(A) + P(B) − P(A∩B)' },
         { name: 'Xác suất giao (độc lập)', body: 'P(A∩B) = P(A)·P(B)' },
       ]},
       { title: 'Số phức — Vector', items: [
@@ -2392,10 +2304,10 @@ const FORMULAS = {
     label: 'Lý', icon: '⚛️',
     groups: [
       { title: 'Động học', items: [
-        { name: 'Vận tốc — chuyển động thẳng đều', body: 'v = ' + FRAC('s', 't') },
-        { name: 'Chuyển động thẳng biến đổi đều — vận tốc', body: 'v = v₀ + at' },
-        { name: 'Chuyển động thẳng BĐĐ — quãng đường', body: 's = v₀t + ' + FRAC('1', '2') + 'at²' },
-        { name: 'Liên hệ v − s (không thời gian)', body: 'v² − v₀² = 2as' },
+        { name: 'Vận tốc — CĐ thẳng đều', body: 'v = ' + FRAC('s', 't') },
+        { name: 'CĐ thẳng BĐĐ — vận tốc', body: 'v = v₀ + at' },
+        { name: 'CĐ thẳng BĐĐ — quãng đường', body: 's = v₀t + ' + FRAC('1', '2') + 'at²' },
+        { name: 'Liên hệ v − s', body: 'v² − v₀² = 2as' },
         { name: 'Rơi tự do — vận tốc', body: 'v = gt' },
         { name: 'Rơi tự do — quãng đường', body: 'h = ' + FRAC('1', '2') + 'gt²' },
         { name: 'Ném ngang — tầm bay', body: 'L = v₀·√(2h/g)' },
@@ -2414,7 +2326,7 @@ const FORMULAS = {
         { name: 'Định luật III Newton', body: 'F₁₂ = −F₂₁' },
         { name: 'Mômen lực', body: 'M = F·d' },
       ]},
-      { title: 'Năng lượng — Định luật bảo toàn', items: [
+      { title: 'Năng lượng — ĐLBT', items: [
         { name: 'Động lượng', body: 'p = mv' },
         { name: 'Xung lượng của lực', body: 'F·Δt = Δp' },
         { name: 'Công cơ học', body: 'A = F·s·cos α' },
@@ -2423,15 +2335,15 @@ const FORMULAS = {
         { name: 'Thế năng trọng trường', body: 'W_t = mgh' },
         { name: 'Thế năng đàn hồi', body: 'W_t = ' + FRAC('1', '2') + 'k·(Δl)²' },
         { name: 'Cơ năng', body: 'W = W_đ + W_t = const  (không ma sát)' },
-        { name: 'Định luật bảo toàn động lượng', body: 'p₁ + p₂ = p₁\' + p₂\'' },
+        { name: 'ĐLBT động lượng', body: 'p₁ + p₂ = p₁\' + p₂\'' },
       ]},
       { title: 'Chất khí — Nhiệt học', items: [
         { name: 'Phương trình trạng thái', body: FRAC('pV', 'T') + ' = const' },
         { name: 'Định luật Boyle–Mariotte', body: 'p₁V₁ = p₂V₂  (T = const)' },
         { name: 'Định luật Charles', body: FRAC('V', 'T') + ' = const  (p = const)' },
         { name: 'Định luật Gay-Lussac', body: FRAC('p', 'T') + ' = const  (V = const)' },
-        { name: 'Phương trình C–M', body: 'pV = nRT  (R = 8,31 J/mol·K)' },
-        { name: 'Nhiệt lượng thu vào/toả ra', body: 'Q = mc·Δt' },
+        { name: 'PT C–M', body: 'pV = nRT  (R = 8,31 J/mol·K)' },
+        { name: 'Nhiệt lượng', body: 'Q = mc·Δt' },
         { name: 'Nhiệt nóng chảy', body: 'Q = λm' },
         { name: 'Nhiệt hoá hơi', body: 'Q = Lm' },
         { name: 'Hiệu suất động cơ nhiệt', body: 'H = ' + FRAC('|A|', 'Q₁') + ' = ' + FRAC('Q₁ − Q₂', 'Q₁') },
@@ -2447,27 +2359,27 @@ const FORMULAS = {
         { name: 'Điện trở song song', body: FRAC('1', 'R') + ' = ' + FRAC('1', 'R₁') + ' + ' + FRAC('1', 'R₂') + ' + ...' },
         { name: 'Suất điện động nguồn', body: 'E = I(R + r)' },
         { name: 'Hiệu suất nguồn điện', body: 'H = ' + FRAC('R', 'R + r') + '·100%' },
-        { name: 'Lực từ tác dụng lên dây dẫn', body: 'F = B·I·l·sin α' },
+        { name: 'Lực từ tác dụng lên dây', body: 'F = B·I·l·sin α' },
         { name: 'Lực Lo-ren-xơ', body: 'f = |q|·v·B·sin α' },
         { name: 'Cảm ứng từ dây dẫn thẳng', body: 'B = 2·10⁻⁷·' + FRAC('I', 'r') },
         { name: 'Cảm ứng từ ống dây', body: 'B = 4π·10⁻⁷·' + FRAC('N', 'l') + '·I' },
         { name: 'Từ thông', body: 'Φ = B·S·cos α' },
-        { name: 'Suất điện động cảm ứng', body: 'e = −' + FRAC('ΔΦ', 'Δt') },
+        { name: 'SĐĐ cảm ứng', body: 'e = −' + FRAC('ΔΦ', 'Δt') },
       ]},
       { title: 'Điện xoay chiều', items: [
         { name: 'Giá trị hiệu dụng', body: 'I = ' + FRAC('I₀', '√2') + ' ;  U = ' + FRAC('U₀', '√2') },
         { name: 'Cảm kháng', body: 'Z_L = ωL = 2πf·L' },
         { name: 'Dung kháng', body: 'Z_C = ' + FRAC('1', 'ωC') + ' = ' + FRAC('1', '2πf·C') },
         { name: 'Tổng trở mạch RLC', body: 'Z = √(R² + (Z_L − Z_C)²)' },
-        { name: 'Định luật Ôm xoay chiều', body: 'I = ' + FRAC('U', 'Z') },
+        { name: 'ĐL Ôm xoay chiều', body: 'I = ' + FRAC('U', 'Z') },
         { name: 'Độ lệch pha', body: 'tan φ = ' + FRAC('Z_L − Z_C', 'R') },
-        { name: 'Công suất — hệ số công suất', body: 'P = U·I·cos φ ;  cos φ = ' + FRAC('R', 'Z') },
+        { name: 'Công suất — hệ số CS', body: 'P = U·I·cos φ ;  cos φ = ' + FRAC('R', 'Z') },
         { name: 'Cộng hưởng điện', body: 'Z_L = Z_C  ⇔  ω = ' + FRAC('1', '√(LC)') },
         { name: 'Máy biến áp', body: FRAC('U₁', 'U₂') + ' = ' + FRAC('N₁', 'N₂') + ' = ' + FRAC('I₂', 'I₁') },
-        { name: 'Công suất hao phí truyền tải', body: 'ΔP = ' + FRAC('P²·R', 'U²') },
+        { name: 'CS hao phí truyền tải', body: 'ΔP = ' + FRAC('P²·R', 'U²') },
       ]},
       { title: 'Dao động & Sóng cơ', items: [
-        { name: 'Phương trình dao động điều hoà', body: 'x = A·cos(ωt + φ)' },
+        { name: 'PT dao động điều hoà', body: 'x = A·cos(ωt + φ)' },
         { name: 'Vận tốc — dao động đh', body: 'v = −Aω·sin(ωt + φ)' },
         { name: 'Gia tốc — dao động đh', body: 'a = −ω²x' },
         { name: 'Liên hệ A, x, v', body: 'A² = x² + ' + FRAC('v²', 'ω²') },
@@ -2475,7 +2387,7 @@ const FORMULAS = {
         { name: 'Chu kỳ con lắc đơn', body: 'T = 2π√(' + FRAC('l', 'g') + ')' },
         { name: 'Cơ năng dao động đh', body: 'W = ' + FRAC('1', '2') + 'kA² = ' + FRAC('1', '2') + 'mω²A²' },
         { name: 'Bước sóng', body: 'λ = ' + FRAC('v', 'f') + ' = v·T' },
-        { name: 'Phương trình sóng', body: 'u = A·cos(ωt − ' + FRAC('2πx', 'λ') + ')' },
+        { name: 'PT sóng', body: 'u = A·cos(ωt − ' + FRAC('2πx', 'λ') + ')' },
         { name: 'Giao thoa — cực đại', body: 'd₂ − d₁ = kλ' },
         { name: 'Giao thoa — cực tiểu', body: 'd₂ − d₁ = (k + ½)λ' },
         { name: 'Sóng dừng 2 đầu cố định', body: 'l = k·' + FRAC('λ', '2') },
@@ -2484,13 +2396,13 @@ const FORMULAS = {
       ]},
       { title: 'Quang học', items: [
         { name: 'Định luật khúc xạ', body: FRAC('sin i', 'sin r') + ' = n₂₁ = ' + FRAC('n₂', 'n₁') },
-        { name: 'Chiết suất — vận tốc ánh sáng', body: 'n = ' + FRAC('c', 'v') },
+        { name: 'Chiết suất — vận tốc AS', body: 'n = ' + FRAC('c', 'v') },
         { name: 'Phản xạ toàn phần', body: 'sin i_gh = ' + FRAC('n₂', 'n₁') + '  (n₁ > n₂)' },
         { name: 'Công thức thấu kính', body: FRAC('1', 'f') + ' = ' + FRAC('1', 'd') + ' + ' + FRAC('1', "d'") },
         { name: 'Số phóng đại ảnh', body: 'k = −' + FRAC("d'", 'd') + ' = ' + FRAC("A'B'", 'AB') },
         { name: 'Độ tụ thấu kính', body: 'D = ' + FRAC('1', 'f') + '  (điốp, f tính bằng m)' },
-        { name: 'Hệ 2 thấu kính ghép sát', body: 'D = D₁ + D₂  hay  ' + FRAC('1', 'f') + ' = ' + FRAC('1', 'f₁') + ' + ' + FRAC('1', 'f₂') },
-        { name: 'Khoảng vân giao thoa Y-âng', body: 'i = ' + FRAC('λD', 'a') },
+        { name: 'Hệ 2 TK ghép sát', body: 'D = D₁ + D₂  hay  ' + FRAC('1', 'f') + ' = ' + FRAC('1', 'f₁') + ' + ' + FRAC('1', 'f₂') },
+        { name: 'Khoảng vân Y-âng', body: 'i = ' + FRAC('λD', 'a') },
         { name: 'Vị trí vân sáng', body: 'x_s = k·' + FRAC('λD', 'a') },
         { name: 'Vị trí vân tối', body: 'x_t = (k + ½)·' + FRAC('λD', 'a') },
       ]},
@@ -2503,8 +2415,8 @@ const FORMULAS = {
         { name: 'Hệ thức Einstein', body: 'E = mc²' },
         { name: 'Độ hụt khối', body: 'Δm = Z·m_p + (A − Z)·m_n − m_hạt nhân' },
         { name: 'Năng lượng liên kết', body: 'W_lk = Δm·c²' },
-        { name: 'Năng lượng liên kết riêng', body: 'W_lkr = ' + FRAC('W_lk', 'A') },
-        { name: 'Phản ứng hạt nhân — năng lượng', body: 'ΔE = (m_trước − m_sau)·c²' },
+        { name: 'NL liên kết riêng', body: 'W_lkr = ' + FRAC('W_lk', 'A') },
+        { name: 'PƯ hạt nhân — năng lượng', body: 'ΔE = (m_trước − m_sau)·c²' },
       ]},
     ]
   },
@@ -2517,7 +2429,7 @@ const FORMULAS = {
         { name: 'Số mol theo nồng độ mol', body: 'n = C_M · V' },
         { name: 'Số mol theo số hạt', body: 'n = ' + FRAC('N', 'N_A') + '  (N_A = 6,022·10²³)' },
         { name: 'Khối lượng mol', body: 'M = ' + FRAC('m', 'n') },
-        { name: 'Thể tích mol khí (đkc 25°C, 1 bar)', body: 'V = n · 24,79 (lít)' },
+        { name: 'Thể tích mol (đkc 25°C)', body: 'V = n · 24,79 (lít)' },
         { name: 'Khối lượng riêng', body: 'D = ' + FRAC('m', 'V') },
       ]},
       { title: 'Dung dịch — Nồng độ', items: [
@@ -2529,9 +2441,9 @@ const FORMULAS = {
         { name: 'Quy tắc đường chéo', body: FRAC('|C₂ − C|', '|C − C₁|') + ' = ' + FRAC('V₁', 'V₂') },
       ]},
       { title: 'Khí & Nhiệt động', items: [
-        { name: 'Phương trình trạng thái khí lý tưởng', body: 'pV = nRT  (R = 0,082 L·atm/mol·K)' },
+        { name: 'PT trạng thái khí lý tưởng', body: 'pV = nRT  (R = 0,082 L·atm/mol·K)' },
         { name: 'Tỉ khối hơi với H₂', body: 'd(A/H₂) = ' + FRAC('M_A', '2') },
-        { name: 'Tỉ khối hơi với không khí', body: 'd(A/KK) = ' + FRAC('M_A', '29') },
+        { name: 'Tỉ khối hơi với KK', body: 'd(A/KK) = ' + FRAC('M_A', '29') },
         { name: 'Hiệu suất phản ứng', body: 'H% = ' + FRAC('m_thực tế', 'm_lý thuyết') + '·100%' },
         { name: 'Độ chuyển hoá', body: 'α = ' + FRAC('n_phản ứng', 'n_ban đầu') + '·100%' },
       ]},
@@ -2543,7 +2455,7 @@ const FORMULAS = {
         { name: 'Độ điện ly', body: 'α = ' + FRAC('n_điện ly', 'n_ban đầu') },
         { name: 'Hằng số điện ly', body: 'K_a = ' + FRAC('[H⁺][A⁻]', '[HA]') },
       ]},
-      { title: 'Hoá hữu cơ — Công thức tổng quát', items: [
+      { title: 'Hoá hữu cơ — CT tổng quát', items: [
         { name: 'Ankan (parafin)', body: 'CₙH₂ₙ₊₂  (n ≥ 1)' },
         { name: 'Anken (olefin)', body: 'CₙH₂ₙ  (n ≥ 2)' },
         { name: 'Ankin', body: 'CₙH₂ₙ₋₂  (n ≥ 2)' },
@@ -2551,7 +2463,7 @@ const FORMULAS = {
         { name: 'Arena (đồng đẳng benzen)', body: 'CₙH₂ₙ₋₆  (n ≥ 6)' },
         { name: 'Ancol no, đơn chức', body: 'CₙH₂ₙ₊₁OH' },
         { name: 'Anđehit no, đơn chức', body: 'CₙH₂ₙ₊₁CHO' },
-        { name: 'Axit cacboxylic no, đơn chức', body: 'CₙH₂ₙ₊₁COOH' },
+        { name: 'Axit cacboxylic no, đc', body: 'CₙH₂ₙ₊₁COOH' },
         { name: 'Este no, đơn chức', body: 'CₙH₂ₙO₂  (n ≥ 2)' },
         { name: 'Amin no, đơn chức', body: 'CₙH₂ₙ₊₁NH₂' },
         { name: 'Amino axit no, đơn chức', body: 'CₙH₂ₙ₊₁(NH₂)COOH' },
@@ -2564,22 +2476,22 @@ const FORMULAS = {
         { name: 'Este hoá', body: 'RCOOH + R\'OH ⇌ RCOOR\' + H₂O (xt H₂SO₄ đặc, t°)' },
         { name: 'Thuỷ phân este', body: 'RCOOR\' + H₂O ⇌ RCOOH + R\'OH' },
         { name: 'Xà phòng hoá este', body: 'RCOOR\' + NaOH → RCOONa + R\'OH' },
-        { name: 'Bảo toàn khối lượng este', body: 'm_este + m_NaOH = m_muối + m_ancol' },
-        { name: 'Đốt cháy este no, đơn chức', body: 'n_CO₂ = n_H₂O' },
+        { name: 'BT khối lượng este', body: 'm_este + m_NaOH = m_muối + m_ancol' },
+        { name: 'Đốt cháy este no, đơn', body: 'n_CO₂ = n_H₂O' },
       ]},
       { title: 'Kim loại — Phi kim', items: [
-        { name: 'Kim loại + axit loãng (HCl, H₂SO₄)', body: 'M + nHCl → MClₙ + ' + FRAC('n', '2') + 'H₂↑' },
-        { name: 'Kim loại + HNO₃ loãng', body: '3M + 8HNO₃ → 3M(NO₃)ₙ + 2nNO + 4nH₂O' },
-        { name: 'Kim loại + HNO₃ đặc nóng', body: 'M + 2nHNO₃ → M(NO₃)ₙ + nNO₂ + nH₂O' },
-        { name: 'Kim loại + H₂SO₄ đặc nóng', body: '2M + 2nH₂SO₄ → M₂(SO₄)ₙ + nSO₂ + 2nH₂O' },
-        { name: 'Định luật bảo toàn electron', body: 'Σ n_e (cho) = Σ n_e (nhận)' },
+        { name: 'KL + axit loãng', body: 'M + nHCl → MClₙ + ' + FRAC('n', '2') + 'H₂↑' },
+        { name: 'KL + HNO₃ loãng', body: '3M + 8HNO₃ → 3M(NO₃)ₙ + 2nNO + 4nH₂O' },
+        { name: 'KL + HNO₃ đặc nóng', body: 'M + 2nHNO₃ → M(NO₃)ₙ + nNO₂ + nH₂O' },
+        { name: 'KL + H₂SO₄ đặc nóng', body: '2M + 2nH₂SO₄ → M₂(SO₄)ₙ + nSO₂ + 2nH₂O' },
+        { name: 'ĐLBT electron', body: 'Σ n_e (cho) = Σ n_e (nhận)' },
         { name: 'Tính nhanh — khối lượng muối', body: 'm_muối = m_KL + 96·n_SO₂ + 62·n_NO + 71·n_Cl₂ + ...' },
       ]},
       { title: 'Điện phân — Pin điện', items: [
         { name: 'Định luật Faraday', body: 'm = ' + FRAC('A·I·t', 'n·F') + '  (F = 96500 C/mol)' },
         { name: 'Số mol electron trao đổi', body: 'n_e = ' + FRAC('I·t', 'F') },
         { name: 'Suất điện động pin', body: 'E°_pin = E°_catot − E°_anot' },
-        { name: 'Năng lượng Gibbs — liên hệ E°', body: 'ΔG° = −n·F·E°_pin' },
+        { name: 'NL Gibbs — liên hệ E°', body: 'ΔG° = −n·F·E°_pin' },
       ]},
       { title: 'Cân bằng hoá học', items: [
         { name: 'Hằng số cân bằng K_c', body: 'K_c = ' + FRAC('[C]ᶜ·[D]ᵈ', '[A]ᵃ·[B]ᵇ') },
@@ -2596,15 +2508,15 @@ const FORMULAS = {
         { name: 'Hiện tại đơn', body: 'S + V(s/es)  —  S + do/does not + V' },
         { name: 'Hiện tại tiếp diễn', body: 'S + am/is/are + V-ing' },
         { name: 'Hiện tại hoàn thành', body: 'S + have/has + V3/ed' },
-        { name: 'Hiện tại hoàn thành tiếp diễn', body: 'S + have/has been + V-ing' },
+        { name: 'Hiện tại HT tiếp diễn', body: 'S + have/has been + V-ing' },
         { name: 'Quá khứ đơn', body: 'S + V2/ed' },
         { name: 'Quá khứ tiếp diễn', body: 'S + was/were + V-ing' },
         { name: 'Quá khứ hoàn thành', body: 'S + had + V3/ed' },
-        { name: 'Quá khứ hoàn thành tiếp diễn', body: 'S + had been + V-ing' },
+        { name: 'Quá khứ HT tiếp diễn', body: 'S + had been + V-ing' },
         { name: 'Tương lai đơn', body: 'S + will + V' },
         { name: 'Tương lai tiếp diễn', body: 'S + will be + V-ing' },
         { name: 'Tương lai hoàn thành', body: 'S + will have + V3/ed' },
-        { name: 'Tương lai hoàn thành tiếp diễn', body: 'S + will have been + V-ing' },
+        { name: 'Tương lai HT tiếp diễn', body: 'S + will have been + V-ing' },
         { name: 'Tương lai gần (going to)', body: 'S + am/is/are going to + V' },
       ]},
       { title: 'Câu điều kiện', items: [
@@ -2622,25 +2534,25 @@ const FORMULAS = {
         { name: 'Công thức chung', body: 'S + be + V3/ed + (by O)' },
         { name: 'Hiện tại đơn — bị động', body: 'S + am/is/are + V3/ed' },
         { name: 'Quá khứ đơn — bị động', body: 'S + was/were + V3/ed' },
-        { name: 'Hiện tại hoàn thành — bị động', body: 'S + have/has been + V3/ed' },
+        { name: 'HTHT — bị động', body: 'S + have/has been + V3/ed' },
         { name: 'Tương lai đơn — bị động', body: 'S + will be + V3/ed' },
-        { name: 'Động từ khiếm khuyết', body: 'S + modal + be + V3/ed' },
-        { name: 'Bị động với "have sth done"', body: 'S + have/get + O + V3/ed' },
-        { name: 'Bị động với "It is said that"', body: 'It is said that + S + V  =  S + is said to + V' },
+        { name: 'ĐT khiếm khuyết — bị động', body: 'S + modal + be + V3/ed' },
+        { name: 'Bị động "have sth done"', body: 'S + have/get + O + V3/ed' },
+        { name: 'Bị động "It is said that"', body: 'It is said that + S + V  =  S + is said to + V' },
       ]},
       { title: 'So sánh', items: [
         { name: 'So sánh bằng', body: 'S + V + as + adj/adv + as + O' },
         { name: 'So sánh không bằng', body: 'S + V + not + as/so + adj/adv + as + O' },
-        { name: 'So sánh hơn (tính từ ngắn)', body: 'S + V + adj/adv + er + than + O' },
-        { name: 'So sánh hơn (tính từ dài)', body: 'S + V + more + adj/adv + than + O' },
+        { name: 'So sánh hơn (ngắn)', body: 'S + V + adj/adv + er + than + O' },
+        { name: 'So sánh hơn (dài)', body: 'S + V + more + adj/adv + than + O' },
         { name: 'So sánh nhất (ngắn)', body: 'S + V + the + adj/adv + est' },
         { name: 'So sánh nhất (dài)', body: 'S + V + the most + adj/adv' },
         { name: 'So sánh kép (càng… càng)', body: 'The + comparative + S + V, the + comparative + S + V' },
         { name: 'So sánh hơn gấp bội', body: 'S + V + twice/three times + as + adj + as + O' },
       ]},
       { title: 'Mệnh đề quan hệ', items: [
-        { name: 'Who — chỉ người (chủ ngữ)', body: 'N(người) + who + V ...' },
-        { name: 'Whom — chỉ người (tân ngữ)', body: 'N(người) + whom + S + V ...' },
+        { name: 'Who — chỉ người (CN)', body: 'N(người) + who + V ...' },
+        { name: 'Whom — chỉ người (TN)', body: 'N(người) + whom + S + V ...' },
         { name: 'Whose — sở hữu', body: 'N + whose + N ...' },
         { name: 'Which — chỉ vật', body: 'N(vật) + which + V / S + V ...' },
         { name: 'That — thay who/which', body: 'N + that + ... (mệnh đề xác định)' },
@@ -2672,19 +2584,19 @@ const FORMULAS = {
         { name: 'Đổi trạng ngữ thời gian', body: 'now → then ; today → that day ; tomorrow → the next day' },
       ]},
       { title: 'Word forms (từ loại)', items: [
-        { name: 'Danh từ — hậu tố phổ biến', body: '-tion, -sion, -ment, -ness, -ity, -ance, -ence, -er, -or, -ist' },
-        { name: 'Động từ — hậu tố phổ biến', body: '-ize, -ise, -ify, -en, -ate' },
-        { name: 'Tính từ — hậu tố phổ biến', body: '-ful, -less, -able, -ible, -ive, -ous, -al, -ic, -y' },
+        { name: 'Danh từ — hậu tố', body: '-tion, -sion, -ment, -ness, -ity, -ance, -ence, -er, -or, -ist' },
+        { name: 'Động từ — hậu tố', body: '-ize, -ise, -ify, -en, -ate' },
+        { name: 'Tính từ — hậu tố', body: '-ful, -less, -able, -ible, -ive, -ous, -al, -ic, -y' },
         { name: 'Trạng từ', body: 'adj + ly  (quick → quickly)' },
         { name: 'Vị trí danh từ', body: 'Sau a/an/the/this/that/my/…, trước động từ' },
         { name: 'Vị trí tính từ', body: 'Trước danh từ, sau be/seem/look/become/feel' },
         { name: 'Vị trí trạng từ', body: 'Sau động từ thường, trước tính từ, đầu câu' },
       ]},
       { title: 'Phát âm', items: [
-        { name: '-s / -es sau động từ/danh từ', body: '/s/ (p, k, t, f) — /iz/ (s, x, z, ch, sh, ge) — /z/ (còn lại)' },
-        { name: '-ed kết thúc', body: '/id/ (t, d) — /t/ (p, k, f, s, sh, ch) — /d/ (còn lại)' },
-        { name: 'Trọng âm từ 2 âm tiết — danh từ', body: 'Thường nhấn âm 1: PREsent, TAble' },
-        { name: 'Trọng âm từ 2 âm tiết — động từ', body: 'Thường nhấn âm 2: preSENT, reLAX' },
+        { name: '-s / -es', body: '/s/ (p,k,t,f) — /iz/ (s,x,z,ch,sh,ge) — /z/ (còn lại)' },
+        { name: '-ed', body: '/id/ (t,d) — /t/ (p,k,f,s,sh,ch) — /d/ (còn lại)' },
+        { name: 'Trọng âm — danh từ 2 âm tiết', body: 'Thường nhấn âm 1: PREsent, TAble' },
+        { name: 'Trọng âm — động từ 2 âm tiết', body: 'Thường nhấn âm 2: preSENT, reLAX' },
         { name: 'Trọng âm -tion, -sion, -ic', body: 'Nhấn âm trước hậu tố: inforMAtion, ecoNOmic' },
         { name: 'Trọng âm -ity, -ety, -ify', body: 'Nhấn âm trước hậu tố: aBIlity, iDENtify' },
       ]},
@@ -2708,9 +2620,9 @@ const FORMULAS = {
     label: 'Mẹo', icon: '💡',
     groups: [
       { title: '⚡ Mẹo tính nhanh — Nhân', items: [
-        { name: 'Nhân 2 số có 2 chữ số (kiểu Ấn Độ)', body: 'VD: 23 × 45<br>Cách: 23 × 45 = 23 × (40 + 5) = 920 + 115 = 1035<br>Hoặc: 2·4 | 2·5 + 3·4 | 3·5 = 8 | 22 | 15 → 8 | 22+1 | 5 → 8 | 23 | 5 → nhớ 2 → (8+2) | 3 | 5 = 1035' },
-        { name: 'Nhân với 11 (số 2 chữ số)', body: 'VD: 47 × 11<br>Tách: 4 _ 7<br>Giữa = 4 + 7 = 11<br>Kết quả: 4+1 | 1 | 7 = 517' },
-        { name: 'Nhân với 11 (3 chữ số)', body: 'VD: 234 × 11 → 2 | 2+3 | 3+4 | 4 = 2 | 5 | 7 | 4 = 2574' },
+        { name: 'Nhân 2 số có 2 chữ số', body: 'VD: 23 × 45 = 23 × 40 + 23 × 5 = 920 + 115 = 1035' },
+        { name: 'Nhân với 11 (2 chữ số)', body: 'VD: 47 × 11 → 4 _ 7, giữa = 4+7 = 11 → 4+1 | 1 | 7 = 517' },
+        { name: 'Nhân với 11 (3 chữ số)', body: 'VD: 234 × 11 → 2 | 2+3 | 3+4 | 4 = 2574' },
         { name: 'Nhân với 5', body: 'n × 5 = n × 10 ÷ 2' },
         { name: 'Nhân với 25', body: 'n × 25 = n × 100 ÷ 4' },
         { name: 'Nhân với 9', body: 'n × 9 = n × 10 − n' },
@@ -2718,11 +2630,10 @@ const FORMULAS = {
         { name: 'Nhân với 15', body: 'n × 15 = n × 10 + n × 5' },
       ]},
       { title: '⚡ Mẹo bình phương nhanh', items: [
-        { name: 'Bình phương số tận cùng 5', body: 'VD: 35²  →  (3 · 4) | 25 = 1225' },
-        { name: 'Bình phương số gần 100', body: 'VD: 98² = (100 − 2)² = 10000 − 400 + 4 = 9604' },
-        { name: 'Bình phương số gần 50', body: 'VD: 47² = (50 − 3)² = 2500 − 300 + 9 = 2209' },
-        { name: 'Bình phương số có 1 chữ số 5', body: 'VD: 105² = 11025' },
-        { name: 'Bình phương số tận cùng 1', body: 'VD: 61² = 60² + 60 + 61 = 3721' },
+        { name: 'Tận cùng 5', body: 'VD: 35² → (3·4) | 25 = 1225' },
+        { name: 'Số gần 100', body: 'VD: 98² = (100−2)² = 10000 − 400 + 4 = 9604' },
+        { name: 'Số gần 50', body: 'VD: 47² = (50−3)² = 2500 − 300 + 9 = 2209' },
+        { name: 'Tận cùng 1', body: 'VD: 61² = 60² + 60 + 61 = 3721' },
       ]},
       { title: '⚡ Mẹo chia & phần trăm', items: [
         { name: 'Chia cho 5', body: 'n ÷ 5 = n × 2 ÷ 10' },
@@ -2731,46 +2642,40 @@ const FORMULAS = {
         { name: 'Chia cho 0,25', body: 'n ÷ 0,25 = n × 4' },
         { name: 'Tính 10%', body: 'Dịch dấu phẩy sang trái 1 chữ số' },
         { name: 'Tính 5%', body: '10% chia đôi' },
-        { name: 'Tính 15%', body: '10% + 5%' },
         { name: 'Tính 25%', body: 'Chia 4' },
         { name: 'Tăng/giảm x%', body: 'Giá mới = Giá cũ × (1 ± x/100)' },
       ]},
       { title: '⚡ Mẹo cộng dãy số', items: [
-        { name: 'Tổng 1 + 2 + 3 + ... + n', body: 'S = ' + FRAC('n(n + 1)', '2') },
-        { name: 'Tổng số lẻ 1 + 3 + 5 + ... + (2n−1)', body: 'S = n²' },
-        { name: 'Tổng số chẵn 2 + 4 + ... + 2n', body: 'S = n(n + 1)' },
-        { name: 'Tổng bình phương 1² + 2² + ... + n²', body: 'S = ' + FRAC('n(n+1)(2n+1)', '6') },
-        { name: 'Tổng lập phương 1³ + 2³ + ... + n³', body: 'S = [' + FRAC('n(n+1)', '2') + ']²' },
+        { name: 'Tổng 1 + 2 + ... + n', body: 'S = ' + FRAC('n(n + 1)', '2') },
+        { name: 'Tổng số lẻ', body: 'S = n²' },
+        { name: 'Tổng số chẵn', body: 'S = n(n + 1)' },
+        { name: 'Tổng bình phương', body: 'S = ' + FRAC('n(n+1)(2n+1)', '6') },
+        { name: 'Tổng lập phương', body: 'S = [' + FRAC('n(n+1)', '2') + ']²' },
         { name: 'Tổng dãy cách đều', body: 'S = ' + FRAC('(số đầu + số cuối) × số số hạng', '2') },
-        { name: 'Đếm số số hạng', body: 'n = ' + FRAC('(số cuối − số đầu)', 'khoảng cách') + ' + 1' },
       ]},
-      { title: '⚡ Mẹo nhớ công thức Lý — Hoá', items: [
-        { name: 'Nhớ sin — cos — tan', body: 'Sin = Đối/Huyền ; Cos = Kề/Huyền ; Tan = Đối/Kề<br>Mẹo: "SĐCH - CKĐK - ĐKĐK"' },
-        { name: 'Dấu lượng giác theo cung', body: '"Nhất — Nhị — Tam — Tứ":<br>I: tất cả dương ; II: chỉ sin ; III: chỉ tan ; IV: chỉ cos' },
-        { name: 'Công thức đổi sin ↔ cos', body: 'sin(90° − x) = cos x ; cos(90° − x) = sin x' },
-        { name: 'Đổi đơn vị tốc độ', body: '1 m/s = 3,6 km/h' },
-        { name: 'Đổi đơn vị công suất', body: '1 kW = 1000 W = 10³ W<br>1 HP ≈ 746 W' },
-        { name: 'Đổi đơn vị năng lượng', body: '1 eV = 1,6·10⁻¹⁹ J<br>1 MeV = 1,6·10⁻¹³ J' },
+      { title: '⚡ Mẹo nhớ Lý — Hoá', items: [
+        { name: 'Nhớ sin — cos — tan', body: 'Sin = Đối/Huyền ; Cos = Kề/Huyền ; Tan = Đối/Kề' },
+        { name: 'Dấu lượng giác', body: '"Nhất — Nhị — Tam — Tứ": I: tất cả dương ; II: sin ; III: tan ; IV: cos' },
+        { name: 'Đổi sin ↔ cos', body: 'sin(90° − x) = cos x ; cos(90° − x) = sin x' },
+        { name: 'Đổi vận tốc', body: '1 m/s = 3,6 km/h' },
+        { name: 'Đổi công suất', body: '1 kW = 1000 W = 10³ W<br>1 HP ≈ 746 W' },
+        { name: 'Đổi năng lượng', body: '1 eV = 1,6·10⁻¹⁹ J<br>1 MeV = 1,6·10⁻¹³ J' },
         { name: 'Số Avogadro', body: 'N_A = 6,022·10²³' },
-        { name: 'Khối lượng e, p, n', body: 'm_e ≈ 9,1·10⁻³¹ kg ;  m_p ≈ 1,67·10⁻²⁷ kg ≈ m_n' },
       ]},
-      { title: '⚡ Mẹo giải nhanh trắc nghiệm', items: [
+      { title: '⚡ Mẹo trắc nghiệm', items: [
         { name: 'Loại trừ đáp án', body: 'Loại đáp án vô lý về đơn vị, dấu, độ lớn trước khi tính' },
         { name: 'Thay đáp án vào đề', body: 'Thay 4 đáp án vào PT gốc, thấy cái nào đúng thì chọn' },
         { name: 'Đoán từ đơn vị', body: 'Đơn vị kết quả cho biết dạng công thức cần dùng' },
         { name: 'Câu hỏi "đúng nhất"', body: 'Đọc kỹ: "không đúng", "sai", "ngoại trừ"' },
-        { name: 'Mẹo 2 đáp án loại nhau', body: 'Hai đáp án loại trừ nhau → đáp án đúng thường ở 1 trong 2' },
-        { name: 'Bấm máy tính Casio', body: 'Dùng TABLE, SOLVE, CALC để kiểm tra lại kết quả' },
-        { name: 'Thời gian phân bổ', body: 'Câu dễ làm trước — trung bình 1 câu/60–90 giây' },
+        { name: 'Bấm Casio', body: 'Dùng TABLE, SOLVE, CALC để kiểm tra lại kết quả' },
       ]},
-      { title: '⚡ Mẹo Anh văn — Ghi nhớ', items: [
-        { name: 'Nhớ 12 thì', body: 'Vẽ trục thời gian: Quá khứ — Hiện tại — Tương lai<br>Mỗi mốc chia 4: đơn / tiếp diễn / hoàn thành / HT tiếp diễn' },
+      { title: '⚡ Mẹo Anh văn', items: [
+        { name: 'Nhớ 12 thì', body: 'Vẽ trục thời gian: QK — HT — TL; mỗi mốc chia 4: đơn/tiếp diễn/hoàn thành/HT tiếp diễn' },
         { name: 'Nhớ câu điều kiện', body: '"1 hiện — 2 quá — 3 quá khứ hoàn"' },
         { name: 'Phân biệt a/an', body: 'a + phụ âm ; an + nguyên âm — theo ÂM không theo chữ' },
         { name: 'Nhớ -ed', body: '"t, d → /id/ ; p, k, f, s, sh, ch → /t/ ; còn lại → /d/"' },
         { name: 'Nhớ -s/-es', body: '"p, k, t, f → /s/ ; s, x, z, ch, sh, ge → /iz/ ; còn lại → /z/"' },
         { name: 'Liên từ nối', body: 'And — Or — But — So (A-O-B-S)' },
-        { name: 'Câu hỏi đuôi — 7 quy tắc', body: '1. Khẳng định → phủ định<br>2. Phủ định → khẳng định<br>3. Dùng trợ động từ cùng thì' },
       ]},
     ]
   }
@@ -2985,18 +2890,14 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-/* FORMULA PAGE RENDER */
+/* FORMULA PAGE */
 const formulaTabsEl = document.getElementById('formulaTabs');
 const formulaContentEl = document.getElementById('formulaContent');
 const formulaSearchEl = document.getElementById('formulaSearch');
 let activeSubject = 'math';
 
-function stripHtml(s) {
-  return s.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-}
-function countFormulas(subj) {
-  return FORMULAS[subj].groups.reduce((n, g) => n + g.items.length, 0);
-}
+function stripHtml(s) { return s.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(); }
+function countFormulas(subj) { return FORMULAS[subj].groups.reduce((n, g) => n + g.items.length, 0); }
 function buildTabs() {
   formulaTabsEl.innerHTML = '';
   for (const [key, val] of Object.entries(FORMULAS)) {
@@ -3700,7 +3601,7 @@ viewer.addEventListener('scroll', () => {
   if (activeTool === 'eraser' && pointerInViewer) { updateEraserCursorSize(); scheduleEraserCursorUpdate(); }
 }, { passive: true });
 
-/* KEYBOARD (B, E) */
+/* KEYBOARD B, E */
 let bPressCount = 0;
 let bPressTimer = null;
 const B_DOUBLE_MS = 280;
@@ -4512,7 +4413,7 @@ viewer.addEventListener('scroll', scheduleSaveScroll, { passive: true });
 viewer2.addEventListener('scroll', scheduleSaveRightScroll, { passive: true });
 
 /* ============================================================
-   SCIENTIFIC CALCULATOR — Casio fx-580 style
+   CALCULATOR — multi-mode (Casio fx-580)
    ============================================================ */
 const calcPanel    = document.getElementById('calcPanel');
 const calcHead     = document.getElementById('calcHead');
@@ -4525,39 +4426,20 @@ const calcHistoryClear = document.getElementById('calcHistoryClear');
 const calcButtonsEl = document.getElementById('calcButtons');
 
 const C = {
-  expr: '',
-  ans: 0,
-  memory: 0,
+  expr: '', ans: 0, memory: 0,
   vars: { A: 0, B: 0, C: 0, D: 0, X: 0, Y: 0, M: 0 },
-  angle: 'deg',
-  shift: false,
-  alpha: false,
-  justEvaluated: false,
-  history: [],
-  histIdx: -1,
+  angle: 'deg', shift: false, alpha: false,
+  justEvaluated: false, history: [], histIdx: -1,
 };
+let calcMode = 'COMP';
 
 function calcFact(n) {
   if (n < 0 || !Number.isInteger(n) || n > 170) return NaN;
-  let r = 1;
-  for (let i = 2; i <= n; i++) r *= i;
-  return r;
+  let r = 1; for (let i = 2; i <= n; i++) r *= i; return r;
 }
-function gcdFn(a, b) {
-  a = Math.abs(Math.round(a)); b = Math.abs(Math.round(b));
-  while (b) { [a, b] = [b, a % b]; }
-  return a;
-}
-function toRad(x) {
-  if (C.angle === 'deg')  return x * Math.PI / 180;
-  if (C.angle === 'grad') return x * Math.PI / 200;
-  return x;
-}
-function fromRad(x) {
-  if (C.angle === 'deg')  return x * 180 / Math.PI;
-  if (C.angle === 'grad') return x * 200 / Math.PI;
-  return x;
-}
+function gcdFn(a, b) { a = Math.abs(Math.round(a)); b = Math.abs(Math.round(b)); while (b) { [a, b] = [b, a % b]; } return a; }
+function toRad(x) { if (C.angle === 'deg') return x * Math.PI / 180; if (C.angle === 'grad') return x * Math.PI / 200; return x; }
+function fromRad(x) { if (C.angle === 'deg') return x * 180 / Math.PI; if (C.angle === 'grad') return x * 200 / Math.PI; return x; }
 function calcFormatNum(n) {
   if (!isFinite(n)) return 'Math ERROR';
   if (Number.isInteger(n) && Math.abs(n) < 1e15) return n.toString();
@@ -4567,9 +4449,7 @@ function calcFormatNum(n) {
 }
 function calcEval(expr) {
   let e = expr;
-  e = e.replace(/×/g, '*');
-  e = e.replace(/÷/g, '/');
-  e = e.replace(/−/g, '-');
+  e = e.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
   e = e.replace(/π/g, '(PI)');
   e = e.replace(/\bAns\b/g, '(' + C.ans + ')');
   e = e.replace(/\bX\b/g, '(' + C.vars.X + ')');
@@ -4579,48 +4459,36 @@ function calcEval(expr) {
   e = e.replace(/\bB\b/g, '(' + C.vars.B + ')');
   e = e.replace(/\bC\b/g, '(' + C.vars.C + ')');
   e = e.replace(/\bD\b/g, '(' + C.vars.D + ')');
-  try {
-    e = e.replace(/(?<![a-zA-Z_])e(?![a-zA-Z_0-9])/g, '(E)');
-  } catch (_) {}
+  try { e = e.replace(/(?<![a-zA-Z_])e(?![a-zA-Z_0-9])/g, '(E)'); } catch (_) {}
   e = e.replace(/(\d+(?:\.\d+)?)!/g, 'fact($1)');
   e = e.replace(/(\d+(?:\.\d+)?)%/g, '($1/100)');
-  e = e.replace(/∛/g, 'cbrt');
-  e = e.replace(/√/g, 'sqrt');
-  e = e.replace(/\^/g, '**');
-
+  e = e.replace(/∛/g, 'cbrt').replace(/√/g, 'sqrt').replace(/\^/g, '**');
   const scope = {
-    sin: x => Math.sin(toRad(x)),
-    cos: x => Math.cos(toRad(x)),
-    tan: x => Math.tan(toRad(x)),
-    asin: x => fromRad(Math.asin(x)),
-    acos: x => fromRad(Math.acos(x)),
-    atan: x => fromRad(Math.atan(x)),
+    sin: x => Math.sin(toRad(x)), cos: x => Math.cos(toRad(x)), tan: x => Math.tan(toRad(x)),
+    asin: x => fromRad(Math.asin(x)), acos: x => fromRad(Math.acos(x)), atan: x => fromRad(Math.atan(x)),
     sinh: Math.sinh, cosh: Math.cosh, tanh: Math.tanh,
     log: Math.log10, ln: Math.log,
     sqrt: Math.sqrt, cbrt: Math.cbrt, abs: Math.abs,
     fact: calcFact,
     nPr: (n, r) => calcFact(n) / calcFact(n - r),
     nCr: (n, r) => calcFact(n) / (calcFact(r) * calcFact(n - r)),
-    gcd: gcdFn,
-    lcm: (a, b) => Math.abs(Math.round(a) * Math.round(b)) / gcdFn(a, b),
+    gcd: gcdFn, lcm: (a, b) => Math.abs(Math.round(a) * Math.round(b)) / gcdFn(a, b),
     mod: (a, b) => a % b,
     Rnd: () => Math.random(),
     RndInt: (a, b) => Math.floor(Math.random() * (b - a + 1)) + a,
-    PI: Math.PI,
-    E: Math.E,
+    PI: Math.PI, E: Math.E,
   };
   const fn = new Function(...Object.keys(scope), 'return (' + e + ');');
   return fn(...Object.values(scope));
 }
 function calcEvalSafe(expr) {
   if (!expr) return null;
-  try {
-    const r = calcEval(expr);
-    return (typeof r === 'number' && isFinite(r)) ? r : null;
-  } catch { return null; }
+  try { const r = calcEval(expr); return (typeof r === 'number' && isFinite(r)) ? r : null; }
+  catch { return null; }
 }
 
 function calcUpdateDisplay() {
+  if (!calcExprEl || !calcResultEl) return;
   calcExprEl.textContent = C.expr || '';
   if (!C.expr) {
     calcResultEl.textContent = '0';
@@ -4629,15 +4497,18 @@ function calcUpdateDisplay() {
     calcResultEl.textContent = (r === null) ? '' : calcFormatNum(r);
   }
   const stAngle = document.getElementById('stAngle');
-  stAngle.textContent = C.angle.toUpperCase();
-  stAngle.classList.toggle('grad-active', C.angle === 'grad');
-  document.getElementById('stShift').classList.toggle('shift-active', C.shift);
-  document.getElementById('stAlpha').classList.toggle('alpha-active', C.alpha);
-  document.getElementById('stMem').classList.toggle('mem-active', C.memory !== 0);
-  document.getElementById('btnShift').classList.toggle('shift-on', C.shift);
-  document.getElementById('stHint').textContent = C.shift ? '⇧ SHIFT' : (C.alpha ? '🔤 ALPHA' : '');
+  if (stAngle) {
+    stAngle.textContent = C.angle.toUpperCase();
+    stAngle.classList.toggle('grad-active', C.angle === 'grad');
+    document.getElementById('stShift').classList.toggle('shift-active', C.shift);
+    document.getElementById('stAlpha').classList.toggle('alpha-active', C.alpha);
+    document.getElementById('stMem').classList.toggle('mem-active', C.memory !== 0);
+    document.getElementById('btnShift').classList.toggle('shift-on', C.shift);
+    document.getElementById('stHint').textContent = C.shift ? '⇧ SHIFT' : (C.alpha ? '🔤 ALPHA' : '');
+  }
 }
 function calcRenderHistory() {
+  if (!calcHistoryList) return;
   if (C.history.length === 0) {
     calcHistoryList.innerHTML = '<div class="calc-history-empty">Chưa có phép tính nào</div>';
     return;
@@ -4649,8 +4520,7 @@ function calcRenderHistory() {
     div.innerHTML = `<div class="he">${h.expr} =</div><div class="hr">${calcFormatNum(h.result)}</div>`;
     div.addEventListener('click', () => {
       C.expr = calcFormatNum(h.result);
-      C.justEvaluated = false;
-      C.histIdx = -1;
+      C.justEvaluated = false; C.histIdx = -1;
       calcUpdateDisplay();
     });
     calcHistoryList.appendChild(div);
@@ -4674,10 +4544,10 @@ function calcHistNext() {
   C.histIdx = Math.max(-1, C.histIdx - 1);
   if (C.histIdx === -1) C.expr = '';
   else { const entry = C.history[C.histIdx]; if (entry) C.expr = calcFormatNum(entry.result); }
-  C.justEvaluated = false;
-  calcUpdateDisplay();
+  C.justEvaluated = false; calcUpdateDisplay();
 }
 
+/* Drag panel */
 let calcDragging = false, calcDragOffX = 0, calcDragOffY = 0;
 calcHead.addEventListener('pointerdown', (e) => {
   if (e.target.closest('.calc-close')) return;
@@ -4714,6 +4584,15 @@ function calcEndDrag(e) {
 calcHead.addEventListener('pointerup', calcEndDrag);
 calcHead.addEventListener('pointercancel', calcEndDrag);
 
+/* Mode tabs */
+document.querySelectorAll('.calc-mode-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    calcMode = tab.dataset.calcMode;
+    document.querySelectorAll('.calc-mode-tab').forEach(t => t.classList.toggle('active', t === tab));
+    document.querySelectorAll('.calc-pane').forEach(p => p.classList.toggle('active', p.dataset.calcPane === calcMode));
+  });
+});
+
 const SHIFT_MAP = {
   'sin': 'asin(', 'cos': 'acos(', 'tan': 'atan(',
   'log': '10^(', 'ln': 'e^(',
@@ -4723,12 +4602,8 @@ const SHIFT_MAP = {
   '.': '%', 'EXP': 'π', 'Ans': 'M',
   'DEL': 'CLR', 'AC': 'OFF',
   'M+': 'MC', 'M−': 'MR',
-  'MODE': null,
 };
-const ALPHA_MAP = {
-  'sin': 'A', 'cos': 'B', 'tan': 'C', 'log': 'D', 'ln': 'X',
-  'sq': 'Y', 'pow': 'M',
-};
+const ALPHA_MAP = { 'sin': 'A', 'cos': 'B', 'tan': 'C', 'log': 'D', 'ln': 'X', 'sq': 'Y', 'pow': 'M' };
 
 let calcApplyAction = function (act) {
   if (act === 'SHIFT') { C.shift = !C.shift; C.alpha = false; calcUpdateDisplay(); return; }
@@ -4740,72 +4615,39 @@ let calcApplyAction = function (act) {
     toast('📐 ' + C.angle.toUpperCase());
     return;
   }
-
   if (typeof act === 'string' && act.startsWith('VAR_')) {
-    C.expr += act.slice(4);
-    C.justEvaluated = false;
-    calcUpdateDisplay();
-    return;
+    C.expr += act.slice(4); C.justEvaluated = false; calcUpdateDisplay(); return;
   }
 
   const wasShift = C.shift, wasAlpha = C.alpha;
-
   if (wasShift && SHIFT_MAP[act] !== undefined && SHIFT_MAP[act] !== null) {
     const ins = SHIFT_MAP[act];
     if (act === 'DEL') {
       C.expr = ''; C.ans = 0; C.memory = 0; C.history = []; C.histIdx = -1;
       calcRenderHistory(); calcUpdateDisplay();
-      toast('🧹 Đã xoá hết (AC + memory + history)');
-      C.shift = false; return;
+      toast('🧹 Đã xoá hết'); C.shift = false; return;
     }
     if (act === 'AC') { calcClosePanel(); C.shift = false; return; }
     if (act === 'M+') { C.memory = 0; C.shift = false; calcUpdateDisplay(); toast('💾 M = 0'); return; }
-    if (act === 'M−' || act === 'Ans') {
-      C.expr += 'M'; C.shift = false; calcUpdateDisplay(); return;
-    }
-    C.expr += ins;
-    C.shift = false;
-    C.justEvaluated = false;
-    calcUpdateDisplay();
-    return;
+    if (act === 'M−' || act === 'Ans') { C.expr += 'M'; C.shift = false; calcUpdateDisplay(); return; }
+    C.expr += ins; C.shift = false; C.justEvaluated = false; calcUpdateDisplay(); return;
   }
-
   if (wasAlpha && ALPHA_MAP[act]) {
-    C.expr += ALPHA_MAP[act];
-    C.alpha = false;
-    C.justEvaluated = false;
-    calcUpdateDisplay();
-    return;
+    C.expr += ALPHA_MAP[act]; C.alpha = false; C.justEvaluated = false; calcUpdateDisplay(); return;
   }
-
-  C.shift = false;
-  C.alpha = false;
+  C.shift = false; C.alpha = false;
 
   if (act === 'AC') { C.expr = ''; calcUpdateDisplay(); return; }
-  if (act === 'DEL') { C.expr = C.expr.slice(0, -1); calcUpdateDisplay(); return; }
-  if (act === '⌫') { C.expr = C.expr.slice(0, -1); calcUpdateDisplay(); return; }
-
-  if (act === 'M+') {
-    const v = calcEvalSafe(C.expr);
-    C.memory += (v !== null) ? v : C.ans;
-    toast('💾 M+ = ' + calcFormatNum(C.memory));
-    calcUpdateDisplay(); return;
-  }
-  if (act === 'M−') {
-    const v = calcEvalSafe(C.expr);
-    C.memory -= (v !== null) ? v : C.ans;
-    toast('💾 M− = ' + calcFormatNum(C.memory));
-    calcUpdateDisplay(); return;
-  }
-
+  if (act === 'DEL' || act === '⌫') { C.expr = C.expr.slice(0, -1); calcUpdateDisplay(); return; }
+  if (act === 'M+') { const v = calcEvalSafe(C.expr); C.memory += (v !== null) ? v : C.ans; toast('💾 M+ = ' + calcFormatNum(C.memory)); calcUpdateDisplay(); return; }
+  if (act === 'M−') { const v = calcEvalSafe(C.expr); C.memory -= (v !== null) ? v : C.ans; toast('💾 M− = ' + calcFormatNum(C.memory)); calcUpdateDisplay(); return; }
   if (act === '=') {
     if (!C.expr) return;
     const r = calcEvalSafe(C.expr);
     if (r === null) { toast('⚠️ Math ERROR'); return; }
     C.history.unshift({ expr: C.expr, result: r });
     if (C.history.length > 50) C.history.pop();
-    C.ans = r;
-    C.histIdx = -1;
+    C.ans = r; C.histIdx = -1;
     const prevExpr = C.expr;
     C.expr = calcFormatNum(r);
     calcExprEl.textContent = prevExpr + ' =';
@@ -4815,55 +4657,48 @@ let calcApplyAction = function (act) {
     document.getElementById('stMem').classList.toggle('mem-active', C.memory !== 0);
     return;
   }
-
   if (C.justEvaluated) {
-    const keepContinue = ['+', '−', '×', '÷', '^', '%', 'Ans', 'M', ')'];
-    if (!keepContinue.includes(act)) C.expr = '';
+    const keep = ['+', '−', '×', '÷', '^', '%', 'Ans', 'M', ')'];
+    if (!keep.includes(act)) C.expr = '';
     C.justEvaluated = false;
   }
-
   const PLAIN = {
     'sin': 'sin(', 'cos': 'cos(', 'tan': 'tan(',
     'log': 'log(', 'ln': 'ln(',
     'sq': '^2', 'pow': '^', 'sqrt': '√(', 'inv': '1/(', 'fact': '!',
     'pi': 'π', 'e': 'e',
     '(': '(', ')': ')', ',': ',',
-    '7': '7', '8': '8', '9': '9',
-    '4': '4', '5': '5', '6': '6',
+    '7': '7', '8': '8', '9': '9', '4': '4', '5': '5', '6': '6',
     '1': '1', '2': '2', '3': '3', '0': '0',
     '.': '.', 'EXP': '×10^(', 'Ans': 'Ans',
-    '×': '×', '÷': '÷', '+': '+', '−': '−',
-    '%': '%',
+    '×': '×', '÷': '÷', '+': '+', '−': '−', '%': '%',
   };
-  if (PLAIN[act] !== undefined) {
-    C.expr += PLAIN[act];
-    calcUpdateDisplay();
-    return;
-  }
+  if (PLAIN[act] !== undefined) { C.expr += PLAIN[act]; calcUpdateDisplay(); return; }
 };
 
-calcButtonsEl.addEventListener('click', (e) => {
+calcButtonsEl?.addEventListener('click', (e) => {
   const btn = e.target.closest('.calc-btn');
   if (!btn) return;
   calcApplyAction(btn.dataset.act);
 });
 
-document.getElementById('calcHistoryBtn').addEventListener('click', () => {
+document.getElementById('calcHistoryBtn')?.addEventListener('click', () => {
   const showing = calcHistoryEl.classList.toggle('show');
   document.getElementById('calcHistoryBtn').classList.toggle('active', showing);
   if (showing) calcRenderHistory();
 });
-document.getElementById('calcHistPrev').addEventListener('click', calcHistPrev);
-document.getElementById('calcHistNext').addEventListener('click', calcHistNext);
-document.getElementById('calcBackspace').addEventListener('click', () => calcApplyAction('DEL'));
-calcHistoryClear.addEventListener('click', () => {
-  C.history = []; C.histIdx = -1; calcRenderHistory();
-});
+document.getElementById('calcHistPrev')?.addEventListener('click', calcHistPrev);
+document.getElementById('calcHistNext')?.addEventListener('click', calcHistNext);
+document.getElementById('calcBackspace')?.addEventListener('click', () => calcApplyAction('DEL'));
+calcHistoryClear?.addEventListener('click', () => { C.history = []; C.histIdx = -1; calcRenderHistory(); });
 
 document.addEventListener('keydown', (e) => {
   if (!calcPanel.classList.contains('show')) return;
-  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+  if (calcMode !== 'COMP') {
+    if (e.key === 'Escape') { calcClosePanel(); e.preventDefault(); }
+    return;
+  }
   const k = e.key;
   if (/^[0-9]$/.test(k)) { calcApplyAction(k); e.preventDefault(); return; }
   if (k === '.') { calcApplyAction('.'); e.preventDefault(); return; }
@@ -4883,13 +4718,358 @@ document.addEventListener('keydown', (e) => {
   if (k === 'ArrowUp') { calcHistPrev(); e.preventDefault(); return; }
   if (k === 'ArrowDown') { calcHistNext(); e.preventDefault(); return; }
   if (/^[a-zA-Z]$/.test(k) && 'ABCDXYM'.includes(k.toUpperCase()) && !e.ctrlKey && !e.metaKey) {
-    calcApplyAction('VAR_' + k.toUpperCase());
-    e.preventDefault();
+    calcApplyAction('VAR_' + k.toUpperCase()); e.preventDefault();
   }
 });
 
 calcRenderHistory();
 calcUpdateDisplay();
+
+/* ---------- TABLE ---------- */
+function evalExprAtX(expr, x) {
+  if (!expr) return NaN;
+  const saved = C.vars.X;
+  C.vars.X = x;
+  try { return calcEval(expr); }
+  catch { return NaN; }
+  finally { C.vars.X = saved; }
+}
+document.getElementById('tableRun').addEventListener('click', () => {
+  const fx = document.getElementById('tableFx').value.trim();
+  const start = parseFloat(document.getElementById('tableStart').value);
+  const end = parseFloat(document.getElementById('tableEnd').value);
+  const step = parseFloat(document.getElementById('tableStep').value);
+  const out = document.getElementById('tableResult');
+  if (!fx) { out.textContent = '⚠️ Chưa nhập f(x)'; return; }
+  if (isNaN(start) || isNaN(end) || isNaN(step) || step === 0) {
+    out.textContent = '⚠️ Start/End/Step không hợp lệ'; return;
+  }
+  if ((end - start) / step < 0) { out.textContent = '⚠️ Step ngược dấu'; return; }
+  const total = Math.floor((end - start) / step + 1e-9) + 1;
+  if (total > 300) { out.textContent = '⚠️ Quá nhiều dòng (max 300)'; return; }
+  let html = '<table><thead><tr><th>x</th><th>f(x)</th></tr></thead><tbody>';
+  for (let i = 0; i < total; i++) {
+    const x = start + i * step;
+    const r = evalExprAtX(fx, x);
+    const rs = (typeof r === 'number' && isFinite(r)) ? calcFormatNum(r) : '—';
+    const xs = calcFormatNum(Math.round(x * 1e10) / 1e10);
+    html += `<tr><td>${xs}</td><td>${rs}</td></tr>`;
+  }
+  html += '</tbody></table>';
+  out.innerHTML = html;
+});
+
+/* ---------- MATRIX ---------- */
+let matSize = 2;
+function buildMatrixGrid(id, size) {
+  const grid = document.getElementById(id);
+  if (!grid) return;
+  grid.innerHTML = '';
+  grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+      const inp = document.createElement('input');
+      inp.type = 'text'; inp.inputMode = 'decimal';
+      inp.dataset.i = i; inp.dataset.j = j;
+      inp.value = (i === j ? '1' : '0');
+      grid.appendChild(inp);
+    }
+  }
+}
+function readMatrix(id, size) {
+  const grid = document.getElementById(id);
+  const M = Array.from({length: size}, () => new Array(size).fill(0));
+  grid.querySelectorAll('input').forEach(inp => {
+    M[+inp.dataset.i][+inp.dataset.j] = parseFloat(inp.value) || 0;
+  });
+  return M;
+}
+function matToStr(M) { return M.map(row => row.map(v => calcFormatNum(v)).join('   ')).join('\n'); }
+function matAdd(A, B) { return A.map((row, i) => row.map((v, j) => v + B[i][j])); }
+function matSub(A, B) { return A.map((row, i) => row.map((v, j) => v - B[i][j])); }
+function matMul(A, B) {
+  const n = A.length, m = B[0].length, p = B.length;
+  const R = Array.from({length: n}, () => new Array(m).fill(0));
+  for (let i = 0; i < n; i++) for (let j = 0; j < m; j++) for (let k = 0; k < p; k++) R[i][j] += A[i][k] * B[k][j];
+  return R;
+}
+function matDet(A) {
+  const n = A.length;
+  if (n === 1) return A[0][0];
+  if (n === 2) return A[0][0]*A[1][1] - A[0][1]*A[1][0];
+  const M = A.map(r => [...r]);
+  let det = 1;
+  for (let i = 0; i < n; i++) {
+    let p = i;
+    for (let k = i+1; k < n; k++) if (Math.abs(M[k][i]) > Math.abs(M[p][i])) p = k;
+    if (p !== i) { [M[i], M[p]] = [M[p], M[i]]; det = -det; }
+    if (Math.abs(M[i][i]) < 1e-12) return 0;
+    det *= M[i][i];
+    for (let k = i+1; k < n; k++) {
+      const f = M[k][i] / M[i][i];
+      for (let j = i; j < n; j++) M[k][j] -= f * M[i][j];
+    }
+  }
+  return det;
+}
+function matInv(A) {
+  const n = A.length;
+  const M = A.map((row, i) => [...row, ...Array.from({length: n}, (_, j) => i === j ? 1 : 0)]);
+  for (let i = 0; i < n; i++) {
+    let p = i;
+    for (let k = i+1; k < n; k++) if (Math.abs(M[k][i]) > Math.abs(M[p][i])) p = k;
+    [M[i], M[p]] = [M[p], M[i]];
+    if (Math.abs(M[i][i]) < 1e-12) return null;
+    const piv = M[i][i];
+    for (let j = 0; j < 2*n; j++) M[i][j] /= piv;
+    for (let k = 0; k < n; k++) {
+      if (k === i) continue;
+      const f = M[k][i];
+      for (let j = 0; j < 2*n; j++) M[k][j] -= f * M[i][j];
+    }
+  }
+  return M.map(row => row.slice(n));
+}
+function matTrans(A) { return A[0].map((_, j) => A.map(r => r[j])); }
+
+document.getElementById('matSizePicker').addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  matSize = +b.dataset.size;
+  document.querySelectorAll('#matSizePicker button').forEach(x => x.classList.toggle('active', x === b));
+  buildMatrixGrid('matA', matSize);
+  buildMatrixGrid('matB', matSize);
+});
+buildMatrixGrid('matA', 2);
+buildMatrixGrid('matB', 2);
+
+document.getElementById('matOps').addEventListener('click', (e) => {
+  const btn = e.target.closest('.calc-op-btn');
+  if (!btn) return;
+  const op = btn.dataset.op;
+  const A = readMatrix('matA', matSize);
+  const B = readMatrix('matB', matSize);
+  const out = document.getElementById('matResult');
+  let res = '';
+  try {
+    switch (op) {
+      case 'A+B': res = 'A + B =\n' + matToStr(matAdd(A, B)); break;
+      case 'A-B': res = 'A − B =\n' + matToStr(matSub(A, B)); break;
+      case 'AxB': res = 'A × B =\n' + matToStr(matMul(A, B)); break;
+      case 'detA': res = 'det(A) = ' + calcFormatNum(matDet(A)); break;
+      case 'detB': res = 'det(B) = ' + calcFormatNum(matDet(B)); break;
+      case 'invA': {
+        const inv = matInv(A);
+        res = inv ? 'A⁻¹ =\n' + matToStr(inv) : '⚠️ A không khả nghịch (det = 0)';
+        break;
+      }
+      case 'invB': {
+        const inv = matInv(B);
+        res = inv ? 'B⁻¹ =\n' + matToStr(inv) : '⚠️ B không khả nghịch (det = 0)';
+        break;
+      }
+      case 'transA': res = 'Aᵀ =\n' + matToStr(matTrans(A)); break;
+      case 'transB': res = 'Bᵀ =\n' + matToStr(matTrans(B)); break;
+    }
+    out.textContent = res;
+  } catch (err) { out.textContent = '⚠️ ' + err.message; }
+});
+
+/* ---------- VECTOR ---------- */
+let vecDim = 2;
+const VEC_LABELS = ['x', 'y', 'z'];
+function buildVecInput(id, dim) {
+  const wrap = document.getElementById(id);
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  for (let i = 0; i < dim; i++) {
+    const div = document.createElement('div');
+    div.className = 'vec-item';
+    div.innerHTML = `<label>${VEC_LABELS[i]}</label><input type="text" inputMode="decimal" data-idx="${i}" value="0">`;
+    wrap.appendChild(div);
+  }
+}
+function readVec(id, dim) {
+  const wrap = document.getElementById(id);
+  const v = new Array(dim).fill(0);
+  wrap.querySelectorAll('input').forEach(inp => {
+    v[+inp.dataset.idx] = parseFloat(inp.value) || 0;
+  });
+  return v;
+}
+document.getElementById('vecDimPicker').addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  vecDim = +b.dataset.dim;
+  document.querySelectorAll('#vecDimPicker button').forEach(x => x.classList.toggle('active', x === b));
+  buildVecInput('vecA', vecDim);
+  buildVecInput('vecB', vecDim);
+});
+buildVecInput('vecA', 2);
+buildVecInput('vecB', 2);
+
+document.getElementById('vecOps').addEventListener('click', (e) => {
+  const btn = e.target.closest('.calc-op-btn');
+  if (!btn) return;
+  const op = btn.dataset.op;
+  const A = readVec('vecA', vecDim);
+  const B = readVec('vecB', vecDim);
+  const out = document.getElementById('vecResult');
+  const fmtVec = v => '(' + v.map(x => calcFormatNum(x)).join(', ') + ')';
+  let res = '';
+  switch (op) {
+    case 'A+B': res = 'A + B = ' + fmtVec(A.map((x, i) => x + B[i])); break;
+    case 'A-B': res = 'A − B = ' + fmtVec(A.map((x, i) => x - B[i])); break;
+    case 'dot': res = 'A · B = ' + calcFormatNum(A.reduce((s, x, i) => s + x * B[i], 0)); break;
+    case 'cross': {
+      if (vecDim !== 3) { res = '⚠️ Tích có hướng cần chế độ 3D'; break; }
+      const c = [
+        A[1]*B[2] - A[2]*B[1],
+        A[2]*B[0] - A[0]*B[2],
+        A[0]*B[1] - A[1]*B[0],
+      ];
+      res = 'A × B = ' + fmtVec(c);
+      break;
+    }
+    case 'magA': res = '|A| = ' + calcFormatNum(Math.hypot(...A)); break;
+    case 'magB': res = '|B| = ' + calcFormatNum(Math.hypot(...B)); break;
+    case 'angle': {
+      const d = A.reduce((s, x, i) => s + x * B[i], 0);
+      const mA = Math.hypot(...A), mB = Math.hypot(...B);
+      if (mA === 0 || mB === 0) { res = '⚠️ Vector 0'; break; }
+      const c = Math.max(-1, Math.min(1, d / (mA * mB)));
+      res = 'Góc(A,B) = ' + calcFormatNum(Math.acos(c) * 180 / Math.PI) + '°';
+      break;
+    }
+  }
+  out.textContent = res;
+});
+
+/* ---------- EQN ---------- */
+function buildEqnInputs() {
+  const type = document.getElementById('eqnType').value;
+  const wrap = document.getElementById('eqnInputs');
+  wrap.innerHTML = '';
+  if (type === 'q2') {
+    wrap.innerHTML = `
+      <div class="calc-sub-row">
+        <div><label>a</label><input type="text" inputMode="decimal" data-k="a" value="1"></div>
+        <div><label>b</label><input type="text" inputMode="decimal" data-k="b" value="0"></div>
+        <div><label>c</label><input type="text" inputMode="decimal" data-k="c" value="0"></div>
+      </div>`;
+  } else if (type === 'q3') {
+    wrap.innerHTML = `
+      <div class="calc-sub-row four">
+        <div><label>a</label><input type="text" inputMode="decimal" data-k="a" value="1"></div>
+        <div><label>b</label><input type="text" inputMode="decimal" data-k="b" value="0"></div>
+        <div><label>c</label><input type="text" inputMode="decimal" data-k="c" value="0"></div>
+        <div><label>d</label><input type="text" inputMode="decimal" data-k="d" value="0"></div>
+      </div>`;
+  } else {
+    const n = type === 'sys2' ? 2 : type === 'sys3' ? 3 : 4;
+    const vars = ['x', 'y', 'z', 'w'].slice(0, n);
+    let html = '';
+    for (let i = 0; i < n; i++) {
+      html += `<div class="calc-sub-row sys${n}">`;
+      for (let j = 0; j < n; j++) {
+        html += `<div><label>a${i+1}${vars[j]}</label><input type="text" inputMode="decimal" data-i="${i}" data-j="${j}" value="${i === j ? '1' : '0'}"></div>`;
+      }
+      html += `<div><label>= c${i+1}</label><input type="text" inputMode="decimal" data-c="${i}" value="0"></div>`;
+      html += '</div>';
+    }
+    wrap.innerHTML = html;
+  }
+}
+document.getElementById('eqnType').addEventListener('change', buildEqnInputs);
+buildEqnInputs();
+
+function solveQuadStr(a, b, c) {
+  if (a === 0) {
+    if (b === 0) return c === 0 ? 'Vô số nghiệm' : 'Vô nghiệm';
+    return 'PT bậc 1:  x = ' + calcFormatNum(-c / b);
+  }
+  const d = b*b - 4*a*c;
+  if (d > 0) {
+    const r = Math.sqrt(d);
+    return `Δ = ${calcFormatNum(d)} > 0\nx₁ = ${calcFormatNum((-b + r) / (2*a))}\nx₂ = ${calcFormatNum((-b - r) / (2*a))}`;
+  } else if (d === 0) {
+    return `Δ = 0 — nghiệm kép\nx₁ = x₂ = ${calcFormatNum(-b / (2*a))}`;
+  } else {
+    const re = -b / (2*a);
+    const im = Math.sqrt(-d) / (2*a);
+    return `Δ = ${calcFormatNum(d)} < 0 — 2 nghiệm phức\nx₁ = ${calcFormatNum(re)} + ${calcFormatNum(im)}i\nx₂ = ${calcFormatNum(re)} − ${calcFormatNum(im)}i`;
+  }
+}
+function solveCubicStr(a, b, c, d) {
+  if (a === 0) return solveQuadStr(b, c, d);
+  b /= a; c /= a; d /= a;
+  const p = c - b*b/3;
+  const q = 2*b*b*b/27 - b*c/3 + d;
+  const disc = q*q/4 + p*p*p/27;
+  const shift = -b/3;
+  const roots = [];
+  if (disc > 1e-12) {
+    const u = Math.cbrt(-q/2 + Math.sqrt(disc));
+    const v = Math.cbrt(-q/2 - Math.sqrt(disc));
+    roots.push(u + v + shift);
+  } else if (disc > -1e-12) {
+    const u = Math.cbrt(-q/2);
+    roots.push(2*u + shift, -u + shift);
+  } else {
+    const r = Math.sqrt(-p*p*p/27);
+    const phi = Math.acos(Math.max(-1, Math.min(1, -q/(2*r))));
+    const t = 2*Math.sqrt(-p/3);
+    roots.push(
+      t*Math.cos(phi/3) + shift,
+      t*Math.cos((phi + 2*Math.PI)/3) + shift,
+      t*Math.cos((phi + 4*Math.PI)/3) + shift
+    );
+  }
+  return roots.map((x, i) => `x${i+1} = ${calcFormatNum(Math.round(x * 1e10) / 1e10)}`).join('\n');
+}
+function solveLinearSystem(A, B, n) {
+  const M = A.map((row, i) => [...row, B[i]]);
+  for (let i = 0; i < n; i++) {
+    let p = i;
+    for (let k = i+1; k < n; k++) if (Math.abs(M[k][i]) > Math.abs(M[p][i])) p = k;
+    [M[i], M[p]] = [M[p], M[i]];
+    if (Math.abs(M[i][i]) < 1e-10) return null;
+    for (let k = i+1; k < n; k++) {
+      const f = M[k][i] / M[i][i];
+      for (let j = i; j <= n; j++) M[k][j] -= f * M[i][j];
+    }
+  }
+  const x = new Array(n);
+  for (let i = n-1; i >= 0; i--) {
+    let s = M[i][n];
+    for (let j = i+1; j < n; j++) s -= M[i][j] * x[j];
+    x[i] = s / M[i][i];
+  }
+  return x;
+}
+document.getElementById('eqnSolve').addEventListener('click', () => {
+  const type = document.getElementById('eqnType').value;
+  const wrap = document.getElementById('eqnInputs');
+  const out = document.getElementById('eqnResult');
+  const valOf = k => parseFloat(wrap.querySelector(`input[data-k="${k}"]`)?.value) || 0;
+  if (type === 'q2') {
+    out.textContent = solveQuadStr(valOf('a'), valOf('b'), valOf('c'));
+  } else if (type === 'q3') {
+    out.textContent = solveCubicStr(valOf('a'), valOf('b'), valOf('c'), valOf('d'));
+  } else {
+    const n = type === 'sys2' ? 2 : type === 'sys3' ? 3 : 4;
+    const A = Array.from({length: n}, () => new Array(n).fill(0));
+    const B = new Array(n).fill(0);
+    wrap.querySelectorAll('input').forEach(inp => {
+      if (inp.dataset.i !== undefined) A[+inp.dataset.i][+inp.dataset.j] = parseFloat(inp.value) || 0;
+      else if (inp.dataset.c !== undefined) B[+inp.dataset.c] = parseFloat(inp.value) || 0;
+    });
+    const x = solveLinearSystem(A, B, n);
+    if (!x) { out.textContent = '⚠️ Hệ vô nghiệm hoặc vô số nghiệm (det = 0)'; return; }
+    const vars = ['x', 'y', 'z', 'w'].slice(0, n);
+    out.textContent = x.map((v, i) => vars[i] + ' = ' + calcFormatNum(Math.round(v * 1e12) / 1e12)).join('\n');
+  }
+});
 
 /* ============================================================
    INIT
