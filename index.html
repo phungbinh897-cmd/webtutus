@@ -1496,7 +1496,7 @@ const ROUTES = {
 
 const SITE_NAME = 'PDF Suite';
 
-/* State variables for scroll restore */
+/* State for scroll restore */
 let pendingRestoreScroll = 0;
 let lastRenderedWidth = 0;
 let lastRouteWasReader = false;
@@ -1543,7 +1543,6 @@ function handleRoute() {
 
   document.title = (cfg.title ? cfg.title + ' — ' : '') + SITE_NAME;
 
-  // ==== SCROLL RESTORE ====
   // Rời khỏi reader → lưu vị trí ngay
   if (wasOnReader && !nowOnReader) {
     if (currentFileId && viewer.scrollTop > 0) {
@@ -1553,13 +1552,12 @@ function handleRoute() {
       }).catch(() => {});
     }
   }
-  // Vào reader → khôi phục vị trí
+  // Vào reader → khôi phục
   if (!wasOnReader && nowOnReader) {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         if (!pdfDoc) return;
         const curW = viewer.clientWidth;
-        // Nếu width khác biệt đáng kể so với lúc render → re-render lại cho đúng
         if (curW > 0 && lastRenderedWidth > 0 && Math.abs(curW - lastRenderedWidth) > 50) {
           const target = pendingRestoreScroll || viewer.scrollTop;
           renderAllPages().then(() => {
@@ -1601,8 +1599,6 @@ function showLogin() {
   dashboard.classList.remove('show');
   setTimeout(() => loginUser.focus(), 100);
 }
-
-if (sessionStorage.getItem(LOGIN_KEY) === '1') showApp(); else showLogin();
 
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -1668,7 +1664,6 @@ function toggleSidebar() {
     else openSidebarDrawer();
   } else {
     dashboard.classList.toggle('sidebar-collapsed');
-    // Width của viewer thay đổi → cần chờ layout xong rồi apply scroll
     setTimeout(() => {
       if (pdfDoc && document.body.classList.contains('on-reader')) {
         const curW = viewer.clientWidth;
@@ -1950,12 +1945,12 @@ function scheduleSaveStrokes() {
   }, 400);
 }
 
-/* TỰ LƯU VỊ TRÍ CUỘN — cập nhật pendingRestoreScroll mỗi lần scroll */
+/* TỰ LƯU VỊ TRÍ CUỘN */
 let scrollSaveTimer = null;
 let rightScrollSaveTimer = null;
 function scheduleSaveScroll() {
   if (!currentFileId) return;
-  pendingRestoreScroll = viewer.scrollTop;   // luôn giữ giá trị mới nhất trong bộ nhớ
+  pendingRestoreScroll = viewer.scrollTop;
   clearTimeout(scrollSaveTimer);
   scrollSaveTimer = setTimeout(async () => {
     try {
@@ -2694,7 +2689,6 @@ async function renderAllPages() {
     pagesEl.appendChild(wrap);
     wraps.push(wrap);
   }
-  // Ghi nhớ width đã render để phát hiện thay đổi sau này
   lastRenderedWidth = viewer.clientWidth || 0;
 
   const renderer = {
@@ -3163,13 +3157,23 @@ window.addEventListener('resize', () => {
 viewer.addEventListener('scroll', scheduleSaveScroll, { passive: true });
 viewer2.addEventListener('scroll', scheduleSaveRightScroll, { passive: true });
 
-/* INIT */
+/* ============================================================
+   INIT — ĐẶT Ở CUỐI ĐỂ ĐẢM BẢO MỌI DOM ĐÃ SẴN SÀNG
+   ============================================================ */
 (async () => {
   try {
     await openDB();
     await refreshSavedList();
     updateSelectModeUI();
     updatePaneZoomUI();
+
+    // ← Auto-login check chuyển xuống đây (sau khi mọi DOM element đã khai báo)
+    if (sessionStorage.getItem(LOGIN_KEY) === '1') {
+      showApp();
+    } else {
+      showLogin();
+    }
+
     const lastId = localStorage.getItem('pdfReader_lastFileId');
     if (lastId) {
       await new Promise(r => setTimeout(r, 200));
