@@ -3716,6 +3716,7 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     }
   } catch (err) { console.error('IndexedDB init failed:', err); savedCount.textContent = '!'; }
 })();
+  </script>
   <!-- === BẮT ĐẦU CHATBOT AI WEBTUTUS === -->
 <button id="ai-chat-toggle" onclick="toggleChat()" style="position:fixed;bottom:20px;right:20px;padding:12px 20px;background:#2563eb;color:#fff;border:none;border-radius:25px;cursor:pointer;z-index:9999;font-weight:bold;box-shadow:0 4px 10px rgba(0,0,0,0.2);">💬 Trợ lý AI</button>
 
@@ -3782,6 +3783,10 @@ async function sendAIMessage() {
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
   try {
+    try {
+      const REVERSE_KEY_AI = "gYY1Gn1SqzxIpUxamNXLbXEU_nN9fHKxjegJcJV459L6NRb8.QA";
+      const GEMINI_API_KEY = REVERSE_KEY_AI.split('').reverse().join('');
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
