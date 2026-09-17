@@ -3697,12 +3697,12 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
         if (rightId) {
           const rightItem = await dbGet(rightId);
           if (rightItem) {
-    } else { localStorage.removeItem('pdfReader_lastFileId'); }
+  } else { localStorageremoveItem('pdfReader_lastFileId'); }
     } catch (err) { console.error('IndexedDB init failed:', err); savedCount.textContent = '!'; }
   })();
 </script>
 
-<!-- === BẮT ĐẦU CHATBOT AI WEBTUTUS === -->
+<!-- === CHATBOT AI === -->
 <button id="ai-chat-toggle" onclick="toggleChat()" style="position:fixed;bottom:20px;right:20px;padding:12px 20px;background:#2563eb;color:#fff;border:none;border-radius:25px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:9999;font-family:sans-serif;font-size:14px;font-weight:bold;">🤖 AI thất học</button>
 
 <div id="ai-chat-box" style="display:none;position:fixed;bottom:80px;right:20px;width:330px;height:430px;background:#fff;border:1px solid #ccc;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:9999;flex-direction:column;overflow:hidden;font-family:sans-serif;">
@@ -3753,8 +3753,8 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     try {
-      // Dán trực tiếp chuỗi Key đã lộn ngược của bạn vào giữa hai dấu ngoặc kép dưới đây
-      const GEMINI_API_KEY = "A1t1_4V2u8F6cNuo5OOxSrAE0BsN0ObYm0faTY-t-tVL6NR8bA.QA".split('').reverse().join('');
+      // DÁN KEY NGUYÊN BẢN (GỐC) TỪ GOOGLE (DẠNG AIzaSy...) VÀO ĐÂY:
+      const GEMINI_API_KEY = "QVEuQWI4Uk42TFZ0LXQtWVRhZjBtWWJPME5zQjBFQXJTeE9PNW91TmM2Rjh1MlY0XzF0MUE=";
       
       const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
         method: "POST",
@@ -3767,7 +3767,7 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
       if (data.candidates && data.candidates[0].content.parts[0].text) {
         aiMsg.innerText = data.candidates[0].content.parts[0].text;
       } else {
-        aiMsg.innerText = "Xin lỗi, không nhận được phản hồi từ AI.";
+        aiMsg.innerText = "Lỗi API: " + (data.error ? data.error.message : "Không nhận được phản hồi");
       }
     } catch (err) {
       aiMsg.innerText = "Lỗi kết nối API. Vui lòng thử lại sau!";
@@ -3775,6 +3775,5 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 </script>
-<!-- === KẾT THÚC CHATBOT AI WEBTUTUS === -->
 </body>
 </html>
