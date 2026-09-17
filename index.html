@@ -3697,7 +3697,7 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
         if (rightId) {
           const rightItem = await dbGet(rightId);
           if (rightItem) {
-  } else { localStorageremoveItem('pdfReader_lastFileId'); }
+ } else { localStorage.removeItem('pdfReader_lastFileId'); }
     } catch (err) { console.error('IndexedDB init failed:', err); savedCount.textContent = '!'; }
   })();
 </script>
@@ -3753,8 +3753,7 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     try {
-      // DÁN KEY NGUYÊN BẢN (GỐC) TỪ GOOGLE (DẠNG AIzaSy...) VÀO ĐÂY:
-    const GEMINI_API_KEY = atob("QVEuQWI4Uk42TFZ0LXQtWVRhZjBtWWJPME5zQjFQXJTeeE9PNW91TmM2Rjh1M1Y0XzF0MUE=");
+      const GEMINI_API_KEY = atob("QVEuQWI4Uk42TG5hX1dUTlY4Z0VOY3pwaTgwVXBBQWk1MC1NOU9GOXdRYk1FOWhNWDBidGc=");
       
       const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
         method: "POST",
