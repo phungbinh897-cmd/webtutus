@@ -3755,7 +3755,7 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     try {
       const GEMINI_API_KEY = atob("QVEuQWI4Uk42TG5hX1dUTlY4Z0VOY3pwaTgwVXBBQWk1MC1NOU9GOXdRYk1FOWhNWDBidGc=");
       
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
