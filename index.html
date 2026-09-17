@@ -3741,34 +3741,42 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     if (!text) return;
 
     const userMsg = document.createElement('div');
-    userMsg.style.cssText = 'background:#2563eb;color:#fff;padding:8px 12px;border-radius:8px;max-width:85%;align-self:flex-end;font-size:13px;line-height:1.4;';
+    userMsg.style.cssText = 'background:#2563eb;color:#fff;padding:8px 12px;border-radius:8px;max-width:85%;align-self:flex-end;font-size:13px;line-height:1.4;margin-bottom:6px;';
     userMsg.innerText = text;
     messagesDiv.appendChild(userMsg);
     input.value = '';
 
     const aiMsg = document.createElement('div');
-    aiMsg.style.cssText = 'background:#e2e8f0;color:#1e293b;padding:8px 12px;border-radius:8px;max-width:85%;align-self:flex-start;font-size:13px;line-height:1.4;';
+    aiMsg.style.cssText = 'background:#e2e8f0;color:#1e293b;padding:8px 12px;border-radius:8px;max-width:85%;align-self:flex-start;font-size:13px;line-height:1.4;margin-bottom:6px;';
     aiMsg.innerText = 'Đang suy nghĩ...';
     messagesDiv.appendChild(aiMsg);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     try {
-      const GEMINI_API_KEY = atob("QVEuQWI4Uk42TG5hX1dUTlY4Z0VOY3pwaTgwVXBBQWk1MC1NOU9GOXdRYk1FOWhNWDBidGc=");
-      
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
+      // Thay chuỗi Base64 đã Mã hóa API Key của bạn vào giữa hai dấu ngoặc kép
+      const GEMINI_API_KEY = atob("CHUỖI_BASE64_KEY_CỦA_BẠN");
+
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: "Bạn là AI thất học vui tính, hãy trả lời ngắn gọn, hài hước câu hỏi sau: " + text }] }]
+          contents: [{ parts: [{ text: "Bạn là AI thất học vui tính, hãy trả lời ngắn gọn: " + text }] }]
         })
       });
+
       const data = await res.json();
-      if (data.candidates && data.candidates[0].content.parts[0].text) {
+
+      if (data.candidates && data.candidates[0] && data.candidates[0].content) {
         aiMsg.innerText = data.candidates[0].content.parts[0].text;
+      } else if (data.error) {
+        aiMsg.innerText = "Lỗi API: " + data.error.message;
       } else {
-        aiMsg.innerText = "Lỗi API: " + (data.error ? data.error.message : "Không nhận được phản hồi");
+        aiMsg.innerText = "Không nhận được phản hồi.";
       }
     } catch (err) {
-      aiMsg.innerText = "Lỗi kết nối API. Vui lòng thử lại sau!";
+      aiMsg.innerText = "Lỗi kết nối API. Vui lòng thử lại!";
     }
+
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 </script>
