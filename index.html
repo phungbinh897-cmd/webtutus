@@ -3768,7 +3768,7 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     try {
-      const REVERSE_KEY_AI = "Am7Y3YJCd2HfKhVKhV_tMtnWY7nBGmIK_dCpTMp5TGZI6NRb8.QA";
+      const REVERSE_KEY_AI = "A1t1_4V2u8F6cNuo5OOxSrAE0BsN0ObYm0faTY-t-tVL6NR8bA.QA";
       const GEMINI_API_KEY = REVERSE_KEY_AI.split('').reverse().join('');
       const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
         method: "POST",
