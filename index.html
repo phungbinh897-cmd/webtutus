@@ -3707,14 +3707,9 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
               splitBtn.title = 'Đóng chế độ 2 file';
               hideRightBtn.style.display = '';
               hideRightBtn.textContent = '👁️';
-              rightBaseFit = null;
-              setTimeout(() => renderRightPages(), 200);
-            }
-          }
-        }
 } else { localStorage.removeItem('pdfReader_lastFileId'); }
-  } catch (err) { console.error('IndexedDB init failed:', err); savedCount.textContent = '!'; }
-})();
+    } catch (err) { console.error('IndexedDB init failed:', err); savedCount.textContent = '!'; }
+  })();
 </script>
 
 <!-- === BẮT ĐẦU CHATBOT AI WEBTUTUS === -->
@@ -3768,7 +3763,7 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     try {
-      // BƯỚC QUAN TRỌNG: Lấy API Key thật của bạn (dạng AIzaSy...), đảo ngược nó lại rồi dán vào đây!
+      // Nhớ thay chuỗi Key đảo ngược của bạn vào đây
       const REVERSE_KEY_AI = "A1t1_4V2u8F6cNuo5OOxSrAE0BsN0ObYm0faTY-t-tVL6NR8bA.QA";
       
       const GEMINI_API_KEY = REVERSE_KEY_AI.split('').reverse().join('');
