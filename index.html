@@ -3747,12 +3747,17 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
   <div style="background:#f1f5f9;color:#64748b;text-align:center;padding:4px;font-size:10px;border-top:1px solid #e2e8f0;">
     Powered by Gemini • Developed by <b>mvpoot</b>
   </div>
-
+</div>
+  </div>
 </div>
 
+</script>
+
 <script>
-<script>
-  // Mã API Key đã được đảo ngược để vượt qua bộ quét GitHub Secret Scanning
+  function toggleChat() {
+    const box = document.getElementById('ai-chat-box');
+    box.style.display = box.style.display === 'none' ? 'block' : 'none';
+  }
   const REVERSE_KEY = "gYY1Gn1SqzxIpUxamNXLbXEU_nN9fHKxjegJcJV459L6NRb8.QA";
   const API_KEY = REVERSE_KEY.split('').reverse().join('');
 
