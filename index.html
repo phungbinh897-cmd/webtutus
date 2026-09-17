@@ -3718,19 +3718,19 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
 </script>
 
 <!-- === BẮT ĐẦU CHATBOT AI WEBTUTUS === -->
-<button id="ai-chat-toggle" onclick="toggleChat()" style="position:fixed;bottom:20px;right:20px;padding:12px 20px;background:#2563eb;color:#fff;border:none;border-radius:25px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:9999;font-family:sans-serif;font-size:14px;font-weight:bold;">🤖 Trợ lý AI</button>
+<button id="ai-chat-toggle" onclick="toggleChat()" style="position:fixed;bottom:20px;right:20px;padding:12px 20px;background:#2563eb;color:#fff;border:none;border-radius:25px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:9999;font-family:sans-serif;font-size:14px;font-weight:bold;">🤖 AI thất học</button>
 
 <div id="ai-chat-box" style="display:none;position:fixed;bottom:80px;right:20px;width:330px;height:430px;background:#fff;border:1px solid #ccc;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:9999;flex-direction:column;overflow:hidden;font-family:sans-serif;">
   <div style="background:#2563eb;color:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;">
     <div>
-      <div style="font-weight:bold;font-size:15px;">🤖 Trợ lý WebTutus AI</div>
+      <div style="font-weight:bold;font-size:15px;">🤖 AI thất học</div>
       <div style="font-size:11px;opacity:0.85;margin-top:2px;">By mvpoot</div>
     </div>
     <button onclick="toggleChat()" style="background:none;border:none;color:#fff;cursor:pointer;font-size:18px;">✖</button>
   </div>
   
   <div id="ai-messages" style="flex:1;padding:12px;overflow-y:auto;background:#f8fafc;display:flex;flex-direction:column;gap:8px;max-height:290px;">
-    <div style="background:#e2e8f0;color:#1e293b;padding:8px 12px;border-radius:8px;max-width:85%;font-size:13px;line-height:1.4;">Xin chào! Mình là trợ lý AI học tập. Bạn cần trợ giúp gì hôm nay?</div>
+    <div style="background:#e2e8f0;color:#1e293b;padding:8px 12px;border-radius:8px;max-width:85%;font-size:13px;line-height:1.4;">Xin chào! Mình là AI thất học đây. Cần hỏi gì nào?</div>
   </div>
 
   <div style="display:flex;padding:10px;border-top:1px solid #ddd;background:#fff;">
@@ -3768,20 +3768,21 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     try {
-      const REVERSE_KEY_AI = "A1t1_4V2u8F6cNuo5OOxSrAE0BsN0ObYm0faTY-t-tVL6NR8bA.QA";
+      // Dán chuỗi Key đã tự đảo ngược trên máy tính vào giữa hai dấu ngoặc kép dưới đây
+      const REVERSE_KEY_AI = "THAY_KEY_DA_DAO_NGUOC_VAO_DAY";
       const GEMINI_API_KEY = REVERSE_KEY_AI.split('').reverse().join('');
       const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: "Bạn là trợ lý AI thông minh cho trang web WebTutus. Hãy trả lời ngắn gọn, lịch sự câu hỏi sau: " + text }] }]
+          contents: [{ parts: [{ text: "Bạn là AI thất học vui tính, hãy trả lời ngắn gọn, hài hước câu hỏi sau: " + text }] }]
         })
       });
       const data = await res.json();
       if (data.candidates && data.candidates[0].content.parts[0].text) {
         aiMsg.innerText = data.candidates[0].content.parts[0].text;
       } else {
-        aiMsg.innerText = "Xin lỗi, không nhận me phản hồi từ AI.";
+        aiMsg.innerText = "Xin lỗi, không nhận được phản hồi từ AI.";
       }
     } catch (err) {
       aiMsg.innerText = "Lỗi kết nối API. Vui lòng thử lại sau!";
