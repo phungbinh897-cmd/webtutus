@@ -3712,8 +3712,7 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
             }
           }
         }
-      } else { localStorage.removeItem('pdfReader_lastFileId'); }
-    }
+} else { localStorage.removeItem('pdfReader_lastFileId'); }
   } catch (err) { console.error('IndexedDB init failed:', err); savedCount.textContent = '!'; }
 })();
 </script>
@@ -3782,7 +3781,7 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
       if (data.candidates && data.candidates[0].content.parts[0].text) {
         aiMsg.innerText = data.candidates[0].content.parts[0].text;
       } else {
-        aiMsg.innerText = "Xin lỗi, không nhận được phản hồi từ AI.";
+        aiMsg.innerText = "Xin lỗi, không nhận me phản hồi từ AI.";
       }
     } catch (err) {
       aiMsg.innerText = "Lỗi kết nối API. Vui lòng thử lại sau!";
