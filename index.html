@@ -3716,9 +3716,10 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
     }
   } catch (err) { console.error('IndexedDB init failed:', err); savedCount.textContent = '!'; }
 })();
-  </script>
-  <!-- === BẮT ĐẦU CHATBOT AI WEBTUTUS === -->
-<button id="ai-chat-toggle" onclick="toggleChat()" style="position:fixed;bottom:20px;right:20px;padding:12px 20px;background:#2563eb;color:#fff;border:none;border-radius:25px;cursor:pointer;z-index:9999;font-weight:bold;box-shadow:0 4px 10px rgba(0,0,0,0.2);">💬 Trợ lý AI</button>
+</script>
+
+<!-- === BẮT ĐẦU CHATBOT AI WEBTUTUS === -->
+<button id="ai-chat-toggle" onclick="toggleChat()" style="position:fixed;bottom:20px;right:20px;padding:12px 20px;background:#2563eb;color:#fff;border:none;border-radius:25px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:9999;font-family:sans-serif;font-size:14px;font-weight:bold;">🤖 Trợ lý AI</button>
 
 <div id="ai-chat-box" style="display:none;position:fixed;bottom:80px;right:20px;width:330px;height:430px;background:#fff;border:1px solid #ccc;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.2);z-index:9999;flex-direction:column;overflow:hidden;font-family:Segoe UI, sans-serif;">
   
