@@ -3694,10 +3694,11 @@ document.getElementById('eqnSolve').addEventListener('click', () => {
         await loadSavedFile(lastId);
         const rightId = localStorage.getItem('pdfReader_rightFileId');
         const wasSplit = localStorage.getItem('pdfReader_split') === '1';
-        if (rightId) {
+if (rightId) {
           const rightItem = await dbGet(rightId);
-          if (rightItem) {
- } else { localStorage.removeItem('pdfReader_lastFileId'); }
+          if (rightItem) { await loadSavedFile(rightId); }
+        }
+      } else { localStorage.removeItem('pdfReader_lastFileId'); }
     } catch (err) { console.error('IndexedDB init failed:', err); savedCount.textContent = '!'; }
   })();
 </script>
